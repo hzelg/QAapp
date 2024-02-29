@@ -9,30 +9,79 @@ import time
 import os
 import sys
 import streamlit.components.v1 as components
-import lib.status_init as si
-import lib.utils as utils
+import package.status_init as si
+import package.utils as utils
+from streamlit_option_menu import option_menu
+from st_pages import Page, show_pages, add_page_title
+
 
 si.state_initializer()
 st.set_page_config("Home", "🏠", layout="wide")
 
 
-# username read from cookies
-username = "Anne"
-st.write(" ")
-st.write(" ")
-st.write(" ")
-st.write(" ")
-st.write(" ")
-st.write(" ")
-st.header(f"Good Morning, {username}")
+if st.session_state.auth_status == False:
+    add_page_title()
+    show_pages(
+        [
+            Page("🏠_Home.py", "Home", "🏠"),
+            Page("other_pages/Support.py", "Support", "❓"),
+        ]
+    )
 
-
-st.subheader("Notifications")
-
-col1, col2 = st.columns([7,5])
-with col1:
-    with st.container(border = True):
+    col1, col2, col3 = st.columns([1,3,1])
+    with col2:
+        st.header("Welcome to HKUST MUTutor!")
         st.write(" ")
-        for i in range(0,5): # The number of loaded question, able to show multiple pages
-            utils.question_item()
+        utils.display_login_panel()
+
+
+if st.session_state.auth_status == True:
+    add_page_title()
+    show_pages(
+        [
+            Page("🏠_Home.py", "Home", "🏠"),
+            Page("other_pages/Write.py", "Write", ":books:"),
+            Page("other_pages/Question_History.py", "Question History", "💬"),
+            Page("other_pages/Progress_Analytics.py", "Progress Report", "🗺️"),
+            Page("other_pages/Support.py", "Support", "❓"),
+        ]
+    )
+
+    with st.sidebar:
         st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+        utils.display_user_profile()
+
+    # username read from cookies
+    username = "Anne"
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
+    st.header(f"Good Morning, {username}")
+
+
+    st.subheader("Notifications")
+
+    col1, col2 = st.columns([7,5])
+    with col1:
+        with st.container(border = True):
+            st.write(" ")
+            for i in range(0,5): # The number of loaded question, able to show multiple pages
+                utils.question_item()
+            st.write(" ")

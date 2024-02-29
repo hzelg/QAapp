@@ -1,5 +1,6 @@
 import streamlit as st
 from datetime import date
+import package.user_auth as ua
 
 
 def question_item():
@@ -29,3 +30,21 @@ def display_question_insights():
 def display_write_panel():
     st.subheader("Write Reply")
     st.text_area("Write Your Reply Here")
+
+
+def display_user_info():
+    st.button(label = "Log In", type = "primary")
+
+def display_login_panel():
+    with st.container(border = True):
+        st.write("This is an image or logo")
+        col1, col2 = st.columns([4,3])
+        with col1:
+            email = st.text_input(label = "Enter Your HKUST Email")
+        with col2:
+            st.button(label = "Send Verification Code", on_click = ua.send_verification_code())
+        verification_code = st.text_input(label = "Verification Code")
+
+        st.write(" ")
+        st.button(label = "Log In / Sign Up (Auto)", on_click = ua.authenticate_user(email, verification_code))
+        
