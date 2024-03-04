@@ -40,11 +40,15 @@ def display_login_panel():
         st.write("This is an image or logo")
         col1, col2 = st.columns([4,3])
         with col1:
-            email = st.text_input(label = "Enter Your HKUST Email")
+            st.session_state["email"] = st.text_input(label = "Enter Your HKUST Email")
         with col2:
-            st.button(label = "Send Verification Code", on_click = ua.send_verification_code())
-        verification_code = st.text_input(label = "Verification Code")
+            send_code = st.button(label = "Send Verification Code")
+            if send_code:
+                verification_code_sent = ua.send_verification_code(st.session_state["email"])
+        verification_code_input = st.text_input(label = "Verification Code")
 
         st.write(" ")
-        st.button(label = "Log In / Sign Up (Auto)", on_click = ua.authenticate_user(email, verification_code))
+        login = st.button(label = "Log In / Sign Up (Auto)")
+        if login:
+            ua.authenticate_user(st.session_state["email"], verification_code_sent, verification_code_input)
         

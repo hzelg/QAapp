@@ -11,8 +11,10 @@ def state_initializer():
         st.session_state["userid"] = " "
     if "auth_status" not in st.session_state:
         st.session_state["auth_status"] = False
-    
-
+    if "email" not in st.session_state:
+        st.session_state["email"] = " "
+    if "hashed_token" not in st.session_state:
+        st.session_state["hashed_token"] = " "
 
     if "role" not in st.session_state:
         st.session_state["role"] = "None"
