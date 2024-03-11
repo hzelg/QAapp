@@ -8,7 +8,7 @@
 import streamlit as st
 from streamlit_pills import pills
 # from ..lib.utils import *
-import lib.utils as utils
+import package.utils as utils
 
 st.set_page_config("My Questions", "💬", layout="wide")
 

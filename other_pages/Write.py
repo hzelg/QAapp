@@ -2,17 +2,17 @@
 # For Student: Submit A Question
 
 import streamlit as st
-import lib.utils as utils
-import lib.llm_pipeline as lp
+import package.utils as utils
+import package.llm_pipeline as lp
 
 ## Write A Question for Student
 
 
-st.set_page_config("Write A Question", "💬", layout="wide")
+if not st.session_state.role: #Todo: change to TA
+    st.set_page_config("Write A Question", "💬", layout="wide")
 
 
 ### TA Choose a Question To Answer
-if st.session_state.role == "None": #Todo: change to TA
 
     # select a question to reply
 
@@ -45,17 +45,7 @@ if st.session_state.role == "None": #Todo: change to TA
         utils.display_write_panel()
         lp.display_question_insights()
 
-
-
-# after choosing the question, the url will be modified to reflect the current question.
-            
-
-
-
-
-
-### Student Submit A New Question
-if st.session_state.role == "Student":
+elif(st.session_state["role"]):
     st.header("Submit A Question")
     col1, col2, col3 = st.columns([1, 5,3])
 
@@ -63,13 +53,15 @@ if st.session_state.role == "Student":
         st.write(" ")
         st.write(" ")
         with st.container(border = True):
-            st.text_input(label = "Title")
-            st.text_input(label = "Category")
-            st.text_area(label = "Body")
-            option = st.selectbox(label = "Send to", options=('Email', 'Home phone', 'Mobile phone'))
+            
+            st.text_input(label = "Question Title")
+            st.text_area(label = "Question Body")
+            option = st.selectbox(label = "Send to", options=('Jack', 'Alice', 'All TAs'))
             col2_1,col2_2,col2_3 = st.columns([1,2,4])
             with col2_1:
-                st.button(label = "Send")
+                send = st.button(label = "Send")
+                if send:
+                    lp.submit_question()
             with col2_2:
                 st.button(label = "Save Draft", type="primary")
             

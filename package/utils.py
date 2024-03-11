@@ -1,6 +1,8 @@
 import streamlit as st
 from datetime import date
 import package.user_auth as ua
+import time
+import re
 
 
 def question_item():
@@ -33,22 +35,37 @@ def display_write_panel():
 
 
 def display_user_info():
-    st.button(label = "Log In", type = "primary")
+    return
+    # logout = st.button(label = "Log Out", type = "primary")
 
 def display_login_panel():
     with st.container(border = True):
         st.write("This is an image or logo")
+        st.write(" ")
+        st.write("Enter Your HKUST Email")
         col1, col2 = st.columns([4,3])
         with col1:
-            st.session_state["email"] = st.text_input(label = "Enter Your HKUST Email")
+            st.session_state["email"] = st.text_input(label = "email", on_change = validate_email(), label_visibility = "collapsed") 
+            if st.session_state.warning_visibility:
+                st.warning("Please input a valid HKUST email", icon="⚠️")
         with col2:
-            send_code = st.button(label = "Send Verification Code")
-            if send_code:
-                verification_code_sent = ua.send_verification_code(st.session_state["email"])
+            btn = st.button(label = st.session_state["ver_button_text"], disabled = st.session_state["ver_button_disable"])
+        if btn:
+            ua.send_verification_code(st.session_state["email"])
         verification_code_input = st.text_input(label = "Verification Code")
 
         st.write(" ")
         login = st.button(label = "Log In / Sign Up (Auto)")
         if login:
-            ua.authenticate_user(st.session_state["email"], verification_code_sent, verification_code_input)
-        
+            ua.authenticate_user(st.session_state["email"], st.session_state["ver_code"], verification_code_input)
+    
+def validate_email():
+    if re.match(r'^[a-zA-Z0-9._%+-]+@connect\.ust\.hk$', st.session_state.email, re.IGNORECASE):
+        st.session_state["warning_visibility"] = False
+        st.session_state["ver_button_disable"] = False
+        return
+    elif(st.session_state.email == ""):
+        return
+    else:
+        st.session_state["warning_visibility"] = True
+        return 
