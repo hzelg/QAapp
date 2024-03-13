@@ -46,6 +46,7 @@ if not st.session_state.role: #Todo: change to TA
         lp.display_question_insights()
 
 elif(st.session_state["role"]):
+    # st.write(st.session_state["course_info"])
     st.header("Submit A Question")
     col1, col2, col3 = st.columns([1, 5,3])
 
@@ -54,14 +55,19 @@ elif(st.session_state["role"]):
         st.write(" ")
         with st.container(border = True):
             
-            st.text_input(label = "Question Title")
-            st.text_area(label = "Question Body")
-            option = st.selectbox(label = "Send to", options=('Jack', 'Alice', 'All TAs'))
-            col2_1,col2_2,col2_3 = st.columns([1,2,4])
+            question_title = st.text_input(label = "Question Title")
+            question_body = st.text_area(label = "Question Body")
+            uploaded_image = st.file_uploader("Upload image(s) (Optional)", type = ['png', 'jpg'], accept_multiple_files=True)
+            for uploaded_file in uploaded_image:
+                bytes_data = uploaded_file.read()
+
+            col2_1,col2_2,col2_3 = st.columns([1,2,3])
             with col2_1:
                 send = st.button(label = "Send")
                 if send:
-                    lp.submit_question()
+                    formatted_question = utils.format_question_input(st.session_state["course_info"], question_title, question_body, uploaded_image)
+                    response = lp.submit_question(formatted_question)
+                    st.write(response)
             with col2_2:
                 st.button(label = "Save Draft", type="primary")
             

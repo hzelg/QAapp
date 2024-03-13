@@ -64,21 +64,24 @@ with st.sidebar:
     st.write(" ")
     st.write(" ")
     on = st.toggle('Change to Student Mode', value = st.session_state["role"])
-    if on: 
+    # st.text_input(label = 'Course code', key = "course_info")
+    st.write("The current course is " + st.session_state.course_info)
+    
+    if on:  
         st.session_state["role"] = True #student mode
     else:
         st.session_state["role"] = False #ta mode
     utils.display_user_info()
 
 # username read from cookies
-username = "Anne"
-st.write(" ")
-st.write(" ")
-st.write(" ")
-st.write(" ")
-st.write(" ")
-st.write(" ")
-st.header(f"Good Morning, {username}")
+# username = "Anne"
+# st.write(" ")
+# st.write(" ")
+# st.write(" ")
+# st.write(" ")
+# st.write(" ")
+# st.write(" ")
+# st.header(f"Good Morning, {username}")
 
 
 st.subheader("Notifications")

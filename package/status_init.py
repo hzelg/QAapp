@@ -23,8 +23,10 @@ def state_initializer():
 
     if "role" not in st.session_state:
         st.session_state["role"] = False
-    if "question_tr" not in st.session_state:
-        st.session_state["question_tr"] = "None"
+    # if "question_tr" not in st.session_state:
+    #     st.session_state["question_tr"] = "None"
     
+    if "course_info" not in st.session_state:
+        st.session_state["course_info"] = "COMP2611 Computer Organization"
 
     st.write("status successfully initiated.")
