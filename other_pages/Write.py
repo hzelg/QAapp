@@ -4,8 +4,10 @@
 import streamlit as st
 import package.utils as utils
 import package.llm_pipeline as lp
-
-## Write A Question for Student
+import package.displayer as displayer
+from datetime import datetime
+import package.gcsManager as gm
+import os
 
 
 if not st.session_state.role: #Todo: change to TA
@@ -48,34 +50,44 @@ if not st.session_state.role: #Todo: change to TA
 elif(st.session_state["role"]):
     # st.write(st.session_state["course_info"])
     st.header("Submit A Question")
-    col1, col2, col3 = st.columns([1, 5,3])
+    # col1, col2, col3 = st.columns([1, 5,3])
 
-    with col2:
-        st.write(" ")
-        st.write(" ")
-        with st.container(border = True):
-            
-            question_title = st.text_input(label = "Question Title")
-            question_body = st.text_area(label = "Question Body")
-            uploaded_image = st.file_uploader("Upload image(s) (Optional)", type = ['png', 'jpg'], accept_multiple_files=True)
-            for uploaded_file in uploaded_image:
-                bytes_data = uploaded_file.read()
+    # with col2:
+    st.write(" ")
+    st.write(" ")
 
-            col2_1,col2_2,col2_3 = st.columns([1,2,3])
-            with col2_1:
-                send = st.button(label = "Send")
-                if send:
-                    formatted_question = utils.format_question_input(st.session_state["course_info"], question_title, question_body, uploaded_image)
-                    response = lp.submit_question(formatted_question)
-                    st.write(response)
-            with col2_2:
-                st.button(label = "Save Draft", type="primary")
-            
-    def submit_question():
-        return
-        # TODO
+    # def generate_insights():
+    #     formatted_question = utils.format_question_input(st.session_state["course_info"], question_title, question_body, uploaded_image)
+    #     response = lp.submit_question(formatted_question)
+    #     displayer.display_question_insights(response)
+    #     st.session_state["regenerate_question"] = True
 
     def save_draft():
         return
         # TODO
     
+    with st.container(border = True):
+
+        question_title = st.text_input(label = "Question Title")
+        question_body = st.text_area(label = "Question Body")
+        uploaded_image = st.file_uploader("Upload image(s) (Optional)", type = ['png', 'jpg'], accept_multiple_files=True)
+        for uploaded_file in uploaded_image:
+            bytes_data = uploaded_file.read()
+
+        col2_1,col2_2,col2_3 = st.columns([1,2,3])
+        with col2_1:
+            send = st.button(label = "Send")
+        with col2_2:
+            save_draft = st.button(label = "Save Draft", type="primary")
+
+        if send:
+            gm.post_question(st.session_state["username"], datetime.now() ,st.session_state["course_info"], question_title, question_body, uploaded_image)
+
+        # save_continue = st.button(label = "Continue", visibility = st.session_state["regenerate_question"])
+        # regenerate = st.button(label = "Regenerate", type = "primary", visibility = st.session_state["regenerate_question"])
+
+        # if send:
+        #     generate_insights()
+
+        # if save_continue:
+        #     switch()

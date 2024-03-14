@@ -74,13 +74,12 @@ def validate_email():
 def format_question_input(question_course,question_title, question_body, uploaded_images):
     # st.write(uploaded_images)
     if len(uploaded_images) == 0:
-        text = f"Question Course: {question_course} \n Question Title: {question_title} \n Question Body: \n {question_body} \n Question Media OCR: N\A"
+        text = f"\"Question Course\": {question_course} \n \"Question Title\": {question_title} \n \"Question Body\": \n {question_body} \n \"Question Media OCR\": N\A"
     else:
         image_ocrs = ""
         for i in (1,len(uploaded_images)+1):
             image_ocrs += f"[fig{i}]:"
             image_ocrs += ocr.image_ocr(uploaded_images[i])
             image_ocrs += "\n"
-        
-        text = f"Question Course: {question_course} \n Question Title: {question_title} \n Question Body: \n {question_body} \n Question Media OCR: "+image_ocrs
+        text = f"\"Question Course\": {question_course} \n \"Question Title\": {question_title} \n \"Question Body\": \n {question_body} \n \"Question Media OCR\": "+image_ocrs
     return text

@@ -20,6 +20,8 @@ def state_initializer():
         st.session_state["ver_button_text"] = "Send Verification Code"
     if "warning_visibility" not in st.session_state:
         st.session_state["warning_visibility"] = False
+    if "regenrate_question" not in st.session_state:
+        st.session_state["regenerate_question"] = False
 
     if "role" not in st.session_state:
         st.session_state["role"] = False
@@ -27,6 +29,10 @@ def state_initializer():
     #     st.session_state["question_tr"] = "None"
     
     if "course_info" not in st.session_state:
-        st.session_state["course_info"] = "COMP2611 Computer Organization"
+        st.session_state["course_info"] = "COMP3711 Design and Analysis of Algorithm"
+    if "course_code" not in st.session_state:
+        st.session_state["course_code"] = "COMP3711"
+    if "semester" not in st.session_state:
+        st.session_state["semester"] = "23Fall"
 
     st.write("status successfully initiated.")
