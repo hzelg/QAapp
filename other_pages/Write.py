@@ -9,9 +9,10 @@ from datetime import datetime
 import package.gcsManager as gm
 import os
 
+st.set_page_config("Write A Question", "💬", layout="wide")
 
 if not st.session_state.role: #Todo: change to TA
-    st.set_page_config("Write A Question", "💬", layout="wide")
+#     st.set_page_config("Write A Question", "💬", layout="wide")
 
 
 ### TA Choose a Question To Answer
@@ -81,7 +82,7 @@ elif(st.session_state["role"]):
             save_draft = st.button(label = "Save Draft", type="primary")
 
         if send:
-            gm.post_question(st.session_state["username"], datetime.now() ,st.session_state["course_info"], question_title, question_body, uploaded_image)
+            gm.post_question(st.session_state["username"], datetime.now() ,st.session_state["course_info"], question_title, question_body, uploaded_image, st.session_state["role"], st.session_state["userid"])
 
         # save_continue = st.button(label = "Continue", visibility = st.session_state["regenerate_question"])
         # regenerate = st.button(label = "Regenerate", type = "primary", visibility = st.session_state["regenerate_question"])

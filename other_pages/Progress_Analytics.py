@@ -3,4 +3,5 @@
 
 import streamlit as st
 
+st.set_page_config("Progress Analystics", "💬", layout="wide")
 st.header("Coming Soon")

@@ -19,7 +19,7 @@ def upload_csv(local_file_name, destination_blob_name):
 def post_user_info(_userid, _username, _user_role, course_code, semester):
 
     try:
-        conn = st.experimental_connection('gcs', type = FilesConnection)
+        conn = st.connection('gcs', type = FilesConnection)
         existing_users = conn.read(f"qa_app/{course_code}/{semester}/{course_code}_{semester}_Users.csv", input_format="csv")
 
         new_user_data = [
@@ -78,7 +78,7 @@ def post_user_info(_userid, _username, _user_role, course_code, semester):
 
 
 def get_user_info(_userid, course_code, semester):
-    conn = st.experimental_connection('gcs', type = FilesConnection)
+    conn = st.connection('gcs', type = FilesConnection)
     existing_users = conn.read(f"qa_app/{course_code}/{semester}/{course_code}_{semester}_Users.csv", input_format="csv")
     user_data = existing_users[existing_users["userid"] == _userid].to_list()
     return user_data
@@ -87,7 +87,10 @@ def get_user_info(_userid, course_code, semester):
 def post_question(receiver_id, title, body, media, course_code, semester, role, userid):
 
     try:
-        conn = st.experimental_connection('gcs', type = FilesConnection)
+        try:
+            conn = st.connection('gcs', type = FilesConnection)
+        except:
+            return st.error("Connection Failed")
         existing_questions = conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Posts.csv", input_format="csv")
         df_len = len(existing_questions)
 
@@ -108,18 +111,20 @@ def post_question(receiver_id, title, body, media, course_code, semester, role, 
             [existing_questions, new_question_info], ignore_index=True
         )
         df_to_store.to_csv("local_new_questions.csv",index = False)
-        abs_path = os.path.abspath("local_new_questions.csv")
-        upload_csv(abs_path, f"{course_code}/{semester}/{role}/{userid}_Posts.csv")
-
-        return "Question submitted successfully!"
+        try:
+            abs_path = os.path.abspath("local_new_questions.csv")
+            upload_csv(abs_path, f"{course_code}/{semester}/{role}/{userid}_Posts.csv")
+            return st.success("Question submitted successfully!",icon = "✅")
+        except:
+            return st.error("Upload Error")
     
     except:
-        return "Sorry, something wrong with our server. Please try again later."
+        return st.error("Sorry, something wrong with our server. Please try again later.",icon = "❌")
 
 
 def get_all_question(course_code, semester, role, userid):
     
-    conn = st.experimental_connection('gcs', type = FilesConnection)
+    conn = st.connection('gcs', type = FilesConnection)
     existing_questions = conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Posts.csv", input_format="csv")
     return existing_questions
 
@@ -139,7 +144,7 @@ def get_a_reply():
 
 
 def get_all_reply(course_code, semester, role, userid):
-    conn = st.experimental_connection('gcs', type = FilesConnection)
+    conn = st.connection('gcs', type = FilesConnection)
     existing_replies = conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Posts.csv", input_format="csv")
     return existing_replies
 
@@ -170,19 +175,19 @@ def post_a_reply(reply, media, receiver_id, question_id, course_code, semester, 
         abs_path = os.path.abspath("local_new_replies.csv")
         upload_csv(abs_path, f"{course_code}/{semester}/{role}/{userid}_Posts.csv")
 
-        return "Reply sent successfully!"
+        return st.success("Question submitted successfully!",icon = "✅")
     
     except:
-        return "Sorry, something wrong with our server. Please try again later."
+        return st.error("Sorry, something wrong with our server. Please try again later.",icon = "❌")
     
 
 def get_all_que_insight(course_code, semester, role, userid):
-    conn = st.experimental_connection('gcs', type = FilesConnection)
+    conn = st.connection('gcs', type = FilesConnection)
     existing_q_insights = conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Insights/{userid}_Question_Insights.csv", input_format="csv")
     return existing_q_insights
 
 def get_all_answer_evaluation(course_code, semester, role, userid):
-    conn = st.experimental_connection('gcs', type = FilesConnection)
+    conn = st.connection('gcs', type = FilesConnection)
     existing_a_evaluation= conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Insights/{userid}_Answer_Evaluation.csv", input_format="csv")
     return existing_a_evaluation
 
