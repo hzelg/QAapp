@@ -13,7 +13,7 @@ st.set_page_config("My Questions", "💬", layout="wide")
 # read data from database and display as expander
 if st.session_state["role"] == True:
     CATEGORY_NAMES = {
-        "pending": "Sent",
+        "sent": "Sent",
         "completed": "Completed",
         "drafted": "Drafted",
     }
