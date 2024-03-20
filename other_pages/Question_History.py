@@ -69,9 +69,8 @@ if category != None:
         with st.container(border = True):
             st.write(" ")
             for i in range(0,len(filtered_questions)): # The number of loaded question, able to show multiple pages
-                st.write(filtered_questions.iloc[i]['title'])
-                st.write(filtered_questions.loc[i, 'title'])
-                utils.question_item(str(filtered_questions.loc[i, 'title']),str(filtered_questions.loc[i, 'body']), st.session_state["course_info"], gm.get_username(filtered_questions.loc[i, 'sender_id']), filtered_questions.loc[i, 'time'] )
+                _user_name = gm.get_username(filtered_questions.loc[i, 'sender_id'])
+                utils.question_item(str(filtered_questions.loc[i, 'title']), str(filtered_questions.loc[i, 'body']), st.session_state["course_info"], _user_name, filtered_questions.loc[i, 'time'] )
                 # question_item(title, body, course_code, sent_user, time):
             st.write(" ")
 else:
