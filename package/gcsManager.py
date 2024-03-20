@@ -45,6 +45,7 @@ def post_user_info(_userid, _username, _user_role, course_code, semester):
                     "post_type" :"",
                     "sender_id" :"",
                     "receiver_id":"",
+                    "time":"",
                     "title":"",
                     "body":"",
                     "media":"",
@@ -59,6 +60,7 @@ def post_user_info(_userid, _username, _user_role, course_code, semester):
                     "post_type" :"",
                     "sender_id" :"",
                     "receiver_id":"",
+                    "time":"",
                     "title":"",
                     "body":"",
                     "media":"",
@@ -98,6 +100,7 @@ def post_question(receiver_id, title, body, media, course_code, semester, role_n
                 "post_type": "q",
                 "sender_id": str(st.session_state.userid),
                 "receiver_id":str(receiver_id),
+                "time": datetime.now(),
                 "title": str(title),
                 "body": str(body),
                 "media": str(media),
@@ -121,6 +124,7 @@ def post_question(receiver_id, title, body, media, course_code, semester, role_n
                 "post_type": "q",
                 "sender_id": str(st.session_state.userid),
                 "receiver_id":str(receiver_id),
+                "time": datetime.now(),
                 "question_id": "",
                 "title": str(title),
                 "body": str(body),
@@ -189,6 +193,7 @@ def post_a_reply(reply, media, receiver_id, question_id, course_code, semester, 
                 "post_type": "r",
                 "sender_id": str(st.session_state.userid),
                 "receiver_id":str(receiver_id),
+                "time":datetime.now(),
                 "question_id": str(question_id),
                 "body": str(reply),
                 "media": str(media),
@@ -305,3 +310,9 @@ def get_TA_lists(course_code, semester):
     tuples = [(key, value) for i, (key, value) in enumerate(zip(TA_names, TA_ids))]
     res = dict(tuples)
     return res
+
+
+def get_user_name(userid, course_code, semester):
+    conn = st.connection('gcs', type = FilesConnection)
+    existing_users = conn.read(f"qa_app/{course_code}/{semester}/Users.csv", input_format="csv")
+    return str(existing_users[existing_users["userid"] == userid]["username"])

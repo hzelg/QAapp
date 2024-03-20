@@ -6,12 +6,15 @@ import re
 import package.image_ocr as ocr
 
 
-def question_item():
+def question_item(title, body, course_code, sent_user, time):
     # with st.container(border = True):
     #     st.write("This is a question loaded from database")
     with st.expander("See explanation"):
-        st.write("This is a question loaded from database")
-
+        st.write(f"{course_code} - Question from {sent_user}, received on {time}")
+        st.caption("Title")
+        st.write(title)
+        st.caption("Body")
+        st.write(body)
 
 def display_question():
     with st.container(border = True):

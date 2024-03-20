@@ -75,17 +75,6 @@ with st.sidebar:
         st.session_state["userid"] = "TA_1"
     utils.display_user_info()
 
-# username read from cookies
-# username = "Anne"
-# st.write(" ")
-# st.write(" ")
-# st.write(" ")
-# st.write(" ")
-# st.write(" ")
-# st.write(" ")
-# st.header(f"Good Morning, {username}")
-
-
 st.subheader("Notifications")
 
 col1, col2 = st.columns([7,5])
