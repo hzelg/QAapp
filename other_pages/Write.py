@@ -74,7 +74,7 @@ elif(st.session_state["role"]):
         question_title = st.text_input(label = "Question Title")
         question_body = st.text_area(label = "Question Body")
         uploaded_image = st.file_uploader("Upload image(s) (Optional)", type = ['png', 'jpg'], accept_multiple_files=True)
-        send_to = st.selectbox("jack_1", "winner_2")
+        send_to = st.selectbox("Send to:", ("jack_1", "winner_2"))
         for uploaded_file in uploaded_image:
             bytes_data = uploaded_file.read()
 
