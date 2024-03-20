@@ -78,9 +78,9 @@ with st.sidebar:
 st.subheader("Notifications")
 
 col1, col2 = st.columns([7,5])
-with col1:
-    with st.container(border = True):
-        st.write(" ")
-        for i in range(0,5): # The number of loaded question, able to show multiple pages
-            utils.question_item()
-        st.write(" ")
+# with col1:
+#     with st.container(border = True):
+#         st.write(" ")
+#         for i in range(0,5): # The number of loaded question, able to show multiple pages
+#             utils.question_item()
+#         st.write(" ")
