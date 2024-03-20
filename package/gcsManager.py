@@ -146,6 +146,10 @@ def get_all_question(course_code, semester, role_name, userid):
     
 
     conn = st.connection('gcs', type = FilesConnection)
+    st.write(course_code)
+    st.write(semester)
+    st.write(role_name)
+    st.write(userid)
     existing_posts = conn.read(f"qa_app/{course_code}/{semester}/{role_name}/{userid}_Posts.csv", input_format="csv")
     if role_name == "Student":
         return existing_posts
