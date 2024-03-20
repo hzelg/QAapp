@@ -4,17 +4,24 @@ import package.user_auth as ua
 import time
 import re
 import package.image_ocr as ocr
+from streamlit_extras.switch_page_button import switch_page
 
-
-def question_item(title, body, course_code, sent_user, time):
-    # with st.container(border = True):
-    #     st.write("This is a question loaded from database")
+def question_item(title, body, course_code, sent_user, time, status, question_id):
     with st.expander(label = f"{title}"):
-        st.write(f"{course_code} - Question from **{sent_user}** [{time}]")
-        st.caption("Title")
-        st.write(title)
-        st.caption("Body")
-        st.write(body)
+        col1, col2 = st.columns([4,1])
+        with col1:
+            st.write(f"{course_code} - Question from **{sent_user}** [{time}]")
+            st.caption("Title")
+            st.write(title)
+            st.caption("Body")
+            st.write(body)
+        with col2:
+            if status == "Received":
+                write_answer = st.button(label = "Answer")
+                if write_answer:
+                    st.query_params["question_id"] = question_id
+                    switch_page("Write")
+            st.button(label = "View")
 
 
 def display_question():
@@ -41,7 +48,6 @@ def display_write_panel():
 
 def display_user_info():
     return
-    # logout = st.button(label = "Log Out", type = "primary")
 
 def display_login_panel():
     with st.container(border = True):
