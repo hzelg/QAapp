@@ -74,7 +74,8 @@ elif(st.session_state["role"]):
         question_title = st.text_input(label = "Question Title")
         question_body = st.text_area(label = "Question Body")
         uploaded_image = st.file_uploader("Upload image(s) (Optional)", type = ['png', 'jpg'], accept_multiple_files=True)
-        send_to = st.selectbox("Send to:", ("jack_1", "winner_2"))
+        TAs = gm.get_TA_lists(st.session_state["course_code"],st.session_state["semester"])
+        send_to = st.selectbox("Send to:", tuple(TAs.keys())) # get_TA_lists(course_code, semester, role, userid)
         for uploaded_file in uploaded_image:
             bytes_data = uploaded_file.read()
 
@@ -86,7 +87,7 @@ elif(st.session_state["role"]):
 
         if send:
             role_name = utils.get_role_name(st.session_state["role"])
-            gm.post_question(send_to, question_title, question_body, uploaded_image,  st.session_state["course_code"], st.session_state["semester"], role_name, st.session_state["userid"])
+            gm.post_question(TAs[send_to], question_title, question_body, uploaded_image,  st.session_state["course_code"], st.session_state["semester"], role_name, st.session_state["userid"])
 
             # post_question(receiver_id, title, body, media, course_code, semester, role, userid):
 
