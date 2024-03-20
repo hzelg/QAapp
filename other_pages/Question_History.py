@@ -25,7 +25,7 @@ if st.session_state["role"] == True:
 
 else:
     CATEGORY_NAMES = {
-        "pending": "Received",
+        "sent": "Received",
         "completed": "Answered",
     }
     CATEGORY_ICONS = [
@@ -89,7 +89,7 @@ else:
             with col1:
                 utils.question_item(str(questions.loc[i, 'title']), str(questions.loc[i, 'body']), st.session_state["course_info"], _user_name, questions.loc[i, 'time'])
             with col2:
-                if questions.loc[i, 'status'] == "Received":
+                if questions.loc[i, 'status'] == "sent":
                     write_answer = st.button(label = "Answer")
                     if write_answer:
                         switch_page("Write")
