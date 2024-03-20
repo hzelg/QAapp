@@ -14,6 +14,7 @@ st.set_page_config("Write A Question", "💬", layout="wide")
 
 if not st.session_state.role: #Todo: change to TA
 #     st.set_page_config("Write A Question", "💬", layout="wide")
+    
 
 
 ### TA Choose a Question To Answer
@@ -40,7 +41,7 @@ if not st.session_state.role: #Todo: change to TA
     #                 # st.button(label= "Select", key = f"Select Question {i}", type = "primary")
     #                 st.checkbox(label = "question_tr", key = f"select question {i}", label_visibility= "hidden")
     ## **************************************************
-                
+    st.write(st.query_params["question_id"])
     col1, col2 = st.columns([2, 3])
     with col1:
         st.subheader("Question")
