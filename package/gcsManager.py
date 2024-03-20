@@ -295,8 +295,8 @@ def get_an_ans_evaluation(_answer_id, course_code, semester, role, userid):
 def get_TA_lists(course_code, semester):
     conn = st.connection('gcs', type = FilesConnection)
     existing_users = conn.read(f"qa_app/{course_code}/{semester}/Users.csv", input_format="csv", ttl="0")
-    TA_ids = existing_users[existing_users["role"] == "TA"]["userid"].to_list()
-    TA_names = existing_users[existing_users["role"] == "TA"]["username"].to_list()
+    TA_ids = existing_users[existing_users["role"] == "TA"]["userid"].tolist()
+    TA_names = existing_users[existing_users["role"] == "TA"]["username"].tolist()
     tuples = [(key, value) for i, (key, value) in enumerate(zip(TA_names, TA_ids))]
     res = dict(tuples)
     return res
