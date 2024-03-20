@@ -72,6 +72,7 @@ with st.sidebar:
         st.session_state["userid"] = "Student_1"
     else:
         st.session_state["role"] = False #ta mode
+        st.session_state["userid"] = "TA_1"
     utils.display_user_info()
 
 # username read from cookies
