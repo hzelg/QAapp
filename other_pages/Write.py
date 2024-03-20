@@ -57,7 +57,7 @@ elif(st.session_state["role"]):
     # with col2:
     st.write(" ")
     st.write(" ")
-    
+
     conn = st.connection('gcs', type = FilesConnection)
     # def generate_insights():
     #     formatted_question = utils.format_question_input(st.session_state["course_info"], question_title, question_body, uploaded_image)
@@ -74,6 +74,7 @@ elif(st.session_state["role"]):
         question_title = st.text_input(label = "Question Title")
         question_body = st.text_area(label = "Question Body")
         uploaded_image = st.file_uploader("Upload image(s) (Optional)", type = ['png', 'jpg'], accept_multiple_files=True)
+        send_to = st.selectbox("jack_1", "winner_2")
         for uploaded_file in uploaded_image:
             bytes_data = uploaded_file.read()
 
@@ -84,7 +85,9 @@ elif(st.session_state["role"]):
             save_draft = st.button(label = "Save Draft", type="primary")
 
         if send:
-            gm.post_question(st.session_state["username"], datetime.now() ,st.session_state["course_info"], question_title, question_body, uploaded_image, st.session_state["role"], st.session_state["userid"])
+            gm.post_question(send_to, question_title, question_body, uploaded_image,  st.session_state["course_info"], st.session_state["semester"], st.session_state["role"], st.session_state["userid"])
+
+            # post_question(receiver_id, title, body, media, course_code, semester, role, userid):
 
         # save_continue = st.button(label = "Continue", visibility = st.session_state["regenerate_question"])
         # regenerate = st.button(label = "Regenerate", type = "primary", visibility = st.session_state["regenerate_question"])
