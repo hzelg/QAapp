@@ -26,6 +26,9 @@ def state_initializer():
     if "role" not in st.session_state:
         st.session_state["role"] = False
 
+    if "current_selected_question_id" not in st.session_state:
+        st.session_state["current_selected_question_id"] = ""
+
     if "course_info" not in st.session_state:
         st.session_state["course_info"] = "COMP3711 Design and Analysis of Algorithm"
     if "course_code" not in st.session_state:

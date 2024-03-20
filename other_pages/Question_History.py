@@ -92,8 +92,9 @@ else:
                 if questions.loc[i, 'status'] == "sent":
                     write_answer = st.button(label = "Answer")
                     if write_answer:
-                        st.query_params["question_id"] = questions.loc[i, 'postid']
-                        # switch_page("Write")
+                        st.session_state["current_selected_question_id"] = questions.loc[i, 'postid']
+                                                # st.query_params["question_id"] = 
+                        switch_page("Write")
                 st.button(label = "View")
         st.write(" ")
 
