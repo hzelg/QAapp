@@ -1,13 +1,10 @@
 # For TA: View All Received Question
 # For Student: View All Submitted Question
-
-
 # Read the Database every 5 seconds for updates
-
 
 import streamlit as st
 from streamlit_pills import pills
-# from ..lib.utils import *
+import package.gcsManager as gm
 import package.utils as utils
 
 st.set_page_config("My Questions", "💬", layout="wide")
@@ -25,7 +22,6 @@ CATEGORY_ICONS = [
     "🔘"]
 
 def icon(emoji: str):
-    """Shows an emoji as a Notion-style page icon."""
     st.write(
         f'<span style="font-size: 78px; line-height: 1">{emoji}</span>',
         unsafe_allow_html=True,
@@ -48,5 +44,11 @@ category = pills(
     label_visibility="collapsed",
 )
 
-# if "screen_width" in st.session_state and st.session_state.screen_width < 768:
-st.write("")
+role_name = utils.get_role_name(st.session_state["role"])
+questions = gm.get_all_question(st.session_state["course_code"], st.session_state["semester"], role_name, st.session_state["userid"])
+st.write(questions)
+
+
+
+# # if "screen_width" in st.session_state and st.session_state.screen_width < 768:
+# st.write("")

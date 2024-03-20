@@ -72,7 +72,7 @@ def validate_email():
         return 
     
 def format_question_input(question_course,question_title, question_body, uploaded_images):
-    # st.write(uploaded_images)
+
     if len(uploaded_images) == 0:
         text = f"\"Question Course\": {question_course} \n \"Question Title\": {question_title} \n \"Question Body\": \n {question_body} \n \"Question Media OCR\": N\A"
     else:
@@ -83,3 +83,9 @@ def format_question_input(question_course,question_title, question_body, uploade
             image_ocrs += "\n"
         text = f"\"Question Course\": {question_course} \n \"Question Title\": {question_title} \n \"Question Body\": \n {question_body} \n \"Question Media OCR\": "+image_ocrs
     return text
+
+def get_role_name(role):
+    if role == True:
+        return "Student"
+    else:
+        return "TA"

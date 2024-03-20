@@ -84,28 +84,17 @@ def get_user_info(_userid, course_code, semester):
     return user_data
 
 
-def post_question(receiver_id, title, body, media, course_code, semester, role, userid):
-    role_name = ""
-    if role == True:
-        role_name = "Student"
-    else:
-        role_name = "TA"
-
+def post_question(receiver_id, title, body, media, course_code, semester, role_name, userid):
     try:
         conn = st.connection('gcs', type = FilesConnection)
-        st.write(course_code)
-        st.write(semester)
-        st.write(role_name)
-        st.write(userid)
 
-        try:
-            existing_questions = conn.read(f"qa_app/{course_code}/{semester}/{role_name}/{userid}_Posts.csv", input_format="csv", ttl="600")
-        except:
-            return st.error("Data Read Failed")
+        # Update to Student's Posts
+        existing_questions = conn.read(f"qa_app/{course_code}/{semester}/{role_name}/{userid}_Posts.csv", input_format="csv", ttl="600")
         df_len = len(existing_questions)
+        question_id = f"q_{df_len+1}"
         new_question_data = [
             {
-                "postid": f"q_{df_len+1}",
+                "postid": question_id,
                 "post_type": "q",
                 "sender_id": str(st.session_state.userid),
                 "receiver_id":str(receiver_id),
@@ -120,22 +109,49 @@ def post_question(receiver_id, title, body, media, course_code, semester, role, 
             [existing_questions, new_question_info], ignore_index=True
         )
         df_to_store.to_csv("local_new_questions.csv",index = False)
-        try:
-            abs_path = os.path.abspath("local_new_questions.csv")
-            upload_csv(abs_path, f"{course_code}/{semester}/{role}/{userid}_Posts.csv")
-            return st.success("Question submitted successfully!",icon = "✅")
-        except:
-            return st.error("Upload Error")
+        abs_path = os.path.abspath("local_new_questions.csv")
+        upload_csv(abs_path, f"{course_code}/{semester}/{role_name}/{userid}_Posts.csv")
+
+
+        # Update to corresponding TA's Posts
+        existing_questions_2 = conn.read(f"qa_app/{course_code}/{semester}/TA/{receiver_id}_Posts.csv", input_format="csv", ttl="600")
+        new_question_data_2 = [
+            {
+                "postid": question_id,
+                "post_type": "q",
+                "sender_id": str(st.session_state.userid),
+                "receiver_id":str(receiver_id),
+                "question_id": "",
+                "title": str(title),
+                "body": str(body),
+                "media": str(media),
+                "status": "sent",
+            }
+        ]
+        new_question_info_2 = pd.DataFrame(new_question_data_2)
+        df_to_store_2 = pd.concat(
+            [existing_questions_2, new_question_info_2], ignore_index=True
+        )
+        df_to_store_2.to_csv("local_new_questions_2.csv",index = False)
+        abs_path_2 = os.path.abspath("local_new_questions_2.csv")
+        upload_csv(abs_path_2, f"{course_code}/{semester}/TA/{receiver_id}_Posts.csv")
+
+        return st.success("Question submitted successfully!",icon = "✅")
     
     except:
         return st.error("Sorry, something wrong with our server. Please try again later.",icon = "❌")
 
 
-def get_all_question(course_code, semester, role, userid):
+def get_all_question(course_code, semester, role_name, userid):
     
+
     conn = st.connection('gcs', type = FilesConnection)
-    existing_questions = conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Posts.csv", input_format="csv")
-    return existing_questions
+    existing_posts = conn.read(f"qa_app/{course_code}/{semester}/{role_name}/{userid}_Posts.csv", input_format="csv")
+    if role_name == "Student":
+        return existing_posts
+    elif role_name == "TA":
+        existing_questions = existing_posts[existing_posts["post_type"]=="q"]
+        return existing_questions
 
 
 def get_a_question(_postid, course_code, semester, role, username):
@@ -147,7 +163,6 @@ def get_a_question(_postid, course_code, semester, role, username):
         return None
 
 def get_a_reply():
-
 
     return
 

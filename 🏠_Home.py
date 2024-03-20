@@ -68,7 +68,8 @@ with st.sidebar:
     st.write("The current course is " + st.session_state.course_info)
     
     if on:  
-        st.session_state["role"] = True #student mode
+        st.session_state["role"] = True #student mode\
+        st.session_state["userid"] = "Student_1"
     else:
         st.session_state["role"] = False #ta mode
     utils.display_user_info()
