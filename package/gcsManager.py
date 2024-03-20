@@ -85,11 +85,21 @@ def get_user_info(_userid, course_code, semester):
 
 
 def post_question(receiver_id, title, body, media, course_code, semester, role, userid):
+    role_name = ""
+    if role == True:
+        role_name = "Student"
+    else:
+        role_name = "TA"
 
     try:
         conn = st.connection('gcs', type = FilesConnection)
+        st.write(course_code)
+        st.write(semester)
+        st.write(role_name)
+        st.write(userid)
+
         try:
-            existing_questions = conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Posts.csv", input_format="csv", ttl="600")
+            existing_questions = conn.read(f"qa_app/{course_code}/{semester}/{role_name}/{userid}_Posts.csv", input_format="csv", ttl="600")
         except:
             return st.error("Data Read Failed")
         df_len = len(existing_questions)

@@ -7,7 +7,7 @@ def state_initializer():
     if "username" not in st.session_state:
         st.session_state["username"] = ""
     if "userid" not in st.session_state:
-        st.session_state["userid"] = ""
+        st.session_state["userid"] = "Student_1"
     if "auth_status" not in st.session_state:
         st.session_state["auth_status"] = False
     if "email" not in st.session_state:
