@@ -91,7 +91,7 @@ def post_question(receiver_id, title, body, media, course_code, semester, role, 
             conn = st.connection('gcs', type = FilesConnection)
         except:
             return st.error("Connection Failed")
-        existing_questions = conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Posts.csv", input_format="csv")
+        existing_questions = conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Posts.csv", input_format="csv", ttl="600")
         df_len = len(existing_questions)
 
         new_question_data = [

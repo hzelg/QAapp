@@ -7,6 +7,7 @@ import package.llm_pipeline as lp
 import package.displayer as displayer
 from datetime import datetime
 import package.gcsManager as gm
+from st_files_connection import FilesConnection
 import os
 
 st.set_page_config("Write A Question", "💬", layout="wide")
@@ -56,7 +57,8 @@ elif(st.session_state["role"]):
     # with col2:
     st.write(" ")
     st.write(" ")
-
+    
+    conn = st.connection('gcs', type = FilesConnection)
     # def generate_insights():
     #     formatted_question = utils.format_question_input(st.session_state["course_info"], question_title, question_body, uploaded_image)
     #     response = lp.submit_question(formatted_question)
