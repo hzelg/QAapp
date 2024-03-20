@@ -93,7 +93,7 @@ else:
                     write_answer = st.button(label = "Answer")
                     if write_answer:
                         st.query_params["question_id"] = questions.loc[i, 'postid']
-                        switch_page("Write")
+                        # switch_page("Write")
                 st.button(label = "View")
         st.write(" ")
 
