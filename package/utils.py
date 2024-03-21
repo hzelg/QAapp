@@ -19,13 +19,13 @@ import re
 #     question_item(title, body, course_info, sender_username, time)
 
 
-def display_question_insights():
-    with st.container(border = True):
-        col1,col2 = st.columns([3,1])
-        with col1:
-            st.write("Question Insights")
-        with col2:
-            st.button(label = "Refresh")
+# def display_question_insights():
+#     with st.container(border = True):
+#         col1,col2 = st.columns([3,1])
+#         with col1:
+#             st.write("Question Insights")
+#         with col2:
+#             st.button(label = "Refresh")
 
 def display_write_panel():
     st.subheader("Write Reply")

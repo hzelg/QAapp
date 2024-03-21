@@ -34,9 +34,10 @@ def display_question_insights(question_id): # Display the latest question insigh
         with col2:
             generate = st.button(label = "Generate Insight", type = "primary")
             if generate:
-                generate_insights()
-
-        gm.get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
+                response = generate_insights()
+                st.write(response)
+                # gm.post_que_insight()
+        # gm.get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
 
 def submit_question(formatted_question):
     prev_prompt = ""
