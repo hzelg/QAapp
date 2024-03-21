@@ -42,6 +42,8 @@ def state_initializer():
         st.session_state["csq_media"] = "[]"
     if "csq_reply" not in st.session_state:
         st.session_state["csq_reply"] = ""
+    if "csq_insights" not in st.session_state:
+        st.session_state["csq_insights"] = ""
 
     if "course_info" not in st.session_state:
         st.session_state["course_info"] = "COMP3711 Design and Analysis of Algorithm"

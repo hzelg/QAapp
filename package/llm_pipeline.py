@@ -36,11 +36,10 @@ def display_question_insights(question_id): # Display the latest question insigh
             generate = st.button(label = "Generate", type = "primary")
         if generate:
             response = generate_insights()
-            pattern = r'^\{\s*"Question_Type": \[.+\],\s*"Question_Keywords": \[.+\],\s*"Question_ActionItems": \[.+\],\s*"Question_Insights": \[.+\]\}$'
-            # st.write(re.match(pattern, response))
-            # st.write(response.split("}")[0]+" \n}")
-            data = json.loads(response.split("}")[0]+" \n}")
-            # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
+            st.session_state["csq_insights"] = json.loads(response.split("}")[0]+" \n}")
+        data = st.session_state["csq_insights"]
+        if data != "":
+        # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
             col3, col4 = st.columns([1,2])
             with col3:
                 st.caption("Question Type")
@@ -57,19 +56,18 @@ def display_question_insights(question_id): # Display the latest question insigh
             with col8:
                 items = str(data["Question_ActionItems"]).split("|")
                 for i in items:
-                    # cola, colb = st.columns([3,1])
-                    # with cola:
                     st.write(i)
-                    # with colb:
-                    # st.checkbox(label = i)
-            try:
-                insights = data["Question_Insights"]
-                st.caption("Question Insights")
-                st.write(insights)
-                st.write(" ")
-            except:
-                st.write(" ")
-            # except:
+                    
+                try:
+                    insights = data["Question_Insights"]
+                    st.caption("Question Insights")
+                    st.write(insights)
+                    st.write(" ")
+                except:
+                    st.write(" ")
+                # except:
+        else:
+            st.write("")
             #     st.error("Error generating response. Please try later!")
             # gm.post_que_insight()
         # gm.get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
