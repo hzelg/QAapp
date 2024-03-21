@@ -61,7 +61,7 @@ def display_question_insights(question_id): # Display the latest question insigh
                     # with cola:
                     st.write(i)
                     # with colb:
-                    st.checkbox(label = i)
+                    # st.checkbox(label = i)
             try:
                 insights = data.Question_Insights
                 st.caption("Question Insights")
