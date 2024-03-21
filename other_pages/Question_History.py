@@ -69,7 +69,7 @@ if category != None:
         with st.container(border = True):
             st.write(" ")
             for i in range(0,len(filtered_questions)): # The number of loaded question, able to show multiple pages
-                _user_name = gm.get_username(str(filtered_questions.loc[i, 'sender_id']), st.session_state["course_code"], st.session_state["semester"])
+                _user_name = gm.get_username(str(filtered_questions.loc[i, 'sender_id']))
                 with col1:
                     displayer.question_item(str(filtered_questions.loc[i, 'title']), str(filtered_questions.loc[i, 'body']), st.session_state["course_info"], _user_name, filtered_questions.loc[i, 'time'])
                 with col2:
@@ -84,7 +84,7 @@ else:
     with st.container(border = True):
         st.write(" ")
         for i in range(0,len(questions)): # The number of loaded question, able to show multiple pages
-            _user_name = gm.get_username(str(questions.loc[i, 'sender_id']), st.session_state["course_code"], st.session_state["semester"])
+            _user_name = gm.get_username(str(questions.loc[i, 'sender_id']))
             col1, col2 = st.columns([3,1])
             with col1:
                 displayer.question_item(str(questions.loc[i, 'title']), str(questions.loc[i, 'body']), st.session_state["course_info"], _user_name, questions.loc[i, 'time'])
