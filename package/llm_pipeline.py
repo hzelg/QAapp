@@ -45,17 +45,17 @@ def display_question_insights(question_id): # Display the latest question insigh
             with col3:
                 st.caption("Question Type")
             with col4:
-                st.write(data.Question_Type)
+                st.write(data["Question_Type"])
             col5, col6 = st.columns([1,2])
             with col5:
                 st.caption("Question Keywords")
             with col6:
-                st.write(data.Question_Keywords)
+                st.write(data["Question_Keywords"])
             col7, col8 = st.columns([1,2])
             with col7:
                 st.caption("Question Action Items")
             with col8:
-                items = json.loads(str(data.Question_ActionItems))
+                items = str(data["Question_ActionItems"]).split("//")
                 for i in items:
                     cola, colb = st.columns([5,1])
                     with cola:
