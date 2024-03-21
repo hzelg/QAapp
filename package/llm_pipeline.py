@@ -33,7 +33,7 @@ def display_question_insights(question_id): # Display the latest question insigh
         with col1:
             st.subheader("LLM Feedback")
         with col2:
-            generate = st.button(label = "Generate Insight", type = "primary")
+            generate = st.button(label = "Generate", type = "primary")
         if generate:
             response = generate_insights()
             pattern = r'^\{\s*"Question_Type": \[.+\],\s*"Question_Keywords": \[.+\],\s*"Question_ActionItems": \[.+\],\s*"Question_Insights": \[.+\]\}$'
@@ -63,7 +63,7 @@ def display_question_insights(question_id): # Display the latest question insigh
                     # with colb:
                     # st.checkbox(label = i)
             try:
-                insights = data.Question_Insights
+                insights = data["Question_Insights"]
                 st.caption("Question Insights")
                 st.write(insights)
                 st.write(" ")
