@@ -38,8 +38,8 @@ def display_question_insights(question_id): # Display the latest question insigh
             response = generate_insights()
             pattern = r'^\{\s*"Question_Type": \[.+\],\s*"Question_Keywords": \[.+\],\s*"Question_ActionItems": \[.+\],\s*"Question_Insights": \[.+\]\}$'
             st.write(re.match(pattern, response))
-            st.write(response.split("}")[0]+" \n}")
-            data = json.loads(response.split("}")[0]+" \n}")
+            st.write(response.split("}")[0]+" \" \n}")
+            data = json.loads(response.split("}")[0]+" \" \n}")
             # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
             col3, col4 = st.columns([1,2])
             with col3:
@@ -82,7 +82,7 @@ def submit_question(formatted_question):
     # st.write(prev_prompt + formatted_question)
     response = client.completions.create(model = "gpt-35-turbo",
         prompt= prev_prompt + "\n \"\"\" " + formatted_question + " \"\"\" ",
-        temperature=0,
+        temperature=0.8,
         top_p=0.2,
         max_tokens= 150,
         best_of=2,
