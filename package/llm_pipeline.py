@@ -3,6 +3,7 @@ import openai
 from openai import AzureOpenAI
 import package.gcsManager as gm
 from package.utils import *
+import json
 
 try:
     client = AzureOpenAI(api_key=st.secrets["OPEN_AI_KEY"], api_version="2023-12-01-preview", azure_endpoint="https://hkust.azure-api.net")
@@ -33,13 +34,44 @@ def display_question_insights(question_id): # Display the latest question insigh
             st.subheader("LLM Feedback")
         with col2:
             generate = st.button(label = "Generate Insight", type = "primary")
-            if generate:
+        if generate:
+            try:
+                response = ""
+                pattern = r'^\{\s*"Question_Type": \[.+\],\s*"Question_Keywords": \[.+\],\s*"Question_ActionItems": \[.+\],\s*"Question_Insights": \[.+\]\}$'
+                st.write(re.match(pattern, response))
+                st.write(response)
+                # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
+                col3, col4 = st.columns([1,2])
+                with col3:
+                    st.caption("Question Type")
+                with col4:
+                    st.write(response.Question_Type)
+                col5, col6 = st.columns([1,2])
+                with col5:
+                    st.caption("Question Keywords")
+                with col6:
+                    st.write(response.Question_Keywords)
+                col7, col8 = st.columns([1,2])
+                with col7:
+                    st.caption("Question Action Items")
+                with col8:
+                    items = json.loads(str(response.Question_ActionItems))
+                    for i in items:
+                        cola, colb = st.columns([5,1])
+                        with cola:
+                            st.write(i)
+                        with colb:
+                            st.checkbox(label = i)
                 try:
-                    response = generate_insights()
-                    st.write(response)
+                    insights = response.Question_Insights
+                    st.caption("Question Insights")
+                    st.write(insights)
+                    st.write(" ")
                 except:
-                    st.error("Error generating response. Please try later!")
-                # gm.post_que_insight()
+                    st.write(" ")
+            except:
+                st.error("Error generating response. Please try later!")
+            # gm.post_que_insight()
         # gm.get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
 
 def submit_question(formatted_question):
@@ -50,9 +82,9 @@ def submit_question(formatted_question):
     # st.write(prev_prompt + formatted_question)
     response = client.completions.create(model = "gpt-35-turbo",
         prompt= prev_prompt + "\n \"\"\" " + formatted_question + " \"\"\" ",
-        temperature=0.8,
+        temperature=0,
         max_tokens=50,
-        top_p=0.8,
+        top_p=0.2,
         best_of=2,
         frequency_penalty=0.0,
         presence_penalty=0.0)
