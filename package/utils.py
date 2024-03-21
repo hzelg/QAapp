@@ -69,7 +69,7 @@ def validate_email():
     
 
 def format_question_input(question_course,question_title, question_body, image_ocr):
-    text = f"\"Question Course\": {question_course} \n \"Question Title\": {question_title} \n \"Question Body\": \n {question_body} \n \"Question Media OCR\": {image_ocr}"
+    text = f"\"Question Course\": {question_course} \n \"Question Title\": {question_title} \n \"Question Body\": \n {question_body} \n \"Question Media OCR\": {image_ocr} \n\n System Output: \n"
     return text
 
 
