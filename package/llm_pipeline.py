@@ -57,7 +57,7 @@ def display_question_insights(question_id): # Display the latest question insigh
             with col8:
                 items = str(data["Question_ActionItems"]).split("|")
                 for i in items:
-                    cola, colb = st.columns([5,1])
+                    cola, colb = st.columns([3,1])
                     with cola:
                         st.write(i)
                     with colb:
