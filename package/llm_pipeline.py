@@ -18,7 +18,7 @@ def process_question_insights():
     return
 
 def generate_insights():
-    if st.session_state["csq_media"] == "":
+    if st.session_state["csq_media"] == "[]":
         image_ocr = "N/A"
     else:
         image_ocr = gm.get_image_ocr(st.session_state["csq_media"])
