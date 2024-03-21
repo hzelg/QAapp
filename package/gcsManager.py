@@ -238,6 +238,7 @@ def post_a_reply(reply):
             }
         ]
         new_reply_info = pd.DataFrame(new_reply_data)
+        existing_replies.loc[existing_replies["postid"] == str(st.session_state.current_selected_question_id), ['status']] = "completed"
         df_to_store = pd.concat(
             [existing_replies, new_reply_info], ignore_index=True
         )
@@ -246,6 +247,7 @@ def post_a_reply(reply):
         upload_csv(abs_path, f"{st.session_state.course_code}/{st.session_state.semester}/{st.session_state.role_name}/{st.session_state.userid}_Posts.csv")
 
         # Should update student's side, but not for this demo.
+
         return st.success("Reply submitted successfully!",icon = "✅")
     
     except:
