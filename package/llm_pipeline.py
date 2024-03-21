@@ -38,8 +38,8 @@ def display_question_insights(question_id): # Display the latest question insigh
             response = generate_insights()
             pattern = r'^\{\s*"Question_Type": \[.+\],\s*"Question_Keywords": \[.+\],\s*"Question_ActionItems": \[.+\],\s*"Question_Insights": \[.+\]\}$'
             st.write(re.match(pattern, response))
-            st.write(response.split("}")[0]+" \" \n}")
-            data = json.loads(response.split("}")[0]+" \" \n}")
+            st.write(response.split("}")[0]+" \n}")
+            data = json.loads(response.split("}")[0]+" \n}")
             # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
             col3, col4 = st.columns([1,2])
             with col3:
@@ -55,7 +55,7 @@ def display_question_insights(question_id): # Display the latest question insigh
             with col7:
                 st.caption("Question Action Items")
             with col8:
-                items = str(data["Question_ActionItems"]).split("//")
+                items = str(data["Question_ActionItems"]).split("|")
                 for i in items:
                     cola, colb = st.columns([5,1])
                     with cola:

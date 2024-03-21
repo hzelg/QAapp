@@ -29,7 +29,8 @@ Follow the requirements below when summarizing:
     1. Logistics: Policy(questions regarding class policy, course materials, assignment due dates, exam arrangements etc.), Trouble Shooting(questions that requires immediate technical or mental support, such as online exam problems, submission failed questions etc.), Others (questions on learning tips, exam preparations, etc.)
     2. Assignment: Assignment Description Clarification(questions requesting further explanation of the assignment task, such as tailored assignment task conditions, assignment statements, assignment statement typos, etc.), Assignment Submission Clarification (questions requesting clarification on student’s submission requirements such as requirements on writing steps, requirements on using external source reference, etc.), Assignment Help(questions requesting hints or debug, etc.).
     3. Conceptual (questions regarding course materials and knowledge, etc.)
-2. Some examples:
+2. Output the summary in JSON format.
+3. Some examples:
 
 User Input:
 
@@ -66,8 +67,8 @@ System Output:
 {
     "Question_Type": "Conceptual",
     "Question_Keywords": "Circulation with Demands, Max Flow, Edge Case, Lecture",
-    "Question_ActionItems": "1. Explain the algorithm. // 2. Explain why |f| > total result in no solution.",
-    "Question_Insights": "1. https://github.com/SleekPanther/circulation-with-demands-network-flow, 2. https://stackoverflow.com/questions/40752549/finding-a-circulation-in-a-network-with-lower-bounds"
+    "Question_ActionItems": "1. Explain the algorithm. | 2. Explain why |f| > total result in no solution.",
+    "Question_Insights": "1. https://github.com/SleekPanther/circulation-with-demands-network-flow | 2. https://stackoverflow.com/questions/40752549/finding-a-circulation-in-a-network-with-lower-bounds"
 }
 
 
@@ -94,7 +95,7 @@ System Output:
 { 
     "Question_Type": "Assignment Requirement Clarification",
     "Question_Keywords": "HW2 Q3, Randomized Selection, Proof requirements",
-    "Question_ActionItems": "1. Clarify the proof requirement. // 2. Explain other requirements.",
+    "Question_ActionItems": "1. Clarify the proof requirement. | 2. Explain other requirements.",
     "Question_Insights": "",
 }
 
