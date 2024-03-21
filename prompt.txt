@@ -95,6 +95,6 @@ System Output:
     "Question_Type": "Assignment Requirement Clarification",
     "Question_Keywords": "HW2 Q3, Randomized Selection, Proof requirements",
     "Question_ActionItems": "1. Clarify the proof requirement. // 2. Explain other requirements.",
-    "Question_Insights": null,
+    "Question_Insights": "",
 }
 
