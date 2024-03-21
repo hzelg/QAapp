@@ -218,7 +218,7 @@ def get_all_reply():
     return existing_replies
 
 
-def post_a_reply(reply, media):
+def post_a_reply(reply):
 
     try:
         existing_replies = get_all_reply()
@@ -233,7 +233,7 @@ def post_a_reply(reply, media):
                 "time":datetime.now(),
                 "question_id": str(st.session_state.current_selected_question_id),
                 "body": str(reply),
-                "media": str(media),
+                "media": "[]",
                 "status": "sent",
             }
         ]
@@ -246,7 +246,6 @@ def post_a_reply(reply, media):
         upload_csv(abs_path, f"{st.session_state.course_code}/{st.session_state.semester}/{st.session_state.role_name}/{st.session_state.userid}_Posts.csv")
 
         # Should update student's side, but not for this demo.
-
         return st.success("Reply submitted successfully!",icon = "✅")
     
     except:

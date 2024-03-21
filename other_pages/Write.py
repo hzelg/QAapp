@@ -33,8 +33,11 @@ if not st.session_state.role:
             lp.display_question_insights(current_selected_question_id)
         with col2:
             displayer.display_write_panel()
-            reply_submit = st.button(label = "Submit")
-            reply_draft = st.button(label = "Save As Draft")
+            col3, col4 = st.columns([1,1])
+            with col3:
+                reply_submit = st.button(label = "Submit")
+            with col4:
+                reply_draft = st.button(label = "Save As Draft")
             if reply_submit:
                 gm.post_a_reply(st.session_state["csq_reply"])
 
