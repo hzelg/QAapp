@@ -99,4 +99,4 @@ System Output:
 }
 
 
-Now a user give the question as follows. Please summarize as required and output in JSON format:
+User Input:
