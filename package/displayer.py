@@ -4,7 +4,7 @@ import package.gcsManager as gm
 import package.llm_pipeline as lp
 
 def question_item(title, body, course_info, sent_user, time, media):
-    with st.expander(label = f"{title}"):
+    with st.expander(label = f"{title}", expanded = True):
         st.write(f"{course_info} - Question from **{sent_user}** [{time}]")
         st.caption("Title")
         st.write(title)
