@@ -170,16 +170,16 @@ def get_a_reply():
     return
 
 
-def get_all_reply(course_code, semester, role, userid):
+def get_all_reply():
     conn = st.connection('gcs', type = FilesConnection)
-    existing_replies = conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Posts.csv", input_format="csv")
+    existing_replies = conn.read(f"qa_app/{st.session_state.course_code}/{st.session_state.semester}/{st.session_state.role_name}/{st.session_state.userid}_Posts.csv", input_format="csv")
     return existing_replies
 
 
-def post_a_reply(reply, media, receiver_id, question_id, course_code, semester, role, userid):
+def post_a_reply(reply, media):
 
     try:
-        existing_replies = get_all_reply(course_code, semester, role, userid)
+        existing_replies = get_all_reply()
         df_len = len(existing_replies)
 
         new_reply_data = [
@@ -187,9 +187,9 @@ def post_a_reply(reply, media, receiver_id, question_id, course_code, semester, 
                 "postid": f"r_{df_len+1}",
                 "post_type": "r",
                 "sender_id": str(st.session_state.userid),
-                "receiver_id":str(receiver_id),
+                "receiver_id":str(st.session_state.csq_sender_id),
                 "time":datetime.now(),
-                "question_id": str(question_id),
+                "question_id": str(st.session_state.current_selected_question_id),
                 "body": str(reply),
                 "media": str(media),
                 "status": "sent",
@@ -201,9 +201,11 @@ def post_a_reply(reply, media, receiver_id, question_id, course_code, semester, 
         )
         df_to_store.to_csv("local_new_replies.csv",index = False)
         abs_path = os.path.abspath("local_new_replies.csv")
-        upload_csv(abs_path, f"{course_code}/{semester}/{role}/{userid}_Posts.csv")
+        upload_csv(abs_path, f"{st.session_state.course_code}/{st.session_state.semester}/{st.session_state.role_name}/{st.session_state.userid}_Posts.csv")
 
-        return st.success("Question submitted successfully!",icon = "✅")
+        # Should update student's side, but not for this demo.
+        
+        return st.success("Reply submitted successfully!",icon = "✅")
     
     except:
         return st.error("Sorry, something wrong with our server. Please try again later.",icon = "❌")

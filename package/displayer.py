@@ -44,6 +44,11 @@ def display_question_insights(question_id):
 
         return
 
+def display_write_panel():
+    st.caption("Please write your answer here!")
+    reply_content = st.text_area("Start to write your reply.", key = "csq_reply")
+    st.write(f'{len(reply_content)} characters.')
+
 
 # def display_question_insights(question_id): # Display the latest question insights
 #     with st.container(border = True):
