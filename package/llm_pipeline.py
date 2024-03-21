@@ -37,8 +37,8 @@ def display_question_insights(question_id): # Display the latest question insigh
         if generate:
             response = generate_insights()
             pattern = r'^\{\s*"Question_Type": \[.+\],\s*"Question_Keywords": \[.+\],\s*"Question_ActionItems": \[.+\],\s*"Question_Insights": \[.+\]\}$'
-            st.write(re.match(pattern, response))
-            st.write(response.split("}")[0]+" \n}")
+            # st.write(re.match(pattern, response))
+            # st.write(response.split("}")[0]+" \n}")
             data = json.loads(response.split("}")[0]+" \n}")
             # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
             col3, col4 = st.columns([1,2])
