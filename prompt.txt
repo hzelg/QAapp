@@ -98,5 +98,3 @@ System Output:
     "Question_Insights": null,
 }
 
-
-User Input:
