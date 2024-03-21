@@ -321,6 +321,6 @@ def get_TA_lists(course_code, semester):
 
 def get_username(userid):
     conn = st.connection('gcs', type = FilesConnection)
-    existing_users = conn.read(f"qa_app/{st.session_state["course_code"]}/{st.session_state["semester"]}/Users.csv", input_format="csv")
+    existing_users = conn.read(f"qa_app/{st.session_state.course_code}/{st.session_state.semester}/Users.csv", input_format="csv")
     st.write(existing_users[existing_users["userid"] == userid]["username"].tolist()[0])
     return str(existing_users[existing_users["userid"] == userid]["username"].tolist()[0])
