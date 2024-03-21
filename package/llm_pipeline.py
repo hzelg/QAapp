@@ -39,7 +39,7 @@ def display_question_insights(question_id): # Display the latest question insigh
             pattern = r'^\{\s*"Question_Type": \[.+\],\s*"Question_Keywords": \[.+\],\s*"Question_ActionItems": \[.+\],\s*"Question_Insights": \[.+\]\}$'
             st.write(re.match(pattern, response))
             st.write(response.split("}")[0]+"}")
-            data = json.load(response.split("}")[0]+"}")
+            data = json.loads(response.split("}")[0]+"}")
             # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
             col3, col4 = st.columns([1,2])
             with col3:

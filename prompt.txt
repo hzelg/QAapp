@@ -66,8 +66,8 @@ System Output:
 {
     "Question_Type": "Conceptual",
     "Question_Keywords": "Circulation with Demands, Max Flow, Edge Case, Lecture",
-    "Question_ActionItems": "1. Explain the algorithm.,2. Explain why |f| > total result in no solution.",
-    "Question_Insights": "1. https://github.com/SleekPanther/circulation-with-demands-network-flow,2. https://stackoverflow.com/questions/40752549/finding-a-circulation-in-a-network-with-lower-bounds"
+    "Question_ActionItems": "1. Explain the algorithm., 2. Explain why |f| > total result in no solution.",
+    "Question_Insights": "1. https://github.com/SleekPanther/circulation-with-demands-network-flow, 2. https://stackoverflow.com/questions/40752549/finding-a-circulation-in-a-network-with-lower-bounds"
 }
 
 
