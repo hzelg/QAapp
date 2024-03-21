@@ -28,7 +28,7 @@ if not st.session_state.role:
         col1, col2 = st.columns([2, 3])
         with col1:
             st.subheader("Question")
-            displayer.display_question(st.session_state["course_info"], title, body, time)
+            displayer.display_question(st.session_state["course_info"], title, body, sender_id, time)
             lp.display_question_insights(current_selected_question_id)
         with col2:
             displayer.display_write_panel()
@@ -40,7 +40,7 @@ elif(st.session_state["role"]):
     st.write(" ")
 
     conn = st.connection('gcs', type = FilesConnection)
-    
+
     def save_draft():
         return
         # TODO
