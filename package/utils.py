@@ -4,22 +4,21 @@ import package.user_auth as ua
 import time
 import re
 import package.image_ocr as ocr
-import package.gcsManager as gm
+# import package.gcsManager as gm
 
-def question_item(title, body, course_code, sent_user, time):
-    with st.expander(label = f"{title}"):
-        st.write(f"{course_code} - Question from **{sent_user}** [{time}]")
-        st.caption("Title")
-        st.write(title)
-        st.caption("Body")
-        st.write(body)
+# def question_item(title, body, course_info, sent_user, time):
+#     with st.expander(label = f"{title}"):
+#         st.write(f"{course_info} - Question from **{sent_user}** [{time}]")
+#         st.caption("Title")
+#         st.write(title)
+#         st.caption("Body")
+#         st.write(body)
 
 
-def display_question(current_selected_question_id, course_code, course_info):
-    question_info = gm.get_a_question(current_selected_question_id, course_code)
-    question_item(question_info.title, question_info.body, course_info, question_info.sent_user, question_info.time)
+# def display_question(course_info, title, body, sender_id, time):
+#     sender_username = gm.get_username(sender_id)
+#     question_item(title, body, course_info, sender_username, time)
 
-# _postid, course_code, semester, role, username
 
 def display_question_insights():
     with st.container(border = True):
@@ -82,8 +81,3 @@ def format_question_input(question_course,question_title, question_body, uploade
         text = f"\"Question Course\": {question_course} \n \"Question Title\": {question_title} \n \"Question Body\": \n {question_body} \n \"Question Media OCR\": "+image_ocrs
     return text
 
-def get_role_name(role):
-    if role == True:
-        return "Student"
-    else:
-        return "TA"

@@ -8,6 +8,7 @@ import package.gcsManager as gm
 import package.utils as utils
 from streamlit_pagination import pagination_component
 from streamlit_extras.switch_page_button import switch_page
+import package.displayer as displayer
 
 st.set_page_config("My Questions", "💬", layout="wide")
 
@@ -58,8 +59,7 @@ category = pills(
 
 st.write(category)
 
-role_name = utils.get_role_name(st.session_state["role"])
-questions = gm.get_all_question(st.session_state["course_code"], st.session_state["semester"], role_name, st.session_state["userid"])
+questions = gm.get_all_question(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
 
 if category != None:
     filtered_questions = questions[questions["status"] == category]
@@ -71,7 +71,7 @@ if category != None:
             for i in range(0,len(filtered_questions)): # The number of loaded question, able to show multiple pages
                 _user_name = gm.get_username(str(filtered_questions.loc[i, 'sender_id']), st.session_state["course_code"], st.session_state["semester"])
                 with col1:
-                    utils.question_item(str(filtered_questions.loc[i, 'title']), str(filtered_questions.loc[i, 'body']), st.session_state["course_info"], _user_name, filtered_questions.loc[i, 'time'])
+                    displayer.question_item(str(filtered_questions.loc[i, 'title']), str(filtered_questions.loc[i, 'body']), st.session_state["course_info"], _user_name, filtered_questions.loc[i, 'time'])
                 with col2:
                     if questions.loc[i, 'status'] == "Received":
                         write_answer = st.button(label = "Answer")
@@ -87,12 +87,16 @@ else:
             _user_name = gm.get_username(str(questions.loc[i, 'sender_id']), st.session_state["course_code"], st.session_state["semester"])
             col1, col2 = st.columns([3,1])
             with col1:
-                utils.question_item(str(questions.loc[i, 'title']), str(questions.loc[i, 'body']), st.session_state["course_info"], _user_name, questions.loc[i, 'time'])
+                displayer.question_item(str(questions.loc[i, 'title']), str(questions.loc[i, 'body']), st.session_state["course_info"], _user_name, questions.loc[i, 'time'])
             with col2:
                 if questions.loc[i, 'status'] == "sent":
                     write_answer = st.button(label = "Answer")
                     if write_answer:
                         st.session_state["current_selected_question_id"] = questions.loc[i, 'postid']
+                        st.session_state["csq_title"] = questions.loc[i, 'title']
+                        st.session_state["csq_body"] = questions.loc[i, 'body']
+                        st.session_state["csq_time"] = questions.loc[i, 'time']
+                        st.session_state["csq_sender_id"] = questions.loc[i, 'sender_id']
                                                 # st.query_params["question_id"] = 
                         switch_page("Write")
                 st.button(label = "View")

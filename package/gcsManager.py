@@ -157,8 +157,8 @@ def get_all_question(course_code, semester, role_name, userid):
         return existing_questions
 
 
-def get_a_question(_postid, course_code, semester, role, username):
-    existing_questions = get_all_question(course_code, semester, role, username)
+def get_a_question(_postid, course_code, semester, role_name, userid):
+    existing_questions = get_all_question(course_code, semester, role_name, userid)
     data = existing_questions[existing_questions["postid"] == _postid].to_dict()
     if data["status"] != "deleted":
         return data
@@ -284,11 +284,23 @@ def post_ans_evaluation(response, _userid, _question_id, _answer_id, course_code
     except:
         return "Sorry, something wrong with our server. Please try again later."
 
-def get_one_que_insight(_question_id, course_code, semester, role, userid):
-    existing_insights = get_all_que_insight(course_code, semester, role, userid)
-    list_of_insights = existing_insights[existing_insights["question_id"] == _question_id].to_list()
+def get_latest_que_insight(_question_id):
+    existing_insights = get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
+    tmp = existing_insights[existing_insights["question_id"] == _question_id]
+    # output_id, question_id, generated_time, q_type, q_keywords, q_action_item, q_insights, status
+    if len(tmp) == 0: # no insights generated:
+        st.write("No insights available now.")
+    else:
+        st.write(tmp)
+        # list_types = tmp["q_type"].tolist()
+        # list_keywords = tmp["q_keywords"].tolist()
+        # list_action_item = tmp["q_action_item"].tolist()
+        # list_insights = tmp["q_insights"].tolist()
 
-    return list_of_insights
+    return tmp
+
+def get_a_que_insights():
+    return
 
 def get_an_ans_evaluation(_answer_id, course_code, semester, role, userid):
     existing_eval = get_all_answer_evaluation(course_code, semester, role, userid)

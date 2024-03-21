@@ -12,64 +12,35 @@ import os
 
 st.set_page_config("Write A Question", "💬", layout="wide")
 
-if not st.session_state.role: #Todo: change to TA
-#     st.set_page_config("Write A Question", "💬", layout="wide")
+if not st.session_state.role:
     
-
-
 ### TA Choose a Question To Answer
 
-    # select a question to reply
-
-    ## **************************************************
-    # if st.session_state.question_tr == "None":
-    #     st.header("Choose A Question To Reply")
-    #     st.write(" ")
-    #     st.write(" ")
-    #     st.write(" ")
-    #     col1, col2 = st.columns([5, 1])
-
-    #     with col1:
-    #         st.write(" ")
-    #         st.write(" ")
-    #         st.button(label = "Proceed", type = "primary")
-    #         for i in range(0,5): # The number of loaded question, able to show multiple pages
-    #             colx, coly = st.columns([8,1])
-    #             with colx:
-    #                 utils.question_item()
-    #             with coly:
-    #                 # st.button(label= "Select", key = f"Select Question {i}", type = "primary")
-    #                 st.checkbox(label = "question_tr", key = f"select question {i}", label_visibility= "hidden")
-    ## **************************************************
     if st.session_state["current_selected_question_id"] == "":
         st.write("Select a question in **Question History** to start")
     else:
-        # st.write(st.session_state["current_selected_question_id"])
         current_selected_question_id = st.session_state["current_selected_question_id"]
+        title = st.session_state["csq_title"]
+        body = st.session_state["csq_body"]
+        sender_id = st.session_state["csq_sender_id"]
+        time = st.session_state["csq_time"]
+
         col1, col2 = st.columns([2, 3])
         with col1:
             st.subheader("Question")
-            utils.display_question(current_selected_question_id, st.session_state["course_code"], st.session_state["course_info"])
+            displayer.display_question(st.session_state["course_info"], title, body, time)
             lp.display_question_insights(current_selected_question_id)
         with col2:
-            utils.display_write_panel()
+            displayer.display_write_panel()
 
 elif(st.session_state["role"]):
-    # st.write(st.session_state["course_info"])
     st.header("Submit A Question")
-    # col1, col2, col3 = st.columns([1, 5,3])
 
-    # with col2:
     st.write(" ")
     st.write(" ")
 
     conn = st.connection('gcs', type = FilesConnection)
-    # def generate_insights():
-    #     formatted_question = utils.format_question_input(st.session_state["course_info"], question_title, question_body, uploaded_image)
-    #     response = lp.submit_question(formatted_question)
-    #     displayer.display_question_insights(response)
-    #     st.session_state["regenerate_question"] = True
-
+    
     def save_draft():
         return
         # TODO
@@ -91,8 +62,7 @@ elif(st.session_state["role"]):
             save_draft = st.button(label = "Save Draft", type="primary")
 
         if send:
-            role_name = utils.get_role_name(st.session_state["role"])
-            gm.post_question(TAs[send_to], question_title, question_body, uploaded_image,  st.session_state["course_code"], st.session_state["semester"], role_name, st.session_state["userid"])
+            gm.post_question(TAs[send_to], question_title, question_body, uploaded_image,  st.session_state["course_code"], st.session_state["semester"], st.session_syate["role_name"], st.session_state["userid"])
 
             # post_question(receiver_id, title, body, media, course_code, semester, role, userid):
 

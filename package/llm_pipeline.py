@@ -1,6 +1,7 @@
 import streamlit as st
 import openai
 from openai import AzureOpenAI
+import package.gcsManager as gm
 
 try:
     client = AzureOpenAI(api_key=st.secrets["OPEN_AI_KEY"], api_version="2023-12-01-preview", azure_endpoint="https://hkust.azure-api.net")
@@ -15,9 +16,17 @@ except:
 def process_question_insights():
     return
 
-def display_question_insights():
+
+# def generate_insights():
+#     formatted_question = utils.format_question_input(st.session_state["course_info"], question_title, question_body, uploaded_image)
+#     response = lp.submit_question(formatted_question)
+#     displayer.display_question_insights(response)
+#     st.session_state["regenerate_question"] = True
+
+def display_question_insights(question_id): # Display the latest question insights
     with st.container(border = True):
         st.subheader("LLM Feedback")
+        gm.get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
 
 def submit_question(formatted_question):
     prev_prompt = ""
