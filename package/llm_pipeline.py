@@ -34,8 +34,11 @@ def display_question_insights(question_id): # Display the latest question insigh
         with col2:
             generate = st.button(label = "Generate Insight", type = "primary")
             if generate:
-                response = generate_insights()
-                st.write(response)
+                try:
+                    response = generate_insights()
+                    st.write(response)
+                except:
+                    st.error("Error generating response. Please try later!")
                 # gm.post_que_insight()
         # gm.get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
 
