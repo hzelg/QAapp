@@ -4,6 +4,7 @@ import package.user_auth as ua
 import time
 import re
 import package.image_ocr as ocr
+import package.gcsManager as gm
 
 def question_item(title, body, course_code, sent_user, time):
     with st.expander(label = f"{title}"):
@@ -14,14 +15,11 @@ def question_item(title, body, course_code, sent_user, time):
         st.write(body)
 
 
-def display_question():
-    with st.container(border = True):
-        st.write("Lecture 1")
-        st.write(str(date.today()))
-        st.caption("Selection Sort")
-        st.write("Question body")
-        display_question_insights()
+def display_question(current_selected_question_id, course_code, course_info):
+    question_info = gm.get_a_question(current_selected_question_id, course_code)
+    question_item(question_info.title, question_info.body, course_info, question_info.sent_user, question_info.time)
 
+# _postid, course_code, semester, role, username
 
 def display_question_insights():
     with st.container(border = True):

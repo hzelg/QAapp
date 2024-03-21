@@ -41,14 +41,18 @@ if not st.session_state.role: #Todo: change to TA
     #                 # st.button(label= "Select", key = f"Select Question {i}", type = "primary")
     #                 st.checkbox(label = "question_tr", key = f"select question {i}", label_visibility= "hidden")
     ## **************************************************
-    st.write(st.session_state["current_selected_question_id"])
-    col1, col2 = st.columns([2, 3])
-    with col1:
-        st.subheader("Question")
-        utils.display_question()
-    with col2:
-        utils.display_write_panel()
-        lp.display_question_insights()
+    if st.session_state["current_selected_question_id"] == "":
+        st.write("Select a question in **Question History** to start")
+    else:
+        # st.write(st.session_state["current_selected_question_id"])
+        current_selected_question_id = st.session_state["current_selected_question_id"]
+        col1, col2 = st.columns([2, 3])
+        with col1:
+            st.subheader("Question")
+            utils.display_question(current_selected_question_id, st.session_state["course_code"], st.session_state["course_info"])
+            lp.display_question_insights(current_selected_question_id)
+        with col2:
+            utils.display_write_panel()
 
 elif(st.session_state["role"]):
     # st.write(st.session_state["course_info"])
