@@ -36,7 +36,7 @@ def display_question_insights(question_id): # Display the latest question insigh
             generate = st.button(label = "Generate Insight", type = "primary")
         if generate:
             try:
-                response = ""
+                response = generate_insights()
                 pattern = r'^\{\s*"Question_Type": \[.+\],\s*"Question_Keywords": \[.+\],\s*"Question_ActionItems": \[.+\],\s*"Question_Insights": \[.+\]\}$'
                 st.write(re.match(pattern, response))
                 st.write(response)
