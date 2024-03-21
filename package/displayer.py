@@ -10,8 +10,8 @@ def question_item(title, body, course_info, sent_user, time, media):
         st.write(title)
         st.caption("Body")
         st.write(body)
-        st.write(media)
-        st.write(len(media))
+        st.write(media.tolist())
+        st.write(len(media.tolist()))
         if len(media) != 0:
             st.caption("Media")
             q_media = gm.get_media(media)
