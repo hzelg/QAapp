@@ -19,7 +19,7 @@ def display_question(course_info, title, body, sender_id, time):
 
 def display_question_insights(question_id):
     with st.container(border = True):
-        st.subheader("LLM Feedback")
+        st.subheader("LLM Feedback") 
 
         # display existing question insights: latest or no.
         output = gm.get_latest_ques_insight(question_id)

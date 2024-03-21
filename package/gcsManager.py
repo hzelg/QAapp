@@ -211,12 +211,12 @@ def post_a_reply(reply, media, receiver_id, question_id, course_code, semester, 
 
 def get_all_que_insight(course_code, semester, role, userid):
     conn = st.connection('gcs', type = FilesConnection)
-    existing_q_insights = conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Insights/{userid}_Question_Insights.csv", input_format="csv")
+    existing_q_insights = conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Question_Insights.csv", input_format="csv")
     return existing_q_insights
 
 def get_all_answer_evaluation(course_code, semester, role, userid):
     conn = st.connection('gcs', type = FilesConnection)
-    existing_a_evaluation= conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Insights/{userid}_Answer_Evaluation.csv", input_format="csv")
+    existing_a_evaluation= conn.read(f"qa_app/{course_code}/{semester}/{role}/{userid}_Answer_Evaluation.csv", input_format="csv")
     return existing_a_evaluation
 
 
@@ -244,7 +244,7 @@ def post_que_insight(response, _userid, _question_id, course_code, semester, rol
         )
         df_to_store.to_csv("local_new_insights.csv",index = False)
         abs_path = os.path.abspath("local_new_insights.csv")
-        upload_csv(abs_path, f"qa_app/{course_code}/{semester}/{role}/{_userid}_Insights/{_userid}_Question_Insights.csv")
+        upload_csv(abs_path, f"qa_app/{course_code}/{semester}/{role}/{_userid}_Question_Insights.csv")
 
         return "Insights saved successfully."
     
@@ -277,7 +277,7 @@ def post_ans_evaluation(response, _userid, _question_id, _answer_id, course_code
         )
         df_to_store.to_csv("local_new_eval.csv",index = False)
         abs_path = os.path.abspath("local_new_eval.csv")
-        upload_csv(abs_path, f"qa_app/{course_code}/{semester}/{role}/{_userid}_Insights/{_userid}_Answer_Evaluation.csv")
+        upload_csv(abs_path, f"qa_app/{course_code}/{semester}/{role}/{_userid}_Answer_Evaluation.csv")
 
         return "Evaluation saved successfully."
     
