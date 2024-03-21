@@ -35,42 +35,41 @@ def display_question_insights(question_id): # Display the latest question insigh
         with col2:
             generate = st.button(label = "Generate Insight", type = "primary")
         if generate:
+            response = generate_insights()
+            pattern = r'^\{\s*"Question_Type": \[.+\],\s*"Question_Keywords": \[.+\],\s*"Question_ActionItems": \[.+\],\s*"Question_Insights": \[.+\]\}$'
+            st.write(re.match(pattern, response))
+            st.write(response)
+            # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
+            col3, col4 = st.columns([1,2])
+            with col3:
+                st.caption("Question Type")
+            with col4:
+                st.write(response.Question_Type)
+            col5, col6 = st.columns([1,2])
+            with col5:
+                st.caption("Question Keywords")
+            with col6:
+                st.write(response.Question_Keywords)
+            col7, col8 = st.columns([1,2])
+            with col7:
+                st.caption("Question Action Items")
+            with col8:
+                items = json.loads(str(response.Question_ActionItems))
+                for i in items:
+                    cola, colb = st.columns([5,1])
+                    with cola:
+                        st.write(i)
+                    with colb:
+                        st.checkbox(label = i)
             try:
-                response = generate_insights()
-                pattern = r'^\{\s*"Question_Type": \[.+\],\s*"Question_Keywords": \[.+\],\s*"Question_ActionItems": \[.+\],\s*"Question_Insights": \[.+\]\}$'
-                st.write(re.match(pattern, response))
-                st.write(response)
-                # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
-                col3, col4 = st.columns([1,2])
-                with col3:
-                    st.caption("Question Type")
-                with col4:
-                    st.write(response.Question_Type)
-                col5, col6 = st.columns([1,2])
-                with col5:
-                    st.caption("Question Keywords")
-                with col6:
-                    st.write(response.Question_Keywords)
-                col7, col8 = st.columns([1,2])
-                with col7:
-                    st.caption("Question Action Items")
-                with col8:
-                    items = json.loads(str(response.Question_ActionItems))
-                    for i in items:
-                        cola, colb = st.columns([5,1])
-                        with cola:
-                            st.write(i)
-                        with colb:
-                            st.checkbox(label = i)
-                try:
-                    insights = response.Question_Insights
-                    st.caption("Question Insights")
-                    st.write(insights)
-                    st.write(" ")
-                except:
-                    st.write(" ")
+                insights = response.Question_Insights
+                st.caption("Question Insights")
+                st.write(insights)
+                st.write(" ")
             except:
-                st.error("Error generating response. Please try later!")
+                st.write(" ")
+            # except:
+            #     st.error("Error generating response. Please try later!")
             # gm.post_que_insight()
         # gm.get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
 
