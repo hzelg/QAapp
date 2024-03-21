@@ -10,6 +10,7 @@ def question_item(title, body, course_info, sent_user, time, media):
         st.write(title)
         st.caption("Body")
         st.write(body)
+        st.write(media)
         if media != "":
             st.caption("Media")
             q_media = gm.get_media(media)
