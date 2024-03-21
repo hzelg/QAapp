@@ -33,7 +33,6 @@ Follow the requirements below when summarizing:
 
 User Input:
 
-```
 
 "Question_Course": COMP3711 Design and Analysis of Algorithm
 
@@ -59,11 +58,10 @@ Algorithm:
 
 9
 
-```
+
 
 System Output: 
 
-```
 
 {
     "Question_Type": "Conceptual",
@@ -72,11 +70,9 @@ System Output:
     "Question_Insights": "1. https://github.com/SleekPanther/circulation-with-demands-network-flow,2. https://stackoverflow.com/questions/40752549/finding-a-circulation-in-a-network-with-lower-bounds"
 }
 
-```
 
-User Input
+User Input:
 
-```
 
 "Question_Course": COMP3711 Design and Analysis of Algorithm
 
@@ -90,11 +86,11 @@ For instance, if I somehow derive that my modified algorithm is actually (some p
 
 "Question_Media_OCR": N/A
 
-```
+
 
 System Output:
 
-```
+
 { 
     "Question_Type": "Assignment Requirement Clarification",
     "Question_Keywords": "HW2 Q3, Randomized Selection, Proof requirements",
@@ -102,6 +98,5 @@ System Output:
     "Question_Insights": null,
 }
 
-```
 
 Now a user give the question as follows. Please summarize as required and output in JSON format:
