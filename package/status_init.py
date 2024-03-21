@@ -39,7 +39,7 @@ def state_initializer():
     if "csq_sender_id" not in st.session_state:
         st.session_state["csq_sender_id"] = ""
     if "csq_media" not in st.session_state:
-        st.session_state["csq_media"] = ""
+        st.session_state["csq_media"] = "[]"
     if "csq_reply" not in st.session_state:
         st.session_state["csq_reply"] = ""
 

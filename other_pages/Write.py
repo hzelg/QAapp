@@ -67,9 +67,7 @@ elif(st.session_state["role"]):
             save_draft = st.button(label = "Save Draft", type="primary")
 
         if send:
-            st.write("Post question")
-            st.write(uploaded_image)
-            gm.post_question(TAs[send_to], question_title, question_body, uploaded_image,  st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
+            gm.post_question(TAs[send_to], question_title, question_body, uploaded_image, st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
 
             # post_question(receiver_id, title, body, media, course_code, semester, role, userid):
 

@@ -10,11 +10,13 @@ def question_item(title, body, course_info, sent_user, time, media):
         st.write(title)
         st.caption("Body")
         st.write(body)
-        st.write(media)
-        if len(media) != 0:
-            st.caption("Media")
-            q_media = gm.get_media(media)
-            st.image(q_media)
+        if media != "[]":
+            media_files = json.loads(media)
+            st.write(media_files)
+            for i in media_files:
+                st.caption("Media")
+                q_media = gm.get_media(i)
+                st.image(q_media)
 
 def display_question(course_info, title, body, sender_id, time, media):
     sender_username = gm.get_username(sender_id)

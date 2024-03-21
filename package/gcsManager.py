@@ -95,19 +95,37 @@ def post_question(receiver_id, title, body, media, course_code, semester, role_n
         existing_questions = conn.read(f"qa_app/{course_code}/{semester}/{role_name}/{userid}_Posts.csv", input_format="csv", ttl="600")
         df_len = len(existing_questions)
         question_id = f"q_{df_len+1}"
-        new_question_data = [
-            {
-                "postid": question_id,
-                "post_type": "q",
-                "sender_id": str(st.session_state.userid),
-                "receiver_id":str(receiver_id),
-                "time": datetime.now(),
-                "title": str(title),
-                "body": str(body),
-                "media": str(media),
-                "status": "sent",
-            }
-        ]
+        if len(media) != 0:
+            list_of_media = []
+            for i in range(0,len(media)):
+                list_of_media.append(f"{question_id}_{i}.jpg")
+            new_question_data = [
+                {
+                    "postid": question_id,
+                    "post_type": "q",
+                    "sender_id": str(st.session_state.userid),
+                    "receiver_id":str(receiver_id),
+                    "time": datetime.now(),
+                    "title": str(title),
+                    "body": str(body),
+                    "media": str(list_of_media),
+                    "status": "sent",
+                }
+            ]
+        else:
+            new_question_data = [
+                {
+                    "postid": question_id,
+                    "post_type": "q",
+                    "sender_id": str(st.session_state.userid),
+                    "receiver_id":str(receiver_id),
+                    "time": datetime.now(),
+                    "title": str(title),
+                    "body": str(body),
+                    "media": "[]",
+                    "status": "sent",
+                }
+            ]
         new_question_info = pd.DataFrame(new_question_data)
         df_to_store = pd.concat(
             [existing_questions, new_question_info], ignore_index=True
@@ -115,26 +133,47 @@ def post_question(receiver_id, title, body, media, course_code, semester, role_n
         df_to_store.to_csv("local_new_questions.csv",index = False)
         abs_path = os.path.abspath("local_new_questions.csv")
         upload_csv(abs_path, f"{course_code}/{semester}/{role_name}/{userid}_Posts.csv")
-        media_abs_path = os.path.abspath(media)
-        upload_csv(media_abs_path, f"{course_code}/{semester}/{role_name}/{userid}_media/{question_id}.jpg") # only one media file is allowed for now.
-
+        if len(media) != 0:
+            for i in range(0,len(media)):
+                media_abs_path = os.path.abspath(media[i])
+                upload_csv(media_abs_path, f"{course_code}/{semester}/{role_name}/{userid}_media/{question_id}_{i}.jpg") # only one media file is allowed for now.
 
         # Update to corresponding TA's Posts
         existing_questions_2 = conn.read(f"qa_app/{course_code}/{semester}/TA/{receiver_id}_Posts.csv", input_format="csv", ttl="600")
-        new_question_data_2 = [
-            {
-                "postid": question_id,
-                "post_type": "q",
-                "sender_id": str(st.session_state.userid),
-                "receiver_id":str(receiver_id),
-                "time": datetime.now(),
-                "question_id": "",
-                "title": str(title),
-                "body": str(body),
-                "media": f"{question_id}.jpg",
-                "status": "sent",
-            }
-        ]
+        if len(media) != 0:
+            list_of_media = []
+            for i in range(0,len(media)):
+                list_of_media.append(f"{question_id}_{i}.jpg")
+            
+            new_question_data_2 = [
+                {
+                    "postid": question_id,
+                    "post_type": "q",
+                    "sender_id": str(st.session_state.userid),
+                    "receiver_id":str(receiver_id),
+                    "time": datetime.now(),
+                    "question_id": "",
+                    "title": str(title),
+                    "body": str(body),
+                    "media": str(list_of_media),
+                    "status": "sent",
+                }
+            ]
+        else:
+            new_question_data_2 = [
+                {
+                    "postid": question_id,
+                    "post_type": "q",
+                    "sender_id": str(st.session_state.userid),
+                    "receiver_id":str(receiver_id),
+                    "time": datetime.now(),
+                    "question_id": "",
+                    "title": str(title),
+                    "body": str(body),
+                    "media": "[]",
+                    "status": "sent",
+                }
+            ]
         new_question_info_2 = pd.DataFrame(new_question_data_2)
         df_to_store_2 = pd.concat(
             [existing_questions_2, new_question_info_2], ignore_index=True
