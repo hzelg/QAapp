@@ -88,4 +88,4 @@ def submit_question(formatted_question):
         frequency_penalty=0.0,
         presence_penalty=0.0)
 
-    return json.loads(response.choices[0].text)
+    return response.choices[0].text
