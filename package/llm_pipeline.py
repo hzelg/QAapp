@@ -57,14 +57,14 @@ def display_question_insights(question_id): # Display the latest question insigh
                 items = str(data["Question_ActionItems"]).split("|")
                 for i in items:
                     st.write(i)
-                    
-                try:
-                    insights = data["Question_Insights"]
-                    st.caption("Question Insights")
-                    st.write(insights)
-                    st.write(" ")
-                except:
-                    st.write(" ")
+
+            try:
+                insights = data["Question_Insights"]
+                st.caption("Question Insights")
+                st.write(insights)
+                st.write(" ")
+            except:
+                st.write(" ")
                 # except:
         else:
             st.write("")

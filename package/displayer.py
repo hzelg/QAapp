@@ -54,8 +54,8 @@ def display_question_insights(question_id):
 def display_write_panel():
     st.subheader("Your Reply")
     st.caption("Please write your answer here!")
-    reply_content = st_keyup("Enter a value", key="0")
-    # reply_content = st.text_area("Start to write your reply.", key = "csq_reply")
+    # reply_content = st_keyup("Enter a value", key="0")
+    reply_content = st.text_area("Start to write your reply.", key = "csq_reply")
     st.write(f'{len(reply_content)} characters.')
 # def display_question_insights(question_id): # Display the latest question insights
 #     with st.container(border = True):
