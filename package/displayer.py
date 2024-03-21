@@ -1,7 +1,7 @@
 import streamlit as st
 import json
 import package.gcsManager as gm
-import llm_pipeline as lp
+import package.llm_pipeline as lp
 
 def question_item(title, body, course_info, sent_user, time):
     with st.expander(label = f"{title}"):
