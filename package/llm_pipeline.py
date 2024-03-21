@@ -84,9 +84,9 @@ def submit_question(formatted_question):
         prompt= prev_prompt + "\n \"\"\" " + formatted_question + " \"\"\" ",
         temperature=0,
         top_p=0.2,
-        max_tokens= 200,
+        max_tokens= 150,
         best_of=2,
         frequency_penalty=0.0,
         presence_penalty=0.0)
 
-    return response.choices[0].text
+    return json.loads(response.choices[0].text)
