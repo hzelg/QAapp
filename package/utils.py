@@ -72,5 +72,13 @@ def format_question_input(question_course,question_title, question_body, image_o
     text = f"\"Question Course\": {question_course} \n \"Question Title\": {question_title} \n \"Question Body\": \n {question_body} \n \"Question Media OCR\": {image_ocr} \n\n System Output: \n"
     return text
 
-
-
+def clear_csq():
+    st.session_state["current_selected_question_id"] = ""
+    st.session_state["current_selected_question_id"] = ""
+    st.session_state["csq_title"] = ""
+    st.session_state["csq_body"] = ""
+    st.session_state["csq_time"] = ""
+    st.session_state["csq_sender_id"] = ""
+    st.session_state["csq_media"] = "[]"
+    st.session_state["csq_reply"] = ""
+    st.session_state["csq_insights"] = ""

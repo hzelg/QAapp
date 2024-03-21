@@ -40,6 +40,7 @@ if not st.session_state.role:
                 reply_draft = st.button(label = "Save As Draft")
             if reply_submit:
                 gm.post_a_reply(st.session_state["csq_reply"])
+                utils.clear_csq()
 
 elif(st.session_state["role"]):
     st.header("Submit A Question")
