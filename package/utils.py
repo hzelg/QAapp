@@ -3,7 +3,6 @@ from datetime import date
 import package.user_auth as ua
 import time
 import re
-import package.image_ocr as ocr
 # import package.gcsManager as gm
 
 # def question_item(title, body, course_info, sent_user, time):
