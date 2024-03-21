@@ -24,11 +24,12 @@ if not st.session_state.role:
         body = st.session_state["csq_body"]
         sender_id = st.session_state["csq_sender_id"]
         time = st.session_state["csq_time"]
+        media = st.session_state["csq_media"]
 
         col1, col2 = st.columns([2, 3])
         with col1:
             st.subheader("Question")
-            displayer.display_question(st.session_state["course_info"], title, body, sender_id, time)
+            displayer.display_question(st.session_state["course_info"], title, body, sender_id, time, media)
             lp.display_question_insights(current_selected_question_id)
         with col2:
             displayer.display_write_panel()

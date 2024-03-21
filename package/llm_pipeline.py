@@ -2,6 +2,7 @@ import streamlit as st
 import openai
 from openai import AzureOpenAI
 import package.gcsManager as gm
+from package.utils import *
 
 try:
     client = AzureOpenAI(api_key=st.secrets["OPEN_AI_KEY"], api_version="2023-12-01-preview", azure_endpoint="https://hkust.azure-api.net")
@@ -16,16 +17,25 @@ except:
 def process_question_insights():
     return
 
-
-# def generate_insights():
-#     formatted_question = utils.format_question_input(st.session_state["course_info"], question_title, question_body, uploaded_image)
-#     response = lp.submit_question(formatted_question)
-#     displayer.display_question_insights(response)
-#     st.session_state["regenerate_question"] = True
+def generate_insights():
+    if st.session_state["csq_media"] == "":
+        image_ocr = "N/A"
+    else:
+        image_ocr = gm.get_image_ocr(st.session_state["csq_media"])
+    formatted_question = format_question_input(st.session_state["course_info"], st.session_state["csq_title"], st.session_state["csq_body"], image_ocr)
+    response = submit_question(formatted_question)
+    return response
 
 def display_question_insights(question_id): # Display the latest question insights
     with st.container(border = True):
-        st.subheader("LLM Feedback")
+        col1, col2 = st.columns([3,1])
+        with col1:
+            st.subheader("LLM Feedback")
+        with col2:
+            generate = st.button(label = "Generate Insight", type = "primary")
+            if generate:
+                generate_insights()
+
         gm.get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
 
 def submit_question(formatted_question):

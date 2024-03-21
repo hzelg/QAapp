@@ -3,18 +3,21 @@ import json
 import package.gcsManager as gm
 import package.llm_pipeline as lp
 
-def question_item(title, body, course_info, sent_user, time):
+def question_item(title, body, course_info, sent_user, time, media):
     with st.expander(label = f"{title}"):
         st.write(f"{course_info} - Question from **{sent_user}** [{time}]")
         st.caption("Title")
         st.write(title)
         st.caption("Body")
         st.write(body)
+        if media != "":
+            st.caption("Media")
+            q_media = gm.get_media(media)
+            st.image(q_media)
 
-
-def display_question(course_info, title, body, sender_id, time):
+def display_question(course_info, title, body, sender_id, time, media):
     sender_username = gm.get_username(sender_id)
-    question_item(title, body, course_info, sender_username, time)
+    question_item(title, body, course_info, sender_username, time, media)
 
 
 def display_question_insights(question_id):
@@ -45,10 +48,10 @@ def display_question_insights(question_id):
         return
 
 def display_write_panel():
+    st.subheader("Your Reply")
     st.caption("Please write your answer here!")
     reply_content = st.text_area("Start to write your reply.", key = "csq_reply")
     st.write(f'{len(reply_content)} characters.')
-
 
 # def display_question_insights(question_id): # Display the latest question insights
 #     with st.container(border = True):

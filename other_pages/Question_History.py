@@ -96,6 +96,7 @@ else:
                         st.session_state["csq_title"] = questions.loc[i, 'title']
                         st.session_state["csq_body"] = questions.loc[i, 'body']
                         st.session_state["csq_time"] = questions.loc[i, 'time']
+                        st.session_state["csq_media"] = questions.loc[i, 'media']
                         st.session_state["csq_sender_id"] = questions.loc[i, 'sender_id']
                                                 # st.query_params["question_id"] = 
                         switch_page("Write")

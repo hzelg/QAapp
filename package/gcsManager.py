@@ -5,6 +5,7 @@ from st_files_connection import FilesConnection
 import pandas as pd
 import os
 from datetime import datetime
+import requests
 
 
 def upload_csv(local_file_name, destination_blob_name):
@@ -114,6 +115,8 @@ def post_question(receiver_id, title, body, media, course_code, semester, role_n
         df_to_store.to_csv("local_new_questions.csv",index = False)
         abs_path = os.path.abspath("local_new_questions.csv")
         upload_csv(abs_path, f"{course_code}/{semester}/{role_name}/{userid}_Posts.csv")
+        media_abs_path = os.path.abspath(media)
+        upload_csv(media_abs_path, f"{course_code}/{semester}/{role_name}/{userid}_media/{question_id}.jpg") # only one media file is allowed for now.
 
 
         # Update to corresponding TA's Posts
@@ -128,7 +131,7 @@ def post_question(receiver_id, title, body, media, course_code, semester, role_n
                 "question_id": "",
                 "title": str(title),
                 "body": str(body),
-                "media": str(media),
+                "media": f"{question_id}.jpg",
                 "status": "sent",
             }
         ]
@@ -204,7 +207,7 @@ def post_a_reply(reply, media):
         upload_csv(abs_path, f"{st.session_state.course_code}/{st.session_state.semester}/{st.session_state.role_name}/{st.session_state.userid}_Posts.csv")
 
         # Should update student's side, but not for this demo.
-        
+
         return st.success("Reply submitted successfully!",icon = "✅")
     
     except:
@@ -326,3 +329,27 @@ def get_username(userid):
     existing_users = conn.read(f"qa_app/{st.session_state.course_code}/{st.session_state.semester}/Users.csv", input_format="csv")
     st.write(existing_users[existing_users["userid"] == userid]["username"].tolist()[0])
     return str(existing_users[existing_users["userid"] == userid]["username"].tolist()[0])
+
+def get_media(media_name):
+    conn = st.connection('gcs', type = FilesConnection)
+    img = conn.read(f"qa_app/{st.session_state.course_code}/{st.session_state.semester}/Student/{st.session_state.csq_sender_id}/{media_name}")
+    return img
+
+def get_img_ocr(media_name):
+    image = get_media(media_name)
+
+    r = requests.post("https://api.mathpix.com/v3/text",   
+        files={"file": open(image,"rb")},
+        data={
+            "options_json": json.dumps({
+                "math_inline_delimiters": ["$", "$"],
+                "rm_spaces": True
+            })
+        },
+        headers={
+            "app_id": st.secrets["APP_ID"],
+            "app_key": st.secrets["APP_KEY"]
+        }
+    )
+
+    return (json.dumps(r.json(), indent=4, sort_keys=True)).text
