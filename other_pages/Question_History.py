@@ -71,7 +71,7 @@ if category != None:
             for i in range(0,len(filtered_questions)): # The number of loaded question, able to show multiple pages
                 _user_name = gm.get_username(str(filtered_questions.loc[i, 'sender_id']))
                 with col1:
-                    displayer.question_item(str(filtered_questions.loc[i, 'title']), str(filtered_questions.loc[i, 'body']), st.session_state["course_info"], _user_name, filtered_questions.loc[i, 'time'])
+                    displayer.question_item(str(filtered_questions.loc[i, 'title']), str(filtered_questions.loc[i, 'body']), st.session_state["course_info"], _user_name, filtered_questions.loc[i, 'time'], filtered_questions.loc[i, 'media'])
                 with col2:
                     if questions.loc[i, 'status'] == "Received":
                         write_answer = st.button(label = "Answer")
@@ -87,7 +87,7 @@ else:
             _user_name = gm.get_username(str(questions.loc[i, 'sender_id']))
             col1, col2 = st.columns([3,1])
             with col1:
-                displayer.question_item(str(questions.loc[i, 'title']), str(questions.loc[i, 'body']), st.session_state["course_info"], _user_name, questions.loc[i, 'time'])
+                displayer.question_item(str(questions.loc[i, 'title']), str(questions.loc[i, 'body']), st.session_state["course_info"], _user_name, questions.loc[i, 'time'], questions.loc[i, 'media'])
             with col2:
                 if questions.loc[i, 'status'] == "sent":
                     write_answer = st.button(label = "Answer")
