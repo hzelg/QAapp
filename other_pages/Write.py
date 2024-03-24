@@ -38,6 +38,8 @@ if not st.session_state.role:
                 reply_submit = st.button(label = "Submit")
             with col4:
                 reply_draft = st.button(label = "Save As Draft")
+                if st.session_state["csq_type"] == "Conceptual":
+                    displayer.reply_improvement_panel()
             if reply_submit:
                 gm.post_a_reply(st.session_state["csq_reply"])
                 utils.clear_csq()

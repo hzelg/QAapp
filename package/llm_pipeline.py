@@ -45,6 +45,7 @@ def display_question_insights(question_id): # Display the latest question insigh
                 st.caption("Question Type")
             with col4:
                 st.write(data["Question_Type"])
+                st.session_state["csq_type"] = data["Question_Type"]
             col5, col6 = st.columns([1,2])
             with col5:
                 st.caption("Question Keywords")
@@ -80,6 +81,26 @@ def submit_question(formatted_question):
     # st.write(prev_prompt + formatted_question)
     response = client.completions.create(model = "gpt-35-turbo",
         prompt= prev_prompt + "\n \"\"\" " + formatted_question + " \"\"\" ",
+        temperature=0.8,
+        top_p=0.2,
+        max_tokens= 150,
+        best_of=2,
+        frequency_penalty=0.0,
+        presence_penalty=0.0)
+
+    return response.choices[0].text
+
+def generate_feedbacks(question_course, question_title, question_body, reply):
+    prev_prompt = ""
+    with open("reply_prompt.txt", "r") as file:
+        prompt = file.read()
+        prompt = prompt.replace('{quesion_course}', question_course)
+        prompt = prompt.replace('{question_title}', question_title)
+        prompt = prompt.replace('{question_body}', question_body)
+        prompt = prompt.replace('{reply}', reply)
+    # st.write(prev_prompt + formatted_question)
+    response = client.completions.create(model = "gpt-35-turbo",
+        prompt= prompt
         temperature=0.8,
         top_p=0.2,
         max_tokens= 150,

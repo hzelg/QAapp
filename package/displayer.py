@@ -61,3 +61,39 @@ def display_write_panel():
 #     with st.container(border = True):
 #         st.subheader("LLM Feedback")
 #         gm.get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
+
+def display_reply_feedbacks(output):
+    # task_fulfillment = output["Task_Fulfillment"]["Rating"]
+    # tf_feedback = output["Task_Fulfillment"]["Feedback"]
+    # clarity = output["Clarity"]["Rating"]
+    # cl_feedback = output["Clarity"]["Feedback"]
+    # politeness = output["Politeness_Friendliness"]["Rating"]
+    # politeness_feedback = output["Politeness_Friendliness"]["Feedback"]
+    # pedagogy_feedback = output["Pedagogy"]["Feedback"]
+
+    col1, col2, col3, col4 = st.columns([1,1,1,1])
+    with col1:
+        st.caption("Task Fulfillment")
+    with col2:
+        st.caption("Clarity")
+    with col3:
+        st.caption("Politeness & Friendliness")
+    with col4:
+        st.caption("Pedagogy")
+
+
+def reply_improvement_panel():
+    question_title = st.session_state["csq_title"]
+    question_body = st.session_state["csq_body"]
+    question_media = st.session_state["csq_media"]
+    reply = st.session_state["csq_reply"]
+
+    with st.container(border = True):
+        get_feedbacks = st.button(label = "Get Feedbacks!")
+        if get_feedbacks:
+            # feedbacks = lp.generate_feedbacks(question_title, question_body, question_media, reply)
+            feedback = ""
+            display_reply_feedbacks(feedback)
+
+    
+    
