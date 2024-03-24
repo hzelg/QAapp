@@ -100,7 +100,7 @@ def generate_feedbacks(question_course, question_title, question_body, reply):
         prompt = prompt.replace('{reply}', reply)
     # st.write(prev_prompt + formatted_question)
     response = client.completions.create(model = "gpt-35-turbo",
-        prompt= prompt
+        prompt= prompt,
         temperature=0.8,
         top_p=0.2,
         max_tokens= 150,
