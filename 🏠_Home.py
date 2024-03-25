@@ -59,6 +59,8 @@ with st.sidebar:
         st.session_state["userid"] = "TA_1"
     utils.display_user_info()
 
-st.subheader("Notifications")
+# st.subheader("Notifications")
+st.subheader("Welcome to MUTutor!")
+st.caption("Get started with the sidebar.")
 
 col1, col2 = st.columns([7,5])
