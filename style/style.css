@@ -1,0 +1,86 @@
+.highlight {
+    border-radius: 0.25rem;
+    color: white;
+    padding: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .bold {
+    padding-left: 0.5rem;
+    font-weight: 700;
+  }
+  
+  .lightgrey {
+    background-color: lightgrey;
+  }
+  
+  .lavender{
+      background-color: lavender;
+  }
+  
+  .lemonchiffon{
+      background-color: LemonChiffon;
+  }
+  
+  .lightyellow{
+  background-color: lightyellow;
+  }
+  
+  .papayawhip{
+      background-color: PapayaWhip;
+  }
+  
+  .gainsboro{
+      background-color: gainsboro;
+  }
+  
+  .lightblue{
+      background-color: lightblue;
+  }
+  
+  .seagreen{
+      background-color: seagreen;
+  }
+  
+  .teal{
+      background-color: teal;
+  }
+  
+  .darkslateblue{
+      background-color:DarkSlateBlue;
+  }
+  
+  .slateblue{
+      background-color: slateblue;
+  }
+  
+  .darkcyan{
+      background-color: darkcyan;
+  }
+  
+  .lightcyan{
+      background-color: lightcyan;
+  }
+  
+  .paleturquoise{
+      background-color: PaleTurquoise;
+  }
+  
+  .cadetblue{
+      background-color: CadetBlue;
+  }
+
+  .myblue{
+    background-color: #7D8CA3;
+  }
+
+  .mygreen{
+    background-color: #93c47d;
+  }
+
+  .myyellow{
+    background-color: #ffd966;
+  }
+
+  .mypurple{
+    background-color: #8e7cc3;
+  }

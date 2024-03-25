@@ -74,17 +74,22 @@ def display_reply_feedbacks(feedbacks):
     col1, col2, col3, col4 = st.columns([1,1,1,1])
     with col1:
         st.caption("Task Fulfillment")
-        st.write(task_fulfillment)
+        feedback = f"<div> <span class='highlight myblue'>@{task_fulfillment}</span><br/>"
+        st.markdown(feedback, unsafe_allow_html=True)
         st.write(tf_feedback)
 
     with col2:
         st.caption("Clarity")
-        st.write(clarity)
+        feedback = f"<div> <span class='highlight mygreen'>@{clarity}</span><br/>"
+        st.markdown(feedback, unsafe_allow_html=True)
+        # st.write(clarity)
         st.write(cl_feedback)
 
     with col3:
         st.caption("Politeness & Friendliness")
-        st.write(politeness)
+        feedback = f"<div> <span class='highlight myyellow'>@{politeness}</span><br/>"
+        st.markdown(feedback, unsafe_allow_html=True)
+        # st.write(politeness)
         st.write(politeness_feedback)
 
     with col4:
