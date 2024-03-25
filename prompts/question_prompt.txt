@@ -13,6 +13,7 @@ Your task is to summarize the question as follows:
 - Question_Type (what type is the question)
 - Question_Keywords (what is the question is about)
 - Question_Action items (what needs to be done)
+- Question_Highlights (part of the original text which directly asks the question)
 ```
 
 If the question type is “Conceptual”, continue to summarize the follow item:
@@ -69,6 +70,7 @@ System Output:
     "Question_Keywords": "Circulation with Demands, Max Flow, Edge Case, Lecture",
     "Question_ActionItems": "1. Explain the algorithm. | 2. Explain why |f| > total result in no solution.",
     "Question_Insights": "1. https://github.com/SleekPanther/circulation-with-demands-network-flow | 2. https://stackoverflow.com/questions/40752549/finding-a-circulation-in-a-network-with-lower-bounds"
+    "Question_Highlights": "if max flow |f| > total demand why the problem has no solution"
 }
 
 
@@ -97,5 +99,6 @@ System Output:
     "Question_Keywords": "HW2 Q3, Randomized Selection, Proof requirements",
     "Question_ActionItems": "1. Clarify the proof requirement. | 2. Explain other requirements.",
     "Question_Insights": "",
+    "Question_Highlights": "use the proof we used to prove randomized selection in class",
 }
 

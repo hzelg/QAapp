@@ -90,9 +90,8 @@ def submit_question(formatted_question):
 
     return response.choices[0].text
 
-def generate_feedbacks(question_course, question_title, question_body, reply):
-    prev_prompt = ""
-    with open("reply_prompt.txt", "r") as file:
+def get_feedback_task_fulfillment(question_course, question_title, question_body, reply):
+    with open("./prompts/task_fulfillment_prompt.txt", "r") as file:
         prompt = file.read()
         prompt = prompt.replace('{quesion_course}', question_course)
         prompt = prompt.replace('{question_title}', question_title)
@@ -109,3 +108,93 @@ def generate_feedbacks(question_course, question_title, question_body, reply):
         presence_penalty=0.0)
 
     return response.choices[0].text
+
+def get_feedback_clarity(question_course, question_title, question_body, reply):
+    with open("./prompts/clarity_prompt.txt", "r") as file:
+        prompt = file.read()
+        prompt = prompt.replace('{quesion_course}', question_course)
+        prompt = prompt.replace('{question_title}', question_title)
+        prompt = prompt.replace('{question_body}', question_body)
+        prompt = prompt.replace('{reply}', reply)
+    # st.write(prev_prompt + formatted_question)
+    response = client.completions.create(model = "gpt-35-turbo",
+        prompt= prompt,
+        temperature=0.8,
+        top_p=0.2,
+        max_tokens= 150,
+        best_of=2,
+        frequency_penalty=0.0,
+        presence_penalty=0.0)
+    
+    return response.choices[0].text
+
+def get_feedback_politenes(question_course, question_title, question_body, reply):
+    with open("./prompts/polite_friendly_prompt.txt", "r") as file:
+        prompt = file.read()
+        prompt = prompt.replace('{quesion_course}', question_course)
+        prompt = prompt.replace('{question_title}', question_title)
+        prompt = prompt.replace('{question_body}', question_body)
+        prompt = prompt.replace('{reply}', reply)
+    # st.write(prev_prompt + formatted_question)
+    response = client.completions.create(model = "gpt-35-turbo",
+        prompt= prompt,
+        temperature=0.8,
+        top_p=0.2,
+        max_tokens= 150,
+        best_of=2,
+        frequency_penalty=0.0,
+        presence_penalty=0.0)
+    
+    return response.choices[0].text
+
+def get_feedback_pedagogy(question_course, question_title, question_body, reply):
+    with open("./prompts/pedagogy_prompt.txt", "r") as file:
+        prompt = file.read()
+        prompt = prompt.replace('{quesion_course}', question_course)
+        prompt = prompt.replace('{question_title}', question_title)
+        prompt = prompt.replace('{question_body}', question_body)
+        prompt = prompt.replace('{reply}', reply)
+    # st.write(prev_prompt + formatted_question)
+    response = client.completions.create(model = "gpt-35-turbo",
+        prompt= prompt,
+        temperature=0.8,
+        top_p=0.2,
+        max_tokens= 150,
+        best_of=2,
+        frequency_penalty=0.0,
+        presence_penalty=0.0)
+    
+    return response.choices[0].text
+
+
+def generate_feedbacks(question_course, question_title, question_body, reply):
+    response_1 = get_feedback_task_fulfillment(question_course, question_title, question_body, reply)
+    response_2 = get_feedback_clarity(question_course, question_title, question_body, reply)
+    response_3 = get_feedback_politenes(question_course, question_title, question_body, reply)
+    response_4 = get_feedback_pedagogy(question_course, question_title, question_body, reply)
+    
+    st.write(response_1)
+    st.write(response_2)
+    st.write(response_3)
+    st.write(response_4)
+
+    return [response_1, response_2, response_3, response_4]
+
+    # prev_prompt = ""
+    # with open("reply_prompt.txt", "r") as file:
+    #     prompt = file.read()
+    #     prompt = prompt.replace('{quesion_course}', question_course)
+    #     prompt = prompt.replace('{question_title}', question_title)
+    #     prompt = prompt.replace('{question_body}', question_body)
+    #     prompt = prompt.replace('{reply}', reply)
+    # # st.write(prev_prompt + formatted_question)
+    # response = client.completions.create(model = "gpt-35-turbo",
+    #     prompt= prompt,
+    #     temperature=0.8,
+    #     top_p=0.2,
+    #     max_tokens= 150,
+    #     best_of=2,
+    #     frequency_penalty=0.0,
+    #     presence_penalty=0.0)
+
+    # return response.choices[0].text

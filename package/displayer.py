@@ -30,8 +30,7 @@ def display_question_insights(question_id):
 
         # display existing question insights: latest or no.
         output = gm.get_latest_ques_insight(question_id)
-        others = gm.get_a_que_insight(question_id)
-                # paginator for existing question insights.
+        # others = gm.get_a_que_insight(question_id)
 
         generate = st.button(label = "Generate question insights")
         if generate:
@@ -54,33 +53,44 @@ def display_question_insights(question_id):
 def display_write_panel():
     st.subheader("Your Reply")
     st.caption("Please write your answer here!")
-    # reply_content = st_keyup("Enter a value", key="0")
     reply_content = st.text_area("Start to write your reply.", key = "csq_reply")
     st.write(f'{len(reply_content)} characters.')
+
 # def display_question_insights(question_id): # Display the latest question insights
 #     with st.container(border = True):
 #         st.subheader("LLM Feedback")
 #         gm.get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
 
-def display_reply_feedbacks(output):
-    # task_fulfillment = output["Task_Fulfillment"]["Rating"]
-    # tf_feedback = output["Task_Fulfillment"]["Feedback"]
-    # clarity = output["Clarity"]["Rating"]
-    # cl_feedback = output["Clarity"]["Feedback"]
-    # politeness = output["Politeness_Friendliness"]["Rating"]
-    # politeness_feedback = output["Politeness_Friendliness"]["Feedback"]
-    # pedagogy_feedback = output["Pedagogy"]["Feedback"]
+def display_reply_feedbacks(feedbacks):
+    task_fulfillment = feedbacks[0]["Rating"]
+    tf_feedback = feedbacks[0]["Feedback"]
+    clarity = feedbacks[1]["Rating"]
+    cl_feedback = feedbacks[1]["Feedback"]
+    politeness = feedbacks[2]["Rating"]
+    politeness_feedback = feedbacks[2]["Feedback"]
+    pedagogy_feedback = feedbacks[3]["Suggested"]
+    pedagogy_example = feedbacks[3]["Example"]
 
     col1, col2, col3, col4 = st.columns([1,1,1,1])
     with col1:
         st.caption("Task Fulfillment")
+        st.write(task_fulfillment)
+        st.write(tf_feedback)
+
     with col2:
         st.caption("Clarity")
+        st.write(clarity)
+        st.write(cl_feedback)
+
     with col3:
         st.caption("Politeness & Friendliness")
+        st.write(politeness)
+        st.write(politeness_feedback)
+
     with col4:
         st.caption("Pedagogy")
-
+        st.write(pedagogy_feedback)
+        st.write(pedagogy_example)
 
 def reply_improvement_panel():
     question_title = st.session_state["csq_title"]
@@ -89,11 +99,10 @@ def reply_improvement_panel():
     reply = st.session_state["csq_reply"]
 
     with st.container(border = True):
-        get_feedbacks = st.button(label = "Get Feedbacks!")
+        get_feedbacks = st.button(label = "Get Feedbacks!", type = "primary")
         if get_feedbacks:
-            # feedbacks = lp.generate_feedbacks(question_title, question_body, question_media, reply)
-            feedback = ""
-            display_reply_feedbacks(feedback)
+            feedbacks = lp.generate_feedbacks(question_title, question_body, question_media, reply)
+            display_reply_feedbacks(feedbacks)
 
     
     

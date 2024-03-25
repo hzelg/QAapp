@@ -13,8 +13,6 @@ import os
 st.set_page_config("Write A Question", "💬", layout="wide")
 
 if not st.session_state.role:
-    
-### TA Choose a Question To Answer
 
     if st.session_state["current_selected_question_id"] == "":
         st.write("Select a question in **Question History** to start")
@@ -26,14 +24,14 @@ if not st.session_state.role:
         time = st.session_state["csq_time"]
         media = st.session_state["csq_media"]
 
-        col1, col2 = st.columns([2, 3])
+        col1, col2 = st.columns([1, 1])
         with col1:
             st.subheader("Question")
             displayer.display_question(st.session_state["course_info"], title, body, sender_id, time, media)
             lp.display_question_insights(current_selected_question_id)
         with col2:
             displayer.display_write_panel()
-            col3, col4 = st.columns([1,1])
+            col3, col4, col5 = st.columns([1,1,2])
             with col3:
                 reply_submit = st.button(label = "Submit")
             with col4:
