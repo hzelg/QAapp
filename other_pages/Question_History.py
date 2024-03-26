@@ -82,7 +82,7 @@ if category != None:
                 st.write(" ")
 else:
     with st.container(border = True):
-        st.write(" ")
+        st.write(questions)
         for i in range(0,len(questions)): # The number of loaded question, able to show multiple pages
             st.write(str(questions.loc[i, 'sender_id']))
             _user_name = gm.get_username(str(questions.loc[i, 'sender_id']))
