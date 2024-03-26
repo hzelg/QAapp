@@ -84,6 +84,7 @@ else:
     with st.container(border = True):
         st.write(" ")
         for i in range(0,len(questions)): # The number of loaded question, able to show multiple pages
+            st.write(str(questions.loc[i, 'sender_id']))
             _user_name = gm.get_username(str(questions.loc[i, 'sender_id']))
             col1, col2 = st.columns([3,1])
             with col1:

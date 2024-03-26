@@ -54,4 +54,4 @@ def state_initializer():
     if "semester" not in st.session_state:
         st.session_state["semester"] = "23Fall"
 
-    st.write("status successfully initiated.")
+    # st.write("status successfully initiated.")
