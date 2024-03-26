@@ -68,7 +68,7 @@ if category != None:
     else:
         with st.container(border = True):
             st.write(" ")
-            for i in range(0,len(filtered_questions)): # The number of loaded question, able to show multiple pages
+            for i in range(0,len(filtered_questions)): 
                 _user_name = gm.get_username(str(filtered_questions.loc[i, 'sender_id']))
                 with col1:
                     displayer.question_item(str(filtered_questions.loc[i, 'title']), str(filtered_questions.loc[i, 'body']), st.session_state["course_info"], _user_name, filtered_questions.loc[i, 'time'], filtered_questions.loc[i, 'media'])
@@ -82,6 +82,8 @@ if category != None:
                 st.write(" ")
 else:
     with st.container(border = True):
+        st.write(st.session_state["role_name"])
+        st.write(st.session_state["userid"])
         st.write(questions)
         for i in range(0,len(questions)): # The number of loaded question, able to show multiple pages
             st.write(str(questions.loc[i, 'sender_id']))
