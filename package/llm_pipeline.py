@@ -36,8 +36,9 @@ def display_question_insights(question_id): # Display the latest question insigh
             generate = st.button(label = "Generate", type = "primary")
         if generate:
             response = generate_insights()
-            st.session_state["csq_insights"] = json.loads(response.split("}")[0]+" \n}")
-        data = st.session_state["csq_insights"]
+            st.write(response)
+            st.session_state["csq_processed"] = json.loads(response.split("}")[0]+" \n}")
+        data = st.session_state["csq_processed"]
         if data != "":
         # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
             col3, col4 = st.columns([1,2])
