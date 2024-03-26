@@ -74,10 +74,11 @@ if category != None:
                     displayer.question_item(str(filtered_questions.loc[i, 'title']), str(filtered_questions.loc[i, 'body']), st.session_state["course_info"], _user_name, filtered_questions.loc[i, 'time'], filtered_questions.loc[i, 'media'])
                 with col2:
                     if questions.loc[i, 'status'] == "Received":
-                        write_answer = st.button(label = f"Answer_{i}")
-                        if write_answer:
-                            switch_page("Write")
-                            st.query_params["question_id"] = questions.loc[i, 'postid']
+                        if st.session_state["role"] == False:
+                            write_answer = st.button(label = f"Answer_{i}")
+                            if write_answer:
+                                switch_page("Write")
+                                st.query_params["question_id"] = questions.loc[i, 'postid']
                     st.button(label = "View")
                 st.write(" ")
 else:

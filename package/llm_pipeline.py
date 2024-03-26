@@ -75,7 +75,7 @@ def display_question_insights(question_id): # Display the latest question insigh
 
 def submit_question(formatted_question):
     prev_prompt = ""
-    with open("prompt.txt", "r") as file:
+    with open("./prompts/question_prompt.txt", "r") as file:
         prev_prompt = file.read()
 
     # st.write(prev_prompt + formatted_question)
