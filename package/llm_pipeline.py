@@ -37,7 +37,8 @@ def display_question_insights(question_id): # Display the latest question insigh
         if generate:
             response = generate_insights()
             st.write(response)
-            response.replace("<|im_sep|>","")
+            st.write(response.split("}")[0])
+            # response.replace_all("<|im_sep|>","")
             st.session_state["csq_processed"] = json.loads(response.split("}")[0]+" \n}")
         data = st.session_state["csq_processed"]
         if data != "":
