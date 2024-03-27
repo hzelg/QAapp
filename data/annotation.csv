@@ -1,0 +1,1222 @@
+,randomized,question_url,course_code,question_id,inductive_coding_question_type,Media,question_title,question_body,question_good_count,Time,,instructor_answer,instructor_answer_good_count,instructor_endorsement_for_instructor_answer,student_answer,student_answer_good_count,instructor_endorsement_for_student_answer,pedagogy_1,clarity_1,annotator_notes,pedagogy_2,external references,relevant concepts,Example,visual aids,Others,clarity_2,annotator_notes
+1,679,https://piazza.com/class/kyv6e51g6211zk/post/007,COMP2611,question @7,"homework_submission_requirements, ",1,Is it necessary to summit hard-written homework?,"[fig1]
+As I am reading through the instructions for the homework, it seems that we are required to work out all our work on the hard copy of the homework document. I would like to ask if we can just type all the work in a word document or only hard-written homework is allowed? Thank you in advance.",1,Updated 2 years ago by Anonymous Comp,,"Good question! Yes, you can definitely work them out using winword (or other editors), and then save the answers as a PDF file for submission. But please associate the answers with the questions well (put questions number next to the answers), so that the markers would know which answer corresponds to which question. Hope this helps! Hope you will enjoy the homework!
+ 
+ Lam Ngok",1,~ An instructor (Cindy LI) endorsed this answer ~,,,,G,3,,G,,,1,,,3,
+2,511,https://piazza.com/class/kyv6e51g6211zk/post/008,COMP2611,question @8,course_material,0,How could I find the Lecture video of cindy?,How could I find the Lecture video of cindy?,0,Updated 2 years ago by Anonymous Helix,,"It's in COMP2611 Canvas.
+ 
+ Go to Zoom meeting -> Cloud recordings. Usually I release the video in the evening of the lecture day.",1,~ An instructor (Alex Lam) endorsed this answer ~,,,,G,3,,,,,,,,3,
+8,491,https://piazza.com/class/kyv6e51g6211zk/post/014,COMP2611,question @14,lecture,0,IEEE754 infinity,"Hello, may I ask about why infinity of IEEE754 standard is represented as : sign bit 0, exponent all 1, mantisa all 0. 
+ 
+ I am kind of confused because it is actually representing 1.0 * 2^128, why is it regarded as infinity? 
+ 
+ Thanks!",0,"Updated 2 years ago by CHANG, Bing Yen and Anonymous Mouse",,"The designers of the IEEE754 standard specified this as a special case to represent infinity.
+ 
+ One convenience is that ""infinity"" can still be represented as the same ""float"" or ""double"" data-type in higher-level programming languages.
+ 
+ Then we have a guarantee that any other floating point number (except NaNs) will compare as less-than positive infinity (or more than negative infinity).
+ 
+ This also builds-in a way for the arithmetic processor to detect and catch magnitude overflow and clamp as ""infinity"", instead of wrapping-around.",2,~ An instructor (Alex Lam) endorsed this answer ~,,,,"P, G",3,,I,,1,,,,3,
+9,428,https://piazza.com/class/kyv6e51g6211zk/post/015,COMP2611,question @15,exam_scope,0,Coverage of mid term,May i know the coverage of mid term? thank you,1,Updated 2 years ago by Anonymous Calc,,Please refer to the recent email regarding midterm info and arrangements.,1,~ An instructor (Alex Lam) endorsed this answer ~,,,,P,3,,P,1,,,,,2,
+10,471,https://piazza.com/class/kyv6e51g6211zk/post/016,COMP2611,question @16,exercise_question,1,Calculation on value of bias,"This is the exercise from Data Representation ppt, so how can we know the value of the bias is 3?
+[fig1]",0,Updated 2 years ago by Anonymous Helix,,The general formula is 2(num_exponent_bits - 1) - 1.,2,~ An instructor (Alex Lam) endorsed this answer ~,"011(2) = 3
+ 0111 1111(2) = 127
+ To take the middle of unsigned binary integers to offset?
+ 000, 001, 010, 011, 100, 101, 110, 111",1,,,2,,O,,,,,formula,2,
+13,604,https://piazza.com/class/kyv6e51g6211zk/post/019,COMP2611,question @19,lecture,0,hw2 q1 hexadecimal,"For negative numbers in binary representation, when we are converting them into hexadecimal representation, do we just simply convert it, or do we have to convert it to unsigned binary number then hexadecimal with a negative sign?
+ 
+ e.g. bin: 1111, do we convert it to F or -1 in hexadecimal?
+ 
+ Thanks.",2,Updated 2 years ago by Anonymous Gear,,"It is a good question. We just simply convert the binary representation into hexadecimal representation, for both positive and negative numbers.",1,"~ An instructor (CHANG, Bing Yen) endorsed this answer ~",Representation is different with value,3,,,3,,,,,,,,2,
+15,50,https://piazza.com/class/kyv6e51g6211zk/post/021,COMP2611,question @21,exercise_question,0,Hw2 Q3,"For Q3 c) d) e) and f), I wonder whether it is reusing the system built in b) with the min number of bits needed for the exponent, or building a new one for those questions.
+ 
+For example, let's say I made the system in b) with m bits for exponent and (16 - m) bits for significand which m is indeed the min number required for b),
+ 
+ do I use the same system to find the max length that can be represented? Or do I make a new one that has n bits for exponent and (16 - n) for significand that really can represent the real max length from a 16 bits system? (m != n)",0,Updated 2 years ago by Anonymous Helix,,"Yes, you need to use the system designed in (b) to answer parts (c) to (f) and see how the system designed by you would work. This question tries to show you how you could build your own data representation scheme (data type) based on some given information - this is in general not possible in high level languages like C++, but possible in the instruction level.",1,,,,,I,3,,I,,1,,,,3,
+16,416,https://piazza.com/class/kyv6e51g6211zk/post/022,COMP2611,question @22,exercise_question,0,"hw2, q3","Does cdef use the result of b? i.e. we determine the minimum number of bits needed for exponent in question b, in the following questions, we need to follow the allocation the same as qb?
+ 
+ Update: it seems to be a duplicate of a latest question, but I don't know how to delete this one.",0,Updated 2 years ago by Anonymous Poet,,"No problem, yes this is a duplicate of a previous thread. The answer is the same:
+ 
+ Yes, you need to use the system designed in (b) to answer parts (c) to (f) and see how the system designed by you would work. This question tries to show you how you could build your own data representation scheme (data type) based on some given information - this is in general not possible in high level languages like C++, but possible in the instruction level.",1,,,,,I,3,,I,,1,,,,3,
+17,379,https://piazza.com/class/kyv6e51g6211zk/post/023,COMP2611,question @23,hw_content_clarification,0,HW2Q2,"The title said if it can't be represented precisely, need to find the nearest approximation, so do we need to convert it back to decimal of the cut off version?",0,Updated 2 years ago by Loading...,,Representation in binary will be good enough. Please give the nearest approximation representation in binary. You don't have to convert to decimal,1,,,,,,3,,,,,,,,3,
+21,462,https://piazza.com/class/kyv6e51g6211zk/post/027,COMP2611,question @27,exercise_question,0,HW2 Q1 a&#xff09;1&#xff09;,why the answer for decimal is -2346， shouldn't it be -2347 ？,0,Updated 2 years ago by Anonymous Gear,,"Yes, there is a typo and it should be -2347. The solution at the course web has been updated for this typo.",1,,,,,,3,,,,,,,,3,
+23,571,https://piazza.com/class/kyv6e51g6211zk/post/029,COMP2611,question @29,lecture,0,while loop example,"Can I please ask that in the while loop example why do we need to sll first ?
+ 
+ sorry a bit lost there 
+ 
+ I know that we are trying to calculate the address of save[i] but not sure completely 
+ 
+ thank you 
+ 
+ any help appreciated",0,Updated 2 years ago by Anonymous Atom,,"Suppose you have a *word* array, arr[5] = {1, 2, 3, 4, 5}. The base address (starting address) is at $s0.
+ 
+ The address of arr[0]: $s0
+ 
+ The address of arr[1]: $s0 + 4 (4 is offset, it's 1 x 4)
+ 
+ The address of arr[2]: $s0 + 8 (8 is offset, it's 2 x 4)
+ 
+ and so on...
+ 
+ If we use $s1 to hold i, array index. $t0 for arr[i], $t1 for address of arr[i]
+ Then $t1 = $s0 + 4 * $s1
+ 
+ We haven't learned multiplication MIPS instruction, so we use shift left for 2 position as a shortcut of multiplication by 4.
+ 
+ For example, 00010, after shift left by 2 positions, 01000. (Note, use shift as shortcut of multiplication assumes it's for unsigned, and the result still fits in the representable range).",2,,"by sll $t1, $s3, 2, we calculated i*4.As each element in the array takes 4 bytes, so when the index increase by 1, the address increase by 4. So this is just making use of the index difference to calculate the address difference. And adding that address difference to the base address will get the address of the ith element in the array.",0,,G,3,,G,,,1,,,3,
+25,310,https://piazza.com/class/kyv6e51g6211zk/post/031,COMP2611,question @31,course_material,0,Lecture recording,"Hello,
+ 
+ I am unable to find Professor Cindy's Lecture recording for 12th April on Canvas. Can the Professor please assist?
+ 
+ Thank you",0,Updated 2 years ago by Anonymous Comp,,"Oops, sorry. I just released it.
+ 
+ Direct link:
+ 
+ Topic: COMP2611 (L1) - Lecture by Cindy LI
+ 
+ Start Time: Apr 12, 2022 10:22 AM
+ Meeting Recording:
+ 
+ https://hkust.zoom.us/rec/share/affrAGAUEZYBXl9yJ2tKcFXAdE_m6GK24OWFvelOqfSUc380byLXBHJf12Nd8tnk.mV3Og3MPmKm_ekQU",1,,,,,P,3,,,,,,,,3,
+34,549,https://piazza.com/class/kyv6e51g6211zk/post/041,COMP2611,question @41,project_debugging,0,Upper spine hurt and platform y speed,"Hi, the functionality for hurting of the upper spine doesn't seem to work when jumping on a spring platform or when the platform_y_speed increases beyond the initial speed.
+ 
+ Also, when the last stood on platform exits the screen, the platform_y_speed is reset to initial.
+ 
+ I would like to know if these two behaviour is intended?",0,Updated 2 years ago by Anonymous Calc,,"The upper spine hurt is checked by the y_location of the player. Therefore, the player may not get hurt sometimes by design. 
+ 
+ These two behaviors exist by design. You do not need to fix them.
+ 
+ Also, your score will not be influenced by them.",1,,,,,,3,,,,,,,,3,
+35,307,https://piazza.com/class/kyv6e51g6211zk/post/045,COMP2611,question @45,course_material,0,4.21 COMP2611 Cindy's Lecture Recording,I have trouble finding Cindy's Lecture recoridng on 4.21. Could Cindy please kindly release it?,1,Updated 2 years ago by Anonymous Gear,,"It's strange. I released on Thur.
+ 
+ I just hide and then release the video again. Please see whether you can access it.
+ 
+ https://hkust.zoom.us/rec/play/tzPsVCyCLpsFb9yNzqM-4fXn6AVJInhS34ufyBA4sTD-abcpKH2AVSOgLLbQFIncN5zGwwJpN2f3SyQK.Tq0Mlq17CJqfpvaT",1,,,,,,3,,P,1,,,,,3,
+39,478,https://piazza.com/class/kyv6e51g6211zk/post/049,COMP2611,question @49,course_material,1,Cannot find PA recording,"Dear TA,
+ 
+ Could you please upload the recording of the session mentioned in the following image. I would like to go through it.
+ 
+ [fig1]
+ 
+ Thankyou so much!",0,Updated 2 years ago by Anonymous Atom,,"The PA recording is released now, please check it :)",1,,,,,,3,,,,,,,,3,
+40,795,https://piazza.com/class/kyv6e51g6211zk/post/050,COMP2611,question @50,project_debugging,0,Problem on task 6,"Unable to destory platform. The init platform id should be 1 to 10 but I choose any number between 1 to 10 and store in a0 to call 208, it always said that GameObject: id does not exist! However I choose any number other than 1 to 10 there will be no error.",0,Updated 2 years ago by Anonymous Beaker,,"Please double-check your code carefully. There might be some mistakes in your implementation. 
+ 
+ For example, try to change the location of a platform. Or, check if the platforms have been destroyed elsewhere. 
+ 
+ If the platform has been destroyed, when you refresh the screen, you will not see the platform.",1,,"So, this thing is happening with me as well, turns out, it will happen if you have not finished the whole task, if after executing syscall 208, you do
+ 
+ jr $ra
+ 
+ which I was doing to check if my program is working or not, it will take you to this section of the skeleton code: -
+ 
+ which tries to execute syscall 207 with id 1 (for the first case) to set the location of platform of id 1 (which doesn't exist anymore). According to the points mentioned in the hint for Task 6, you need to update the address. So it is imperative to finish the task in order to debug it.",1,,G,3,,G,,,1,,,2,
+42,191,https://piazza.com/class/kyv6e51g6211zk/post/054,COMP2611,question @54,project_content_clarification,0,How is the interface of the game built?,"I do not really understand how the skeleton build the game interface in the mips code, I think that it should be related to the modified mars? How you actually did it? (e.g. where are the image/src stored? how they are loaded?... etc)
+ 
+ This is not related to the project itself but I am just curious, thank you so much!",0,Updated 2 years ago by Anonymous Comp,,"Interesting question. 
+ 
+ The MARS is open-source software. The game-related code, images, and sound are added to the MARS project. 
+ 
+ Here is a screenshot of the project, FYI.",2,,,,,P,3,,U,,,,1,,3,
+44,272,https://piazza.com/class/kyv6e51g6211zk/post/056,COMP2611,question @56,troubleshooting,0,cant open modified mars on virtual barn,"hi, i'm on my last resort and trying to open the modified MARS file on virtual barn, but i need to install JDK on it since the version on virtual barn isnt the right version. however, i cant run any .exe files to install it without admin access so im kind of stuck. any ideas?",0,Updated 2 years ago by Anonymous Comp,,"I re-compiled the MARS project with JDK version 1.8.0 (a.k.a. java 8). This newly compiled version is compatible with different JRE versions from java 8 to java 18.
+ 
+ Mars_NS-shaft_java8.jar",1,,,,,,3,,,,,,,,3,
+45,632,https://piazza.com/class/kyv6e51g6211zk/post/058,COMP2611,question @58,project_debugging,0,Problem with task 6,"I have just implemented task 6 with correct shifting and the generation of new platforms. I followed the hints exactly.
+ 
+ I can only run the game when task 6 is being executed under the condition that I set a breakpoint before the loop for shifting the elements in ""platforms"", then the program at needs to be executed one step at a time until the function is finished. But if I let it run normally, it crashes when a platform touches the top of the window, In this situation, I can't go back, can't pause, can't stop. I have to reopen the application. Is there anyone facing the same problem? or has faced the problem and can share how the bug is to be fixed please? 
+ 
+ The thing I find strange is how is it that the same program can crash and not crash at the same time.
+ 
+ Any guidance or general direction? Thanks",0,Updated 2 years ago by Anonymous Calc,,"Please note that, the syscall 211 has two inputs: $a0: last platform x_loc, $a1: screen width.
+ 
+ You can refer to Table 5 in the project PDF document.",1,,"I think the problem is with syscall_211 in step 6
+ 
+ # 6. Generate the x_loc of the new platform: x_loc = Syscall_211 ($a0=x_loc of last platform)
+ 
+ I have tried to put breakpoints behind and after the instruction with this syscall. It works differently
+ 
+ It also seems that syscall with 211 always return the same result. It is d3 in my computer",0,,P,2,,P,1,,,,,2,
+46,708,https://piazza.com/class/kyv6e51g6211zk/post/059,COMP2611,question @59,project_noncontent_clarification,0,end state text and submission,"Is it normal that the end state text e.g. ""you win!"" won't go away if I recompile and play without closing the last window?
+ 
+ Also, do I need to submit a flow chart for the project, or just finishing the 8 tasks would be enough (in a way that could get me 100% given all the implementations are correct).
+ 
+ Thanks.",0,Updated 2 years ago by Anonymous Atom,,"Q1: If you do not close the last game canvas and restart the game, the text ""you win!"" will not disappear. Therefore, you should first close the game canvas after playing. Then, you recompile and play the game for the next time. 
+ 
+ 
+ Q2: You need to submit a one-page flow chart as it accounts for a part of the grades of this PA.",1,,,,,,3,,,,,,,,3,
+47,807,https://piazza.com/class/kyv6e51g6211zk/post/060,COMP2611,question @60,project_noncontent_clarification,0,Demo of PA?,"Is it possible to get a sample gameplay of the final outcome of the project, to ensure we're doing the steps correctly?",1,Updated 2 years ago by Anonymous Mouse,,"I just made a demo video for this game. Please check it: 
+ 
+ NS-shaft_Demo.mov
+ 
+ The video link on YouTube is:
+ 
+ https://youtu.be/FfN6o5lLnIY",3,,,,,U,3,,"P, U",1,,,1,,3,
+48,793,https://piazza.com/class/kyv6e51g6211zk/post/061,COMP2611,question @61,logistics,0,Homework4 Schedule,May I know in advance the release date and due date of homework 4? So that I can better plan my studies in the next few weeks. Thanks!,0,Updated 2 years ago by Anonymous Atom,,"We are still waiting to make sure all the sessions are done with single cycle datapath. Once this is confirmed, Homework 4 will be released shortly. We will give you more than enough time, and it is likely the deadline to be on 11th May.",1,,,,,,3,,,,,,,,3,
+50,202,https://piazza.com/class/kyv6e51g6211zk/post/063,COMP2611,question @63,exercise_question,1,ALU Control,"I was doing HW4 and I do not understand why the ALU Control should have different signals for 'subtract' function (0110) and 'set on less than' function (0111).
+ 
+ Essentially, both of these would be doing subtraction of x - y, the only difference is that for set less than, AFTER the ALU operations it would check if bit 0 of the output is 1 (x - y < 0). So why is there any difference in the ALU Control signal when calculation is similar INSIDE the ALU?
+ 
+ That is as far as my understanding goes.
+ 
+ [fig1]
+ Reference (Datapath 1 p.22)",0,Updated 2 years ago by Loading...,,"Though sub and slt both require the adder in the ALU doing the subtraction, but the results produced by them are not the same. For sub, it is producing the real subtraction result (for example if we have 15-9=6, then sub will need to have 6 to be the result). slt on the other hand needs producing a result indicating the sign of the subtraction (for example if we have the same 15-9, instead of 6, slt needs to produce the result of 0 as the sign bit of the subtraction is 0). If you look at the slide 25 of the arithmetic note set (https://course.cse.ust.hk/comp2611/note/COMP2611_Arithmetic_Spring22.pdf#page=25), to get the result for slt, we need to supply different value (than that of the sub) to be the switch (called ""Operation"" on the slide) that selects the result for the ALU.",1,,,,,G,2,,G,1,1,1,,,3,
+53,68,https://piazza.com/class/kyv6e51g6211zk/post/066,COMP2611,question @66,project_noncontent_clarification,0,Question 3a,"I read the question wrong. Now I see that the values in the table are when the given instruction is fetch (step 1 in 5). Sorry about that
+ 
+ I have a few problems when trying to start Q3 in assignment4. 
+ 
+ I am given one 32-bit MIPS instruction but is asked to change the value of 8 registers? 
+ 
+ I thought $at is reversed for the assemabler and not supposed to be changed.
+ 
+ It asks me to write one MIPS instruction to change 8 values?
+ 
+ By MIPS instruction, do you mean in the 32-bit representation or like how we write in Mars?
+ 
+ Following the 32-bit instruction, i got a different value for $t5 than in the table.
+ 
+ Am I supposed to write an arbitrary programming, with e.g., addi $t5, $zero, 933, for part a?
+ 
+ Thank you in advance.",0,Updated 2 years ago by Anonymous Atom,,"In that question, the register values are provided to be the initial values before that particular instruction is loaded from the memory to the datapath (the hw description says ""Assume the data memory contains all zeros and the registers have the following values when the instruction is fetched"").
+ 
+ $at is a register typically for the assembler to support the ""pseudo instruction"" -> ""real MIPS instruction"" conversions, but you can use it, it is not a reserved register (unlike the $gp, $fp, $sp registers). Having said that, unless the instruction you are executing would modify $at, there is no need to change it.
+ 
+ You are NOT asked to change the register values, you only need to change the registers when the execution outcome of the instruction would change their values.
+ 
+ Write the instructions like what you would do in MARS, provide clearly the instruction name, the register names, immediate value, label(write the offset directly), or any other relevant information.
+ 
+ You need to use the instruction encoding to figure out what this instruction really is. It is impossible that you ""got a different value for $t5 than in the table"" from the instruction encoding provided. You may have misunderstood the question, or thought of it in a wrong direction.",1,,,,,G,3,,I,,1,,,,3,
+77,453,https://piazza.com/class/kyv6e51g6211zk/post/090,COMP2611,question @90,lecture,0,Setting of Control Signals,"On the table of slide 34, lecture slide Datapath and control, beq have memRead 0. My question is whether if X is also acceptable for memRead? Because as long as RegWrite and MemWrite is set to 0, nothing will change. Is it because of reading from memory take more time? Or did I misunderstand something somewhere?
+
+Thanks.",0,Updated 2 years ago by Anonymous Calc,,"X means don't care, that indicates you can put it 0 or 1 as you wish. For the memRead it MUST BE 0 for ""non memory read instructions"". Otherwise since your ALU is supplying the memory address to the Data Memory through a hard-wired connection, it could supply an invalid address produced by ""non memory read instructions"", you can image what would happen if you enable memRead. For memory write instructions, memRead still needs to be 0 because we don't want to waste energy and time unnecessarily for an instruction that is not supposed to read.",1,,,,,,3,,I,,1,,,,3,
+86,690,https://piazza.com/class/kyv6e51g6211zk/post/101,COMP2611,question @101,hw_content_question,0,qs 4a,"We are asked to connect one more line to the control unit for this question. However, as we learned from the lecture note, the control unit generates output through the combination of ALUOp and funct code. what would be the result if there are more inputs?",0,Updated 2 years ago by Anonymous Calc,,"This question is about implementing an I-type instruction, there is no function field in the encoding.
+ If you are talking about the ALU control unit, then the ""result"" will be a proper control signal sent to the ALU to select an appropriate output. In the lecture note set, this control signal is called ""ALU Operation"". More inputs means you can supply additional information to the ALU control (which is effectively a circuit built by engineers like you).",1,,,,,,3,,I,,1,,,,3,
+88,696,https://piazza.com/class/kyv6e51g6211zk/post/103,COMP2611,question @103,lecture,1,Some qs abput Control Hazards,"As shown in the following picture, there's only one cycle delay such that the latter instruction could start after the finish of ""Reg"" in beq instruction. this really confused me as I think Reg can't tell whether the next instruction should branch, while only the ALU can do that since it will do the comparison between the two operands.
+[fig1]",1,Updated 2 years ago by Anonymous Gear,,"yes, exactly. This diagram is referring to the datapath described at the bottom of slide 40 of the note set (https://course.cse.ust.hk/comp2611/note/COMP2611_Processor_Part2_Spring22.pdf#page=40). The branch decision and branch target address calculation are both available after the ID stage.",1,~ An instructor (Alex Lam) endorsed this answer ~,p.40 said that we will add additional hardware to compare registers and compute target in ID stage in MIPS pipeline.,2,,,3,,P,1,,,,,3,
+93,34,https://piazza.com/class/kyv6e51g6211zk/post/108,COMP2611,question @108,project_clarification,0,PA4: Only one life deducted when touches the spike,"The problem I am facing now is, when the player touches the spike, only one life will be deducted. However, two lives are deducted in the demonstration video. Is there any reason why this may happen? Thank you.",1,Updated 2 years ago by Anonymous Gear,,"Check if you added one life value. For example, change life decrease from -2 to -3 and see if the life value becomes -2.",1,,,,,G,3,,G,,,1,,,3,
+95,478,https://piazza.com/class/kyv6e51g6211zk/post/111,COMP2611,question @111,troubleshooting,0,task 4,"After I finish implementing task 4, my Mars just froze and I can't stop execution or control the game object, and I have to restart Mars. I wonder if anyone has encountered the same problem. Thanks!!!",0,Updated 2 years ago by Anonymous Poet,,"Maybe you have just loaded an address into a register as a value. 
+ 
+ For example, to get the x_loc of player into $a0, if you wrongly do:
+ 
+ la $s0, player_locs
+ 
+ add $a0, $zero, $s0
+ 
+ Then you take $a0 as the x_loc of the player. The program will get frozen as you described.",1,,,,,G,3,,G,,,1,,,3,
+100,622,https://piazza.com/class/kyv6e51g6211zk/post/116,COMP2611,question @116,exercise_question,1,Confusion about answer in past paper,"Hi there, 
+ 
+ I don't quite get why do we have the last forwarding arrow in this problem (circled in blue), can anyone please explain a bit about it? Thank you!
+
+[fig1]",2,Updated 1 year ago by Anonymous Gear,,"The reason is:
+ 
+ 1) sw $1, 4($7) relies on the previous add $1,$2,$8 for the updated value of $1 before writing it to the memory address (4+Reg[$7]). This value is needed at the ""Mem"" stage of ""sw"",
+ 2) The question says ""Full set of forwarding hardware is available, from any stage to any stage"",
+ 
+ therefore we can do forwarding as shown in the table to supply the updated $1 content at the time it is needed.",1,,,,,,3,,,,,,,,3,
+102,488,https://piazza.com/class/kyv6e51g6211zk/post/118,COMP2611,question @118,exercise_question,1,last question in the last tutorial note,"Assume there is only forwarding path from the output of the ALU to the inputs of the ALU.
+ 
+[fig1]
+ *given solution
+ 
+ From 2nd to 3rd instruction, i understand why it is needed to wait for one cycle. But why 2 cycles? Why can't we have the data from exe in the 2nd instruction forwarded to the exe in the 3rd instruction?",0,Updated 1 year ago by Anonymous Scale,,"This question is a bit tricky:
+ 
+ The third instruction depends on the ""lw"" and the earlier ""add"" instructions on $s1 and $s2 respectively. Forwarding only exists from ALU output->ALU inputs, so the earliest time the third instruction can get the updated $s1 value (i.e. by doing ID) is in (the second half of) the clock cycle 5 after after ""lw"" is done with WB (in the first half of the clock cycle). But then if you align this third instruction accordingly, you will notice that it will not be able to get updated value of $s2 from the earlier ""add"" (i.e. the required forwarding is Mem->ALU, but this does not exist according to the problem description). Therefore the only way to get the updated value of $s2 is through ID, and therefore the third instruction can only do ID when the earlier ""add"" is done with WB in the first half of clock cycle 6.",2,,,,,,3,,,,,,,,3,
+103,203,https://piazza.com/class/kyv6e51g6211zk/post/119,COMP2611,question @119,exercise_question,1,Question on hw4 suggested answer last question,"[fig1]
+How is the connection of 1-bit blt signal is going to 'help' ALU control to let ALU do the slt operation?
+ Isn't this the same ALU control mentioned in the lecture notes, where the only possible way is for ALU to do slt operation is for ALU control to have ALUOp input as '1X', then do slt for R-type instructions?
+ 
+ Moreover, isn't this just the same ALU control unit as in our lectures notes, where the inputs are only ALUOp + Function code, how is the extra blt signal going to connect? is it connected to somewhere internally in a ALU control, does it indicate it actually need to change something WITHIN the ALU control?",0,Updated 1 year ago by Anonymous Atom,,"I think Yigit points out exactly the issue :). Also if you read the question description it says you are given a ""modified single-cycle datapath"", meaning that indeed the datapath components could be different than the original ones.",1,~ An instructor (Alex Lam) endorsed this answer ~,"Because of this part in the question text:
+ 
+ The encoding of the blt instruction is exactly the same as the beq instruction
+ 
+ beq instruction is an I-type instruction with no funct code. Therefore, the funct code will not be carried into ALU control (assume garbage input), and given the ALUOp is already filled up with other types of operations (and no slt except with a funct code in R-type instructions), we need to carry the signal that this is a blt operation to the ALU Control unit in this way.
+ 
+ Source: I did the same mistake as well.",3,,,2,,I,,1,,,,3,
+104,861,https://piazza.com/class/kyv6e51g6211zk/post/120,COMP2611,question @120,exercise_question,0,2012 pastpaper,Do we need to consider questions like the following one? It seems these things like cpi MFLOPS haven't been included in the lecture notes.,0,Updated 1 year ago by Anonymous Gear,,"No, you don't need to know the terms like CPI, MFLOPS for this semester.",1,,,,,,3,,,,,,,,3,
+105,359,https://piazza.com/class/kyv6e51g6211zk/post/121,COMP2611,question @121,exercise_question,1,solution,"is it ok to change the addu to add.
+[fig1]",0,Updated 1 year ago by Anonymous Atom,,"Yes, it is okay here.",1,,,,,,3,,,,,,,,3,
+109,528,https://piazza.com/class/kyv6e51g6211zk/post/125,COMP2611,question @125,lecture,1,Data Hazard,"I don't quite understand why we can do sub's ID without waiting for the finish of add's WB as $s0 cannot be guaranteed to be updated when doing sub's ID if they happen at the same time. 
+ so don't we need to wait for one more cycle?
+[fig1]",1,Updated 1 year ago by Anonymous Atom,,It is because register writeback happens in the first half of a clock cycle. Register read happens in the second half of the clock cycle. Check out https://course.cse.ust.hk/comp2611/note/COMP2611_Processor_Part2_Spring22.pdf#page=35,1,,,,,P,3,,"I,P",1,1,,,,3,
+110,710,https://piazza.com/class/kyv6e51g6211zk/post/126,COMP2611,question @126,exam_scope,0,Unoptimized Algorithms for Division and Multiplication,"Dear Professors,
+ 
+ Will we be tested for the non-refined / unoptimized algorithm for multiplication of binary numbers? Or should we just focus on the optimized algorithm for multiplication. What about the pen-and-paper procedure for both multiplication and division? Will that be covered in the exam?
+ 
+ Thank You!",2,Updated 1 year ago by Anonymous Calc,,"I don't want to disappoint you, but unfortunately as an instructor, I can only say: it is within the scope of the final exam. Sorry, if this doesn't help much...",1,,,,,,3,,,,,,,,3,
+116,391,https://piazza.com/class/kyv6e51g6211zk/post/132,COMP2611,question @132,exercise_question,1,Question8 in 2017 fall past paper,"Hi, I would like to ask why the last forwarding happens between MEM of add $1, $2, $8 and MEM of sw $1, 4($7)? Why can’t it happen between add’s EX and sw’s MEM?
+[fig1]",0,Updated 1 year ago by Anonymous Comp,,"The question says ""Full set of forwarding hardware is available, from any stage to any stage (provided it does not violate the timing consistency)"".
+ As for the question ""Why can’t it happen between add’s EX and sw’s MEM?"", this is because you can only forward in the adjacent clock-cycles. Imagine the cycle as weekdays, then you can forward at the end of Monday/beginning of Tuesday (end of cycle 8)to Tuesday.(cycle 9). But you can't forward at the end of Sunday/beginning of Monday to Tuesday. You need to think deeper to understand why this is not possible.",2,,"Hi, I would like to ask why the last forwarding happens between MEM of add $1, $2, $8 and MEM of sw $1, 4($7)? Why can’t it happen between add’s EX and sw’s MEM?",2,,,2,,G,,1,1,,,3,
+119,476,https://piazza.com/class/kyv6e51g6211zk/post/135,COMP2611,question @135,course_material,0,Mock Final Exam,Is it possible to re-open the mock final exam for us to have a final practice? Thank you so much!,1,Updated 1 year ago by Anonymous Gear,,"Re-opened till tomorrow 24/5, 8:30am HKT.",1,,,,,,3,,,,,,,,3,
+123,428,https://piazza.com/class/kyv6e51g6211zk/post/139,COMP2611,question @139,exam_logistics,0,zoom link of final exam,The email Alex sent us contains a link that said forbidden access. May I know where can we find the zoom link for tomorrows exam?,0,Updated 1 year ago by Anonymous Atom,,"It is at https://course.cse.ust.hk/comp2611/exams/remarks.html , you can also find it from the document at https://course.cse.ust.hk/comp2611/exams/Final-InformationToStudents_revised.pdf",1,,,,,,3,,P,1,,,,,3,
+126,492,https://piazza.com/class/ke5ei5tq8v3a7/post/011,COMP3711H,question @11,exercise_question,0,Problem 2: complicity of gcd,"In Problem 2 of hw1, it is stated that ""each call to gcd( ) does only O(1) work"". However, it calculates n mod m and that require more than O(1) (A naive algorithm for division is O((number of digits in n)*(number of digits in m))=O(log(n)log(m), leading to a O(log(n)2log(m)) algorithm.)
+ 
+ function gcd(n, m) %Assume 0<m<n
+ 1. if m = 0
+ 2. return (n)
+ 3. else
+ 4. return (gcd(m, n mod m))
+ run code snippetVisit Manage Class to disable runnable code snippets×",0,Updated 3 years ago by Loading...,,"Our work model here is that the “mod” operation takes O(1) time. This is similar to assuming that other arithmetic operations, e.g., multiplications, addition, subtraction and division, require O(1) time (and is usually done in the informal RAM model.)
+
+This is an implicit assumption but is not important because it has no effect on the actual problem. The problem specification was explicitly designed to make this unambiguous. It specifies that you should measure “the number of recursive calls made”.
+
+This number does not depend upon the running time of the “mod” operation
+
+regards, mj golin",1,,,,,,3,,G,,1,1,,,3,
+127,770,https://piazza.com/class/ke5ei5tq8v3a7/post/015,COMP3711H,question @15,exercise_question,0,HW1 Q4,"Dear Professor,
+ 
+ If I have understood correctly, in problem 4, inside(P,q) returns true even if q is on the boundary. So my question is, does InT(p, q, r, s) also return true if p is on an edge of the triangle formed by q, r, s? What if p is one of the vertices?
+ 
+ Thanks.",0,Updated 3 years ago by Anonymous Poet,,"Yes.
+
+InT(p, q, r, s) also returns true if p is on a edge or is one of the vertices of the triangle formed by q, r, s.
+
+regards, mj golin
+
+P.S. Formally, we view triangles as closed polygons (with three edges)",1,,,,,,3,,,,,,,,3,
+128,255,https://piazza.com/class/ke5ei5tq8v3a7/post/016,COMP3711H,question @16,exercise_question,0,"one question for each Q2, Q3, Q4","Dear Dr. Golin,
+ 
+ I have a few of questions:
+ 
+ 1. The recent announcement on the canvas suggested that equation (1) can be used to solve problem 3 & 4: is it possible that we can use it on problem 2 also, or my approach of using equation (1) would inherently be wrong?
+ 
+ 2. For question 3, is it possible to include an exception case in the algorithm so that it immediately returns when exception condition is met (e.g. the array length < 2)?
+ 
+ 2-1. If the exception case is allowed, and the algorithm just returns nil immediately when the condition is met, will the number of operations be 0, since no comparison or ""work"" is done, or 1, since return itself can be seen as an operation?
+ 
+ 3. For question 4, is it possible to define a separate helper function other than Inside(P, q)?
+ 
+ Edit: One extra question about the requirements; when it says to start new problem on new page, does that include sub sections (a, b, i, ii, etc.) or just the large problem 1,2,3,4 should start on a new page?
+ 
+ Thank you very much!",0,Updated 3 years ago by Loading...,,">1. The recent announcement on the canvas suggested that equation (1) can be used to solve problem 3 & 4: is it
+ > possible that we can use it on problem 2 also, or my approach of using equation (1) would inherently be wrong?
+ 
+ That was an oversight on my part. It is definitely possible to use (1) to solve problem 2 as well.
+ 
+ >2. For question 3, is it possible to include an exception case in the algorithm so that it immediately returns when
+ > exception condition is met (e.g. the array length < 2)?
+ 
+ This is not necessary. First line of the problem states that $$n \ge 2.$$
+ Your code may also assume that assumption for the data. SO, an exception is not needed.
+ 
+ >2-1. If the exception case is allowed, and the algorithm just returns nil immediately when the condition is met, will >the number of operations be 0, since no comparison or ""work"" is done, or 1, since return itself can be seen as an >operation?
+ 
+ Since the exception case is not needed this is not an issue
+ 
+ >3. For question 4, is it possible to define a separate helper function other than Inside(P, q)?
+ Yes. You may define procedures and functions with your pseudocode.
+ 
+ 
+ >Edit: One extra question about the requirements; when it says to start new problem on new page, does that include >sub sections (a, b, i, ii, etc.) or just the large problem 1,2,3,4 should start on a new page?
+ 
+ Just every large problem, i.e., 1, 2 3 and 4.
+ BUT, when you start a new subsection within a problem on the same page please skip a few lines so it is easy to identify.
+ 
+ regards,
+ mj golin",1,,,,,,3,,,,,,,,3,
+130,694,https://piazza.com/class/ke5ei5tq8v3a7/post/023,COMP3711H,question @23,exercise_question,0,Assignment 2 Q2,"Dear Professor,
+ 
+ I just want to confirm if ""item"" in this problem means key, so in (II) and (III), the input is a key and we have to find the node(s) that contain(s) the key or insert the key in some node (respectively). If yes, if more than one node contain the key do we have to find all the nodes in (II)? In (III), are we allowed to change the number of nodes?
+ 
+ Best,
+ 
+ Rubab",0,Updated 3 years ago by Loading...,,"I just want to confirm if “item” in this problem means key,
+ Technically, no. It’s an item. Multiple items may have the same key. This can occur with Binary Search Trees as well. An item may be a record and multiple records might have the same key.
+ 
+ But, if it makes it simpler, for the sake of this problem, you may assume that all items have unique keys.
+ Just specify in advance that you are using that assumption.
+ 
+ so in (II) and (III), the input is a key and we have to find the node(s) that contain(s) the key
+ Or some node that contains the key (if there are multiple such nodes). The same as for BSTs)
+ 
+ 
+ or insert the key in some node (respectively).
+ Not exactly. In this last case you need to create a new tree that contains all the old keys and the new key.
+ 
+ The easiest way to do this is to try to insert the key into the appropriate leaf and then, if the resulting tree violates the rules, fix that.
+ 
+ If yes, if more than one node contain the key do we have to find all the nodes in (II)? In (III), are we allowed to change the number of nodes?
+ No. The resulting tree must contain exactly all of the old items in the tree as well as the new item that has been inserted
+ 
+ regards,
+ mj golin",3,,,,,"I, G",2,,I,,1,,,,3,
+132,291,https://piazza.com/class/kjv25fqyx8y513/post/016,COMP3711,question @16,lecture,0,insertion sort vs bubble sort,if the number of swaps performed by both insertion sort and bubble sort are equal to the inversion number of the array then why is insertion sort considered better?,1,Updated 3 years ago by Anonymous Comp,,"From a purely swapped-based algorithmic analysis point of view, they're the same.
+ 
+ But, Bubble Sort is much harder to understand than the simple insertion sort and (because of that) also harder to code correctly. No contemporary computer scientist recommends it.
+ 
+ For many years it was taught as a first sort, No one is quite sure why and papers on computer science education have been written about this. See
+ https://users.cs.duke.edu/~ola/bubble/bubble.html
+ 
+ We absolutely don't recommend it
+ (We only introduce it in th etutorial to give you more practice in analysis; not as a recommendation for use)
+ 
+ regards,
+ mj golin",2,,,,,P,3,,P,1,,,,,3,
+134,381,https://piazza.com/class/kjv25fqyx8y513/post/020,COMP3711,question @20,lecture,0,Binary Search recurrence relation,"I am confused over why the number of comparisons T(n) of a binary search algorithm (pg 4, lec 2) is T(n) = T(n/2) + 1.
+ 
+ To be precise, I want to know where the +1 comes from since T(n) is the number of comparisons and I think O(1) should be referring to q which is not a 'if' condition",0,Updated 3 years ago by Anonymous Scale,,That's right.The +1 is counting the comparison if $$x \le A[q]$$ that is made right before the recursive call.,1,,"For binary search, each recursion finds the median element (O(1)), compares with the element you want to find (O(1)) and goes into another subproblem (T(n/2)).",1,,,3,,,,,,,,3,
+135,78,https://piazza.com/class/kjv25fqyx8y513/post/021,COMP3711,question @21,exercise_question,1,Q1 induction,"[fig1] For Q1(a) (i) in HW1, can we follow this writing method (from one of the slides) to write the solution? If yes, then is it considered as using induction method? I thought it isn't because we are not writing in the ""base case: ... ; General step: ..."" kind of format, we just unfold all the terms and write out the exact total number. So I'm a bit confused with why Professor says it is using implicit induction? Thank you!",0,Updated 3 years ago by Anonymous Helix,,"1) yes you can use that method for (a) (i)
+ 
+ 2) The unfolding required to show that the general step is correct IS an induction step
+ 
+ More specifically, the general statement is that
+ $$(*) \quad T(n) = 2^i T(n-i) + \sum_{j=0}^{i-1} 2^j$$
+ 
+ Showing that this formally correct requires induction.
+ 
+ The base case is that it is true for $i=1$.
+ 
+ Now assume, by induction, that (*) is true for $i-1$, i.e,
+ $$T(n) = 2^{i-1}T(n-(i-1)) + \sum_{j=0}^{i-2}2^j$$
+ 
+ Then, expanding using the basic recurrence shoes that
+ $$T(n) = 2^{i-1} (2(T-(i-1) -1) +1) + \sum_{j=0}^{i-2}2^j = 2^i T(n-i) + 2^{i-1} + \sum_{j=0}^{i-2}2^j = 2^{i-1}T(n-i)) + \sum_{j=0}^{i-1}2^j$$,
+ i.e, (*) is true for $$i$$.
+ 
+ This is classic induction. But we don't usually write this out formally, which is why we say that it is implicit.",2,,,,,G,3,,O,,,,,formula,3,
+136,202,https://piazza.com/class/kjv25fqyx8y513/post/023,COMP3711,question @23,exercise_question,0,Practise problems,"If we design algorithms like the Algorithm 3 as stated in the practise problem solution Q2(A), does it mean that we do not need to prove the base cases in the ""prove algorithm correct"" part and could directly write m=1,2 are true? Thanks!",0,Updated 3 years ago by Anonymous Gear,,"Yes. Very simple base cases can be much easier to justify
+ 
+ That's the boldface in the following quote from page 12
+ 
+ ""A related takeaway is that there is often an inverse trade-off between clever coding and justifying proof correctness.
+ The longer Algorithm 3 on the next page modifies Algorithm 2 by hardcoding in separate termination conditions for the cases m = 1 and m = 2: It is actually easier to justify than Algorithm 2, because lines 1-12 obviously are correct for m = 1; 2 $$\bf \mbox{(exhaustive search of all cases)}$$ and lines 14-20 are then easy to justify for the general case.""",1,,,,,P,3,,"P, O",1,,,,formula,3,
+140,183,https://piazza.com/class/kjv25fqyx8y513/post/030,COMP3711,question @30,exercise_question,1,Q1 Part iii,"[fig1]
+In this part, is it safe to assume that R(n) is a non-decreasing function of n? Although I see that R(n) has a direct correlation with T(n), but nowhere is it mentioned that T(n) is a non-decreasing function either.",0,Updated 3 years ago by Loading...,,"You can't make any assumptions about $$T(n)$$. All you have is what was given in Equation (1).In particular, you may not ASSUME that $$T(n))$$ is non-decreasing.Next, $$R(n)$$ is DEFINED in the text you copied above. Any properties of $$R(n))$ you want to use must be derived from that definition. You can't ""assume"" anything extra.The hint recommends reading the solution to the practice homework first. Please do that. That should answer some of the questions you asked.",2,,,,,,3,,,,,,,,2,
+141,453,https://piazza.com/class/kjv25fqyx8y513/post/031,COMP3711,question @31,question_clarification,0,Typo in Q1 (iii): Correction noted,"when n = 2, n/3 is round down to 0, but there is no definition about R(0)?",0,"Updated 3 years ago by GOLIN, Mordecai Jay and Loading...",,"That was a typo,
+ 
+ Just prove that
+ $$\forall n > 2, \quad R(n) \le R\left( \lfloor \frac n 3 \rfloor \right) + c$$
+ 
+ That's what is needed for part (iv).",1,,,,,,3,,,,,,,,3,
+143,155,https://piazza.com/class/kjv25fqyx8y513/post/033,COMP3711,question @33,question_clarification,0,Q1,"For Q1(a) (iv), if I've already proved T(n)=O(log (base 3) n), could I just directly write T(n)=O(log n)?
+ 
+ Also, for Q1(a) (ii) and (b) (v), if I feel my base case and general case are highly similar, can I just write the general case? Thanks!",0,Updated 3 years ago by Anonymous Helix,,"> For Q1(a) (iv), if I've already proved T(n)=O(log (base 3) n), could I just directly write T(n)=O(log n)?
+ 
+ We already said in class that the base of the log doesn't matter.
+ 
+ So, proving that $$T(n) \le c \log_3 n$$ for all $n > n_0$ (which is what it means to prove that T(n)=O(log (base 3) n) IS proving that $$T(n) = O( \log n)$$.
+ 
+ Don't forget that you need to say what $$c$$ and $$n_0$$ are.
+ 
+ >Also, for Q1(a) (ii) and (b) (v), if I feel my base case and general case are highly similar, can I just write the general case?
+ 
+ No. You need to prove the correctness of your bases case(s) and then prove your general induction step separately.
+ 
+ I'm not quite sure how it's even possible (in a clean induction for these problems ) for the base case and the general case to be similar.
+ The base case is usually proving something like ""my statement is correct for $$n=1,2$$;
+ the general case is usually that if my statement is true for all values less than $$n$$ then my statement is correct for $$n.$$
+ 
+ These are very different things
+ 
+ Please look at the induction proofs given in the solutions to the two problems in the practice homework for an illustration of this.",1,,,,,G,3,,I,,1,,,,3,
+145,378,https://piazza.com/class/kjv25fqyx8y513/post/035,COMP3711,question @35,exercise_question,0,Enquiry about Q2(a),"The hint of Q2(a) claims that we could only assume that n≥2, but when n=2 is it possible to have a right-flipped array? I think it should be at least 3 elements to make such an array exist?",0,Updated 3 years ago by Anonymous Comp,,"Correct.
+ 
+ The definition even formally permits $$k$$-flipped arrays for $$n=1$$
+ 
+ As noted on page 5, If $$n=1$$ the array itself is $$k$$ flipped with $$k=1$$
+ 
+ There might be some misunderstanding here about the definition.
+ A size $$n$$ array has $$n$$ different possible $$k$$ flipped arrays,
+ 
+ For example, if $$n=2$$ and $$ A = [1, 2]$$
+ Both
+ $$A'=[1,2]$$ and $$A'=[2,1]$$ are $$k$$-flipped arrays (for $$k=2$$ and $$k=1$$ respectively).
+ 
+ Similarly, if $$n=3$$ and $$A=[1,2,3]$$
+ 
+ $$A'=[1,2,3]$$, $$A'=[1,3,2]$$ and $$A'=[3,2,1]$$ are $$k$$-flipped arrays (for $$k=3,2,1$$ respectively)",1,,"It is possible with n = 2. Example: A = [1, 2] and A' = [2, 1].",0,,G,3,,P,1,,,,,3,
+150,176,https://piazza.com/class/kjv25fqyx8y513/post/042,COMP3711,question @42,lecture,0,Proof using induction,"From the lecture slides, proof using induction has been done like below.
+ 
+ In order to prove that I(n) is true for all n >= 1,
+ 
+ Base case: Prove that I(n) is true for n=1
+ 
+ General case: Assume that I(n) is true for n-1. Using this assumption, prove that I(n) is true for n.
+ 
+ I am quite used to this type of induction, and was able to apply this technique for proving why my algorithm is correct for Q2. 
+ 
+ However, I find it hard to adopt the method that has been used in Practice Homework. Induction used in 'Practice Homework' sets general case as (Suppose I(n') is true for all 1<=n'<n).
+ 
+ Can I just use the previous method of setting base case as (Suppose that I(n) is true for n-1)? 
+ 
+ If so, can you kindly explain why the methods are the same? I get the insight why the two methods are the same, but can't understand the exact reason behind it..",0,Updated 3 years ago by Anonymous Scale,,"What you are describing is called weak induction.
+ The version I used is called strong induction.
+ 
+ 
+ (The name is bit of a misnomer since they are equally powerful. Anything that can be proven using the weak form can also be proven using the strong form and voce-versa)
+ 
+ If you can come up with an induction hypothesis that permits using weak induction, by all means use it.
+ 
+ BUT, when proving correctness of a recursive divide-and-conquer algorithm it can be messy to use weak induction. That's because problems of size n usually do NOT recursively call problems of size $$n-1$$. They call SMALLER subproblems. So, Strong induction is more natural in this case and I recommend using it.
+ 
+ All of the (informal) ""proofs"" of correctness that we have done in class have actually used strong induction.
+ 
+ http://www.cs.cornell.edu/courses/cs2800/2011fa/Lectures/induction.pdf
+ describes the differences between the two types of induction and
+ https://courses.cs.cornell.edu/cs2800/wiki/index.php/Proof:Strong_induction_is_equivalent_to_weak_induction
+ explains why weak induction implies strong induction.
+ 
+ If you have trouble understanding this please email me and we can set up an office hour meeting.
+ 
+ regards,
+ mj golin",1,,,,,P,3,,I,,1,,,,3,
+152,704,https://piazza.com/class/kjv25fqyx8y513/post/046,COMP3711,question @46,hw_content_clarification,0,Q2(c),"For Q2 (c), does number of comparisons refer to comparisons between array elements (like A[p] <A[q])? Should comparisons like p=r be included?",0,Updated 3 years ago by Loading...,,"It only refers to the number of comparisons with array elements.
+ It does NOT include comparisons between index values like $$p =r$$.",1,,,,,,3,,,,,,,,3,
+156,404,https://piazza.com/class/kjv25fqyx8y513/post/054,COMP3711,question @54,lecture,0,documented pseudocode,Could you please give an example of comment inside the pseudocode? I don't quite get the requirement of documented pseudocode in Q2. Thank you.,1,Updated 3 years ago by Anonymous Beaker,,Please see Algorithm 1 in the practice homework,2,,,,,P,3,,G,,,1,,,2,
+157,459,https://piazza.com/class/kjv25fqyx8y513/post/056,COMP3711,question @56,exercise_question,0,Q3 adding an element to set,"For Q3, does adding a single element to a set take O(1) time? Thank you!",0,Updated 3 years ago by Loading...,,"Adding an element to a set $$S$$ is like doing $$S = S \cup \{x\}$$.So, the cost would be the cost of the union, i.e., $$\Theta(|(S|+1) \cdot 1) = \Theta(|S|+1)$$",1,,,,,,3,,G,,,1,,,3,
+216,264,https://piazza.com/class/kjv25fqyx8y513/post/136,COMP3711,question @136,,0,DC3 (c),"In DC3 (c), don't we need to do partition also after finding the median Xm? So that when we call the function on the left or right side, we are sure that all elements are either smaller or greater than Xm?",0,Updated 3 years ago by Anonymous Atom,,"DC3 is not giving you any pseudocode. It is just describing how to solve the problem.
+ 
+ If you read it carefully it actualy IS implicitly calling a version of partition.
+ 
+ It is finding the median item $$x_m$$ and then
+ spending $$O(n)$$ further time
+ finding all items satisfying $$x_j \le x_m$$.
+ 
+ That means that it has partitioned the $$x_j$$ into $$x_m$$, those items less than $$x_m$$ and those items greater than $$x_m$$. In other words, it is partitioning on $$x_m$$.",1,,,,,,3,,I,,1,,,,3,
+221,568,https://piazza.com/class/kjv25fqyx8y513/post/142,COMP3711,question @142,,0,Q3-c the def of Tierce,"Hello, I have a question about the definition of Tierce. It is said that Tierce(A, p, r) = BB(A, p, r, floor( (r-p+1)/3 )).
+ 
+ But for an array with 2 elements, it will be BB(A, p, p+1, 0). I do not think this is a valid input of BB since there is no 0th smallest number.
+ 
+ I think this should be change to ceiling( (r-p+1)/3 ) instead of floor( (r-p+1)/3 ).",0,Updated 3 years ago by Loading...,,"No.
+ Tierce is undefined when $$r-p+1 <3$$.
+ (It's definition would be arbitrary).
+ 
+ So, if you have $$r-p+1 <3$$, i.e, your problem is size 1 or 2, you can't call Tierce.
+ 
+ You would have to just solve the problem using brute-force.
+ 
+ But this is trivial to do, because then you are solving one of the cases
+ $$BB(A,p,p,1),$$ $$BB(A,p,p+1,1)$$ or $$BB(A,p,p+1,2)$$,
+ all of which are easy to solve.",2,,,,,,3,,I,,1,,,,3,
+227,95,https://piazza.com/class/kjv25fqyx8y513/post/153,COMP3711,question @153,,0,Q3c simplified proof,"For Q3c, can we say that the remaining array size at each time is at most 2n/3 (although it is strictly ceiling(2n/3) for the simplicity of proof? Thank you!",0,Updated 3 years ago by Loading...,,"You should let $$T(n))$$ be the worst -case running time on all problems of size AT MOST $$n$$.
+ Then your recurrence would work correctly.",1,,"Since we're concerned with the Worst-case analysis, saying the algorithm produces an array that has worst-case size of $$\frac{2}{3}$$ n should be alright.",0,,,3,,O,,,,,procedure,3,
+231,61,https://piazza.com/class/kjv25fqyx8y513/post/160,COMP3711,question @160,instruction_on_requirements,0,Using Master Theorem,"May I ask if we can ignore floor sign and ceiling sign when using Master Theorem in hw or exam for simplification?
+
+For instance, if we get T(n) <= aT(floor(n/b))+kn, is it okay to apply the Theorem by treating at as 
+T(n) <= aT(n/b) + kn?
+
+Thanks!",0,Updated 3 years ago by Anonymous Gear,,"YEs. As discussed in class the $$n/b$$ term in the Master Theorem encompasses both
+ $$\lfloor n/b \rfloor$$ and $$\lceil n/b \rceil$$
+ 
+ (Problem 1 in Assignment 1 was intended to explain why this works)",2,,,,,,3,,G,,1,1,,,3,
+234,283,https://piazza.com/class/kjv25fqyx8y513/post/164,COMP3711,question @164,,0,Q2b,May I ask can we just give a non-monotone matrix on which MEM would fail? Do we have to prove it?,0,Updated 3 years ago by Anonymous Atom,,"Correct.
+ 
+ You just need to give a non-monotone matrix $$A$$ AND a value $$a \in A$$
+ and quickly explain why the algorithm fails when trying to find $$a$$ in $$A$$
+ 
+ Technically you only need to provide $$a$$ and $$A$$ and no explanation.
+ But, if you don't have an explanation and your answer is wrong, then we can not give you any partial credit.",1,,You are required to give a non-monotone matrix then explain why the algorithm fails. I believe this sufficiently prove that the algorithm does not work for non-monotone matrices.,1,,,3,,O,,,,,procedure,3,
+242,819,https://piazza.com/class/kjv25fqyx8y513/post/180,COMP3711,question @180,logistics,0,Assignment 3 in grade rubic,"Is the future homework 3 worth 15% of total marks since it is of double length?
+ 
+ By same token, are the other 4 assignments worth 10% each?",0,Updated 3 years ago by Anonymous Beaker,,"NO.
+ 
+ There are 5 assignments (# 3 twice the size) worth 55% of the final in total
+ 
+ Each normal assignment is worth 1/6 of 55%, i.e., $$9 \frac 1 6$$%, i.e, around 9.166% of the final grade
+ 
+ Assignment 3 is worth 2/6 of 55%, i.e., $$18 \frac 1 3$$%, i.e, around 18.33% of the final grade.",1,,,,,,3,,,,,,,,3,
+246,738,https://piazza.com/class/kjv25fqyx8y513/post/184,COMP3711,question @184,concept,0,Huffman Coding,"I had a few questions when reviewing the huffman coding and hope to ask about them.
+
+First, one of the steps in the proof is that we remove the smallest pair of siblings x, y and replace them with z. However, may I ask if there is always one and only one pair of siblings that we could pick? (is there only one pair at the deepest level?) If not, will the existence of other pairs affect the correctness of the proof?
+
+Second, it is mentioned that the proofs for greedy algorithms usually require the use of greedy property. May I ask, for huffman coding, which specific lemma or part in the notes should considered as using the greedy property?
+
+Thank you very much!",0,Updated 3 years ago by Anonymous Scale,,">First, one of the steps in the proof is that we remove the smallest pair of siblings x, y and replace >them with z. However, may I ask if there is always one and only one pair of siblings that we could >pick?
+ Absolutely not.
+ For example, if all of leaves have the same weight, there will be many possible ties.
+ 
+ >(is there only one pair at the deepest level?)
+ Again no.
+ >If not, will the existence of other pairs affect the >correctness of the proof?
+ 
+ 
+ The proof is written very carefully.
+ It says that we pick A smallest pair of siblings. It doesn't say THE smallest pair.
+ Everything is written so that it will work in case of ties.
+ 
+ 
+ >Second, it is mentioned that the proofs for greedy algorithms usually require the use of greedy >property. May I ask, for huffman coding, which specific lemma or part in the notes should >considered as using the greedy property?
+ In this case it's using the properties all through the proof and not just in one place,
+ Consider the proof on page 20.
+ the use of Lemma 3 and the observation from page 17 are using the greedyness of Huffman's algorithm.",1,,,,,,2,,G,,1,1,,,3,
+261,534,https://piazza.com/class/kjv25fqyx8y513/post/206,COMP3711,question @206,,0,"Q4 definition of ""a tree does not exist""","In the rules of Q4, it is mentioned that if ""a tree does not exist"" then the table value $$e[i,j:k]$$ should be $$\infty$$.
+ 
+ Does ""a tree does not exist"" include cases where there range $$[i..j]$$ is not valid, i.e. when $$i > j$$?
+ 
+ So should the value for $$e[i, j: k]$$, $$i > j$$ be $$\infty$$ as well?",0,Updated 3 years ago by Anonymous Poet,,">In the rules of Q4, it is mentioned that if ""a tree does not exist"" then the table value e[i,j:k] should be ∞.>Does ""a tree does not exist"" include cases where there range [i..j] is not valid, i.e. when i>j?No. It does not. If $$i > j$$ then the tree exists, but it is empty, so it has cost $$0.$$While this might seem arbitrary, this is actually how the recurrence taught in class worked.The issue there was that, when constructing $$T_{i,j}$$, it is possible that $$a_i$$ or $$a_j$$ is the root.In that case, the left or right subtree would be empty. The recurrence therefore needed the cost of that empty subtree to be $$0$$. This is why we set $$e[i,i-1]=0$$ in class.[Sidenote: Setting $$e[i,i-1]=0$$ was just a mathematical hack. BUT, introducing it meant that we didn't have to write out special cases of the recurrence when the root is the leftmost or rightmost item in the range. So, it was a useful hack.]The cases in which we nust set $$e[i,j:k] = \infty$$ are very different. These are cases in which the range of items is non-empty but the tree with the stated property can not exist. For example, the tree containing a range with 4 items ($$a_i, a_{i+1}, a_{i+2}, a_{i+3}$$) MUST have height at least $$2$$. So $$e[i,i+3:1]=\infty$$Again, this is a mathematical hack. You COULD write a more complicated recurrence that first checks whether a tree could exist before calculating its associated value. But, setting the cost $$=\infty$$ does this automatically.This is actually why we permit you to do calculations with $$\infty$$ in your pseudocode. In real code, that's impossible. You would need to keep a boolean indicator of the existence of a tree of that size and check that before doing a value calculation. Setting the tree value $$=\infty$$ lets you avoid that extra code.",2,,,,,I,2,,"I, O",,1,,,procedure,3,
+262,557,https://piazza.com/class/kjv25fqyx8y513/post/207,COMP3711,question @207,,1,"P4 (a) what does ""initial conditions"" mean?","In problem 4a, we are asked to give a dynamic programming recurrence equation, I assume it is the same as in lecture note 13 page 18
+ [fig1]
+ what does Don’t forget to provide the initial conditions mean? is there anything else we need to write other than something like the image?",0,"Updated 3 years ago by LEE, Chit",,"That is correct.
+ ""Initial conditions"" refers to the base conditions that need to be set.
+ These are the values that are NOT defined by the recurrence.
+ 
+ There are actually two slightly different types of initial conditions that can occur.
+ 
+ a) those that refer to the ""smallest"" base problems, i.e.,
+ $$e[i,i] = f(a_i).$$
+ These are the costs of the one node trees
+ 
+ b) Those that refer to boundary issues in the recurrence, e.g.
+ $$f(i,j)=0$$ for $$i>j.$$
+ $$i >j$$ refers to non-existent problem, e.g., the empty set.
+ Setting this $$-0$$ is saying that the cost of an empty tree is zero.
+ and makes the recurrence work nicely.
+ 
+ Both types are called initial conditions
+ 
+ ***********************
+ A bit deeper. For this problem, (b) was not actually necessary.
+ You could have avoided this mathematical hack by not defining $$e[i,j]$$ for $$i > j$$ and changing the recurrence to
+ 
+ $$e[i,j] = w[i,j] + \min\left( e[i+1,j], e[i,j-1], \min_{i < k < j} (e_[i,k-1]+e[ k+1,j])\right)$$
+ 
+ Note that this new recurrence has peeled off the two cases of $$a_i$$ and $$a_j$$ being the tree roots and dealt with them separately. It's also mathematically correct and, possibly, more intuitively straightforward, but it's much harder to read. So, we prefer the version given in class.
+ 
+ But, both versions are correct.",2,,"I believe that initial conditions refers to base conditions. In the image, that refers to e[i,j] = 0 for i>j and e[i,i] = f(ai) for all i.",0,,,3,,G,,,1,,,3,
+265,432,https://piazza.com/class/kjv25fqyx8y513/post/211,COMP3711,question @211,concept_verification,0,General Question on Greedy Proof,"I understand the process of greedy proof, but I want to ask for clarification if my understanding is correct.
+ 
+ In proving a greedy algorithm, we create(assume) an optimal solution which is different from greedy.
+ 
+ Then, we find the first position where the optimal solution is different from the greedy solution.
+ 
+ Then, we show that switching that element of optimal solution to greedy element is still optimal. This way, the length of the segment where greedy and optimal are identical has increased by 1.
+ 
+ For the remaining parts, we repeat the process above again. We find the first position where greedy and optimal differs, and do the same process.
+ 
+ Repeat the process until there is no element left. Here, we finally have an optimal solution which is exactly identical to greedy solution.
+ 
+ I don't really get the final step. Once I show the first one or two steps of switching and changing optimal into greedy, can I just say that ""This process will terminate because we only have a limited amount of elements (n), and once this process terminates, greedy and optimal will be identical""?",0,Updated 3 years ago by Anonymous Scale,,"First. That is only one way of proving that greedy algorithms are correct.It works for some problems and not for others. For one thing, it requires that there be some natural way to order the elements of a solution. That's not always true. It wasn't true, for example, for Huffman coding and the interval partitioning problem.>I don't really get the final step. Once I show the first one or two steps of switching and >changing optimal into greedy, can I just say that ""This process will terminate because we only >have a limited amount of elements (n), and once this process terminates, greedy and optimal >will be identical""? I can't answer your question definitively because the actual phrasing depends upon how you have set up your proof.One way to do it is to A) Assume that greedy is not an optimal solution.B) Let $$G$$ be the greedy solution and $$O$$ be some optimal solution.C) Let $$d$$ be some ""similarity"" measure between $$G$$ and $$O$$ In your case, you are letting $$d$$ be the ""first place"" that $$G$$ and $$O$$ differD) Create a new optimal solution $$O'$$ whose similarity with $$G$$ is greater.E) You then need to explain that the similarity value is bounded and if it gets large enough (explaining what large enough is) then $$G=O$$In some problems (E) is obvious and in some (E ) needs to be explained in more detail.That really depends upon what your similarity measure is.This proof can also be done by contradiction. You can define a similarity measure and then say. If $$G$$ is not optimal let $$O$$ be an optimal solution that has the highest similarity measure with $$G$$. You can then show that there is an optimal $$O'$$ with higher similarity measure, leading to a contradiction.",1,,,,,"I, G",2,,O,,,,,procedure,3,
+267,654,https://piazza.com/class/kjv25fqyx8y513/post/213,COMP3711,question @213,,0,Q2c,"In Problem 2c, what means by ""Write down your function calls""?",1,Updated 3 years ago by Loading...,,"It means writing down a sequence of calls to the Construct-BST function, each with specific parameters and the corresponding output.",1,,,,,,3,,I,,1,,,,3,
+268,679,https://piazza.com/class/kjv25fqyx8y513/post/214,COMP3711,question @214,,0,"P3, the uniqueness of the formula",,0,Updated 3 years ago by Anonymous Calc,,No. There are an infinite number of possible solutions.,1,,,,,,3,,,,,,,,3,
+270,126,https://piazza.com/class/kjv25fqyx8y513/post/217,COMP3711,question @217,clarification_on_typos,0,Typo in Optimal BST Notes?,"There seems to be a typo in p.19 of lecture note 13_DP_interval.pdf.
+ 
+ The statement ""t=e[i,k-1]+e[k+1,j]+w[i,j]"" does not work in 2 cases:
+ 
+ 1) When k = 1, e[i,k-1] = e[i,0], which is not in the table e[1...n, 1...n];
+ 
+ 2) When k = n, e[k+1,j] = e[n+1,j], which is also not in the table e[1...n, 1...n].
+ 
+ Therefore, if we want to write the similar code for HW3 P4 according to p.19, do we need to take care of these 2 cases and make some modification?
+ 
+ Also, the recurrence on p.18 of the lecture note states that e[i,j] = 0 for i>j, which avoids the problem above. Just want to check whether the recurrence part is correct, so that we can just write the similar recurrence for HW3 P4 according to p.18 without fixing the bug.",0,Updated 3 years ago by Loading...,,"Yes. There was a small typo in the array parameters in the code
+ Please see the answer in https://piazza.com/class/kjv25fqyx8y513?cid=209
+ for more details
+ 
+ 
+ As you noted the recurrence is correct.
+ You just need to make sure that the array is defined correctly in your code to reflect this.",1,,,,,P,3,,P,1,,,,,3,
+271,538,https://piazza.com/class/kjv25fqyx8y513/post/219,COMP3711,question @219,concept,0,Longest Common Subsequence - Space,"I was reviewing the longest common subsequence problem in the DP notes.
+
+The space complexity is said to be Θ(m+n) if we do not need back tracking. I hope to confirm whether that means the arrays X[1,...,m] and Y[1,...,n], which store the characters, are dominating the space?
+
+Thanks!",0,Updated 3 years ago by Anonymous Comp,,"Yes. The input is dominating the space.
+ 
+ BUT, be aware that the $$\Theta(m+n)$$ space algorithm is very advanced and not something we teach in this class.",1,,,,,,3,,,,,,,,3,
+280,659,https://piazza.com/class/kjv25fqyx8y513/post/231,COMP3711,question @231,,0,Q1a print,Could I use coding to print out the tree instead of hand drawing ?,0,Updated 3 years ago by Anonymous Scale,,"It is possible to print out the tree. But please note that the output has to look like a tree and all the nodes and edges must be properly labelled.
+ 
+ This can be hard to write code to do and also requires work. It would be easier to draw it by hand and/or using a computer based drawing program.
+ 
+ Another note is that if the final exam has similar questions, it may not be possible to do it by coding.",1,,,,,,3,,,,,,,,3,
+281,759,https://piazza.com/class/kjv25fqyx8y513/post/232,COMP3711,question @232,,0,Do we need to show how we got the recurrence/initial conditions,"In Q4, do we need to show how we got the recurrence/initial conditions? or can we simply write it and justify its correctness?",0,Updated 3 years ago by Anonymous Calc,,"The instructions are very clear
+ In (a) you state the recurrence
+ In (b) you justify/prove correctness of the recurrence and initial conditions
+ 
+ There is no place to tell a story about how you discovered it.
+ 
+ The proof of correctness sin (b) is the explanation of why it is correct.",1,,,,,,3,,O,,,,,procedure,3,
+287,0,https://piazza.com/class/kjv25fqyx8y513/post/240,COMP3711,question @240,,0,Q3b reference to lecture notes,"May I confirm that Question 3b asks us to reference to that last two pages of 13b_Matrix_Multiplication (p. 13 and 14) instead of page 9 and 10?
+
+Thanks!",0,Updated 3 years ago by Anonymous Beaker,,"That is correct.
+ 
+ We added some worked examples to the lecture notes and the page numbers get shifted.",1,,,,,,3,,,,,,,,3,
+290,278,https://piazza.com/class/kjv25fqyx8y513/post/243,COMP3711,question @243,,0,P6 - Minimum length of two sequences,"In P6, we are given two sequences x[1...m] and y[1...n] and we need to find the minimum cost to covert x to y.
+
+May I ask can m= 0 or n= 0? If m=0, this means the source string is empty such that converting 
+x to y requires all operations being “insert”.
+
+Thanks!",0,Updated 3 years ago by Anonymous Atom,,"Yes. $$m=0$$ and $$n=0$$ are definitely possible.
+ 
+ If $$m=0$$ then the conversion from $$X$$ to $$Y$$ uses only insertion operations.
+ 
+ (You will actually need something like this as an initial condition)",1,,,,,,3,,,,,,,,3,
+292,0,https://piazza.com/class/kjv25fqyx8y513/post/247,COMP3711,question @247,lecture notes clarification,0,Optimal bst in lecture notes,"do we know the height of the subtree by e[i,j] and root[i,j]?",0,Updated 3 years ago by Anonymous Atom,,"The DP given in class for optimal BSTs has absolutely no knowledge about the heights of the trees.
+ 
+ The intuition here is that the reason that DPS work is that they they throw away a lot of information when defining the subproblems. That's where their efficiency comes from.
+ 
+ 
+ $$e[i,j]$$ in the class notes is ONLY storing information about the minimum COST of a tree on $$a_i\ldots a_j$$. It knows absolutely no information about the tree that realizes that minimum cost (except for its root, which it stores in $$root[i,j]$$)",1,,,,,,2,,I,,1,,,,3,
+300,43,https://piazza.com/class/kjv25fqyx8y513/post/257,COMP3711,question @257,,0,"In P5, value of V[1,1]?","If V[i,j] is maximum value of path at i,j; is V[1,1] equal to A[1,1] or negative infinity?",0,Updated 3 years ago by Anonymous Calc,,"What do you mean by $$V[i,j]?$$ That is not part of the problem definition?
+ 
+ If you are referencing any other post, please provide the reference.
+ If the question is
+ What is the value of the max value path ending at $$(1,1)$$?
+ The answer is $$A[1,1].$$",1,,,,,,2,,,,,,,,3,
+302,755,https://piazza.com/class/kjv25fqyx8y513/post/265,COMP3711,question @265,,0,HW3 P2c,"May I ask more about presenting the function calls? I think we need to present all calls, including every recursive calls, mentioning the inputs and the returned node. However, I wonder if there is a required of presenting the calls, such as mentioning calls level by level, or following the sequence of calling?
+
+For instance, for
+A
+/ \
+B C
+/
+D
+should it be in the order of level by level: construct(A)->construct(B)->construct( C )->construct(D), or sequence of calling: construct(A)->construct(B)->construct(D)->construct( C )?
+
+Thanks",0,Updated 3 years ago by Anonymous Calc,,"It should be in the form of a sequence of calls to the Construct-BST() function.
+ 
+ For example, the very first call in the sequence of the HW question should be:
+ 
+ Construct-BST(root, 1, 8)
+ 
+ Suppose the output of this first call is k, then it will be followed by:
+ 
+ Construct-BST(root, 1, k-1)
+ 
+ So on and so forth.",1,,,,,G,3,,G,,,1,,,3,
+306,23,https://piazza.com/class/kjv25fqyx8y513/post/281,COMP3711,question @281,requirements clarification,0,Redefining the symbols in the proof,"Can we directly use the symbols that are already defined in the problem? or do we need to define them again in the proof?
+ 
+ For example in P7, $$p_i$$ is defined as the probability of accessing file i. Do I need to write the same definition for (d) as a setup if I'm going to use it in my proof?",0,Updated 3 years ago by Anonymous Scale,,No. If something has been introduced in the problem definition yo0u absolutely do NOT have to repeat its definition.,1,,,,,,3,,,,,,,,3,
+307,391,https://piazza.com/class/kjv25fqyx8y513/post/282,COMP3711,question @282,,0,P6 documented pseudocode for out of bound index,"In problem 6, let's say I defined a base case that if D[0, 0] equals a specific value, when I write the pseudocode, D[0, 0] is a out of bound index, do I need to do anything about it?
+ Such as make some if else statement to handle it, or can I use assume that as it is defined in my recurrence relationship, I can call get the specific value I defined in the pseudocode?",0,Updated 3 years ago by Loading...,,"Yes. If that happens, you do need to do something about it.
+ 
+ I don't understand the question, though.
+ 
+ For problem 6, ALL of the $$D[i,j]$$ should have values $$\ge 0$$.
+ That's how $$D[i,j]$$ is defined in part (a).
+ 
+ The $$D[i,j]$$ do not store indices. They store edit distance values.
+ 
+ The problem is NOT asking you unto construct the actual edit formula. Only the cost of the edit formula.
+ So, there's no need to store any indices.",1,,,,,,3,,,,,,,,3,
+311,160,https://piazza.com/class/kjv25fqyx8y513/post/286,COMP3711,question @286,,0,A question on DP and D&C,"This question is not directly related to any problem in HW3, but I came up with this question in the process of solving DP problems in HW3.
+ 
+ In the lecture notes, it was mentioned that D&C used ""top down"" and DP used ""bottom up"". However, for Q5, we are recommended to solve the this problem with top down. For Q9, we are recommended to think about the last station first and derive a recurrence based on that. It is also kind of ""top down"". I'm wondering what is the substantial difference between DP and D&C. I'm quite confused with it.
+ 
+ Thanks!",0,Updated 3 years ago by Anonymous Comp,,"There's a confusion here about what top-down and bottom up means here.
+ 
+ bottom-up means that you are
+ - defining the idea of a subproblem
+ - filling in the table from the bottom up, i.e., from smaller subproblems to larger ones.
+ 
+ So, you are actually solving problem 5 bottom-up
+ (you are looking at the graph from the top vertex $$(1,1)$$ down, on but that's just a visual aid).
+ 
+ You are also solving problem 9 bottom up. Filling in the smaller table entries before the larger ones
+ 
+ 
+ **************
+ 
+ The idea of top-down in recursion is that we are saying
+ I can solve this large problem by
+ - solving some VERY SPECIFIC supbroblems,
+ - and then combining the solutions together to get the solution to the smaller larger problem.
+ 
+ ******************
+ 
+ In some ways, you can think of DP as top down.
+ You are solving the larger problem by looking at the solutions to smaller problems.
+ But, unlike in recursion, we don't know WHAT the exact smaller problems are in advance.
+ So we need to calculate ALL of the smaller problems before trying to solve the larger problem.
+ 
+ Top Down and Bottom-Up here are not meant to be very formal descriptions. They're intended more as aids to intuition.",1,,,,,,3,,G,,1,1,,,3,
+316,568,https://piazza.com/class/kjv25fqyx8y513/post/292,COMP3711,question @292,requirement clarification,0,stating running time for sorting,"May I ask if we are now allowed to directly state the running time of some sorting algorithms without proving that in this homework?
+For instance, can we say we will use merge sort and then just state it takes O(nlogn) time or 
+cnlogn time for some constant c>0 without mentioning how this is derived.
+
+Thanks!",1,Updated 3 years ago by Anonymous Helix,,"Absolutely. Just say that you are using mergesort to sort the data
+ (and explain what key you are sorting on)",1,,,,,,3,,,,,,,,3,
+323,327,https://piazza.com/class/kjv25fqyx8y513/post/300,COMP3711,question @300,,0,Return P9,"Just to make sure, for P9 I only need to return the cheapest cost right? And not the set nor the location of the bases? Thanks!",0,Updated 3 years ago by Anonymous Mouse,,Yes. You only need to calculate the cost.,1,,,,,,3,,,,,,,,3,
+339,261,https://piazza.com/class/kjv25fqyx8y513/post/323,COMP3711,question @323,,0,P8 output format,"I would like to ask about the output requirement for P8.
+
+Should we use a set to hold the base stations and then return it or should we keep outputting (printing) whenever we find an appropriate station?
+
+I hope to ask because I suddenly remembered that set operation does not take constant time. I am not sure how to fix this problem if we need to use a set to return.
+
+Thanks!",0,Updated 3 years ago by Anonymous Atom,,"This is not really a set. It's a list.
+ You are adding items one at a time.
+ You can just print each base station when you add it and keep track of the last base station added.",1,,,,,,3,,O,,,,,procedure,3,
+341,19,https://piazza.com/class/kjv25fqyx8y513/post/337,COMP3711,question @337,Assignment Description Clarification,0,P1 (b) Time complexity,"For problem 1 (b) we are required to find a algorithm that runs in $$O(|E|)$$ time, but in the hints, we are hinted to test for the edge satisfying a property in $$O(E + V)$$ time.
+ Is the reason we can turn $$O(E + V)$$ into $$O(|E|)$$ because we already know the relationship of V and E, so we can simplify one into the other? or do we have to do some extra proof?",1,Updated 3 years ago by Loading...,,"You are given that the graph is connected so $$E \ge V-1$$. SO, $$\Theta(E)$$ is equivalent to $$\Theta(V+E)$$.They can be used interchangeably.",1,,,,,,3,,,,,,,,3,
+350,662,https://piazza.com/class/kjv25fqyx8y513/post/351,COMP3711,question @351,,0,P4 A(b) Union-Find Structure,"Is there any requirement for how the Union-Find Structure should be handled?
+
+For example, can we use the optimizations (height comparison, path compression) to make the structure shorter?
+
+(Just wondering since I found that the rendering of each tree takes a lot of vertical space)",0,Updated 3 years ago by Anonymous Calc,,"As stated in the problem, the solution must follow the ""Kruskal's algorithm using the Union operation on Page 28"" of the 16_MST lecture notes.
+ 
+ No application of path compression. Actually, as one could see in the worked example in 16c_Kruskal_UF, the algorithm constrains the growth of the union-find data structure in height, and the solution of each step may not take up a lot of space vertically.",1,,,,,P,3,,I,,1,,,,3,
+353,620,https://piazza.com/class/kjv25fqyx8y513/post/354,COMP3711,question @354,,0,P2 Same timestamp,"If we have two possible paths of infection of a single computer (with different length) in the same timestamp, which path should we choose?
+ 
+ For instance,
+ 
+ Suppose that current timestamp is $$ t_7 $$, and we know that a set of computers $$ \left\{ C_1, C_2 \right\} $$ have been already infected.
+ 
+ Also suppose that we have these connection in timestamp $$ t_7 $$.
+ 
+ $$ (C_{1_{t_7}}, C_{5_{t_7}}, t_7), (C_{1_{t_7}}, C_{3_{t_7}}, t_7),(C_{5_{t_7}}, C_{3_{t_7}}, t_7), $$.
+ 
+ Here, $$ C_5 $$ can be directly infected from $$ C_1 $$, or it can be infected from $$ C_3 $$ which has been infected by $$C_1 $$. Since the infection is instantaneous, both infections will occur in timestamp $$ t_7 $$. Can I choose either one for $$P[C_5] $$ ?",0,Updated 3 years ago by Anonymous Atom,,"It doesn't matter. You can choose any one.
+ 
+ This is similar to Dijkstra's algorithm.
+ The tree Dijkstra's algorithm builds is A shortest path tree. There might be many such trees with many different shortest paths from $$s$$ to $$t$$
+ The algorithm breaks ties arbitrarily
+ 
+ The situation is similar for this problem.
+ The path from $$C_{a}$$ to $$C_b$$ in the tree can be any path that infects $$C_b$$ at the earliest possible time.
+ 
+ ****************************************
+ Note. In your example, your notation is confusing.
+ Since you are giving an example you don't have to use multiple level subscripts. You could have just written
+ 
+ $$ (C_1, C_5, t_7), (C_1, C_3, t_7),(C_5, C_{3}, t_7) $$.",2,,,,,I,3,,I,,1,,,,3,
+363,620,https://piazza.com/class/kjv25fqyx8y513/post/368,COMP3711,question @368,,1,P3 drawing requirement,"I would like to ask in hw4 P3, when we are drawing the result of the DFS and BFS graph, does the result graph
+ 1. need steps? like we need multiple images, in each we add a new edge like this image
+[fig1]
+ 
+ 2. need numbering? do we need to number which edge is added first and which edge is added later
+ 
+ 3. need arrows? let's say $$u_0$$ infects $$v_0$$, do we need a edge with arrows pointing towards $$v_0$$?",0,Updated 3 years ago by Loading...,,"For better readability, it is recommended to only draw the tree edges selected by BFS/DFS on the given templates. No arrows or numbering required.
+ 
+ https://piazza.com/class/kjv25fqyx8y513?cid=342",1,,,,,P,3,,P,1,,,,,3,
+365,413,https://piazza.com/class/kjv25fqyx8y513/post/372,COMP3711,question @372,,0,P3,"Can there be multiple solutions for this problem? I did not exactly follow the adjacency list convention and chose an element at random if there were more than one element present at a level. So lets say if u0 : u1 → u7 → v1 → v7, then i chose v1 instead of u1 and applied my dfs/bfs from that node.",0,Updated 3 years ago by Anonymous Beaker,,"Not sure what you mean by ""not exactly follow the adjacency list).
+ 
+ The problem asks for solution that exactly follows the exact adjacency list given, the algorithm (in the lecture notes), and the start point.",1,,,,,,2,,,,,,,,2,
+366,344,https://piazza.com/class/kjv25fqyx8y513/post/375,COMP3711,question @375,,0,HW4 P1(b),"Can we use both description and pseudocode to answer this question?
+ 
+ i.e. using description when using algorithms taught in class and write my own code for other parts
+ 
+ Since I didn't think of a way to solve this problem only using algorithms that we already have, so I need to write some new codes.",0,Updated 3 years ago by Anonymous Beaker,,"Yes.
+ 
+ You can combine pieces here.
+ 
+ But, please structure it cleanly so that we can understand what you are doing.",1,,,,,,3,,,,,,,,3,
+369,275,https://piazza.com/class/kjv25fqyx8y513/post/378,COMP3711,question @378,,0,Format of hw4,"I used LaTex in P4A(a) but I found it quite time consuming to draw trees by LaTex in P4A(b), may I draw it and insert it in the LaTex file ? Then it would be a picture in a pdf file.",0,Updated 3 years ago by Anonymous Atom,,"That would be fine.
+ Alternatively, you can take the PPT template we gave you,
+ - draw on it, scan it and make it into a PDF to include
+ or
+ - draw it in ppt, write to pdf and include that in the latex file
+ or
+ -draw it in ppt, write to pdf and insert it into the pdf file created by latex.
+ 
+ Short version is that drawing in native latex is REALLY time consuming with a huge start up cost.
+ It's much faster to generate pdf pictures using a different tool and then just include the pdf picture somehow.",1,,,,,,3,,G,,,1,,,3,
+385,52,https://piazza.com/class/kjv25fqyx8y513/post/448,COMP3711,question @448,,0,"P3 ""each step""","For the question wording “fill in the following D(S) matrices for each step”, may I confirm if “one step” refers to filling in one TABLE but not one ENTRY in the table?
+
+The answer should be just four tables? (or eight tables for (B)).",0,Updated 3 years ago by Anonymous Mouse,,One step means filling out the entire table once.,1,,,,,,3,,,,,,,,3,
+389,732,https://piazza.com/class/kjv25fqyx8y513/post/457,COMP3711,question @457,concept question,1,Circulation demand,"[fig1]
+I want to know if max flow |f| > total demand why the problem has no solution.",0,Updated 3 years ago by Anonymous Gear,,"It is impossible for max flow |f| > total demand to occur,
+ 
+ Set $$S'= V - \{t\}$$, $$T'=\{t\}$$. Then $$C(S',T') = \sum_i dem(t_i) = \mbox{total demand}$$.
+ 
+ The lemma from class states that, for any cut $$S,T,$$ and any flow $$f$$,
+ 
+ $$|f| \le C(S,T)$$
+ 
+ In particular
+ 
+ $$|f^*| \le C(S',T')= \mbox{total demand}$$.",1,,,,,,3,,I,,1,,,,3,
+394,433,https://piazza.com/class/kjv25fqyx8y513/post/465,COMP3711,question @465,hw,0,Running time for processing the inputs,"For P2, I have tried to model the problem to a max flow problem, similarly to the application examples in the lecture notes.
+ 
+ However, since the input to the F-F algorithm is a graph, I wonder if we need to produce a graph from the inputs in order to use the algorithm as subroutine. If so, how should we process the inputs into graphs? The main question is what data structure we will use as graph and what operations we will use to insert items when processing a datum. I was thinking about set operations but I am afraid the running time for that will be very bad.
+ 
+ Thanks",1,Updated 3 years ago by Anonymous Helix,,"You do NOT need to do all that.
+ 
+ All you need to do is describe the graph the wat that we did in the 19a_MF_Applications slides
+ 
+ That is.
+ Simply list what the vertices and edges and capacities of all of the edges are
+ 
+ That's it.
+ 
+ The main part of the problem is
+ 1) (a) Sating that you will run FF on the graph and then, somehow
+ (b) use the output of FF to get the output for your problem
+ 
+ 2) Proving that your output is correct
+ 
+ 3) Showing that your running time is correct.
+ 
+ We don't expect (or want) detailed pseudocode for this.
+ 
+ the main ""algorithmic"" part will be explaining (b)",1,,,,,,3,,I,,1,,,,3,
+481,822,https://piazza.com/class/llyqb9m6bch5qc/post/488,COMP2011,question @488,hw,0,pa3 testing,"pa3 testing
+ 
+ Referinng to @484, I am posting my pa3 file for you to test, mainly the add_star_rank function on testcase 11, 12, 33, 34, 35. Respond in the follow-up discussion on whether you pass the testcase or fail it. I've tested on two different Windows machine and passed, while ZINC and TA indicate my submission failed.
+ 
+ 1701355173129_aggregated.zip",1,Updated 4 weeks ago by Ng Chik Lun,,"If needed, please discuss with the PA3 appeal handling TA and keep me posted via email. I don't think PA3 designer would like to deduct points from students. It is not a pleasing experience for both students and TAs to handle appeal cases. Yet, we have some strict rules so that we can consistently grade 500+ submissions online. 
+ 
+ If ZINC test cases cannot be passed, there must be some flaws in your code. 
+ 
+ Indeed, ZINC can be configured to produce live testing results. We decide not to enable it because we have 500+ enrolment. From our experience, ZINC just crashed near the submission deadline if we enable the live testing feature.",1,"~ An instructor (CHUNG, Peter) thinks this is a good comment ~",,,,,3,,,,,,,,3,
+482,417,https://piazza.com/class/llyqb9m6bch5qc/post/487,COMP2011,question @487,"others, learning suggestions",0,What things I can do to help weaker students in this course?,"What things I can do to help weaker students in this course?
+ 
+ When I graded the exam papers, I felt heartbroken when I saw a student writing some negative sentences and could not answer most of the exam questions. 
+ 
+ 
+ 
+ 
+ In future, I think I can do something extra without adding the workload of my colleagues. It can be something small, but may give some immediate help for weaker students.
+ 
+ 
+ 
+ 
+ For example, will some video explanations accompanying with some slides to explain selected past papers helpful?",7,"Updated 4 weeks ago by CHUNG, Peter",,"I graduated from HKUST many years ago, so I can add a bit more history of COMP2011.
+ 
+ In the remote past (3Y curriculum), COMP104 (the previous code of COMP2011) is the first programming course for COMP students. The exam statistics were very high (mean: near 90). I was still able to secure an A range. It was stressful, but the learning atmosphere was good. There were tutorial classes (very rare nowadays) and I could ask past paper questions with tutors.
+ 
+ Since 4Y curriculum, more and more students with diversified backgrounds enrolled in COMP2011. I was assigned to other COMP courses and recently was assigned back to COMP2011.
+ 
+ I believe that the teaching team members are eager to provide better support for students, especially for weaker ones. Unfortunately, it is impossible to make some formal teaching activities because it is a 500+ enrollment course.
+ 
+ This is the reason why I would like to start something small but extra, and it can give some immediate help for weaker students.",4,"~ An instructor (CHUNG, Peter) thinks this is a good comment ~","To that student: Don't blame the player, blame the game.",1,,G,3,,G,,,1,,,3,
+483,495,https://piazza.com/class/llyqb9m6bch5qc/post/485,COMP2011,question @485,,0,Q4 (Recursion) in exam,"Q4 (Recursion) in exam
+ 
+ Hi,
+ 
+ I don't think there's a skeleton code (or prototype) provided for implementing the binary search function in the final exam.
+ 
+ I checked the solution and found my function is not completely the same to the suggested answer. Will this affect the grading?
+ 
+ Thanks",1,Updated 4 weeks ago by Anonymous Calc,,We should accept alternative correct answers for coding questions. Please discuss with the exact TA grading that question during the paper checking session.,1,,,,,,3,,,,,,,,2,
+491,750,https://piazza.com/class/llyqb9m6bch5qc/post/477,COMP2011,question @477,requirements clarification,0,Can we use lambda and range for loop in finals,"Can we use lambda and range for loop in finals
+ Hi, I was just wondering if we were instructed to write code during the finals if we would be allowed to use lambda syntax and range for loop syntax? Thanks",1,Updated 1 month ago by Anonymous Gear,,"It is better to stick with the standard syntax. For example, lambda functions can be written using standalone functions. Range-for loop can be written using a standard for-loop.",1,,,,,,3,,G,,,1,,,3,
+497,799,https://piazza.com/class/llyqb9m6bch5qc/post/471,COMP2011,question @471,grade appeal,0,PA3 appeal,"PA3 appeal
+ I wonder whether I need to write an email to TA if my PA3 belongs to the appeal cases mentioned in Canvas announcements, or the re-grading will be done automatically for everyone?",1,Updated 1 month ago by Anonymous Comp,,"I contacted the PA3 appeal handling TA. He should handle some of the appeal cases, and he said that there are a few cases to be settled. Although no new requests should be sent after the appeal deadline, if needed, please send an email to the TA to follow up the current appeal handling progress.",1,,,,,,3,,,,,,,,2,
+504,781,https://piazza.com/class/llyqb9m6bch5qc/post/463,COMP2011,question @463,hw,1,pbr for pointer,"pbr for pointer
+ [fig1]
+ Good evening, I'd like to ask about // set_student_record(*srp, ""Chris"", 100, 'M', CSE, d19970701); // because I tried to run the code on vsc but this error appears, is it supposed to be // set_student_record(srp, ""Chris"", 100, 'M', CSE, d19970701); // ?",0,Updated 1 month ago by Anonymous Mouse,,"[Edited] Professor fixed this slide. Thanks for pointing it out.
+ 
+ I forwarded your question to the course coordinator. 
+ 
+ In the lecture example code, the function prototype of set_student_record is:
+ 
+ void set_student_record(Student_Record*, const char[],
+ unsigned int, char, Dept, const Date*);
+ 
+ The first parameter should be Student_Record* type, so invoking in this lecture slide is wrong: set_student_record(*srp, ….) because we should not deference srp when passing srp.",1,,,,,,2,,,,,,,,3,
+513,435,https://piazza.com/class/llyqb9m6bch5qc/post/454,COMP2011,question @454,exam scope clarification,1,query about lambda expressions,"query about lambda expressionsHi~
+ 
+ I am wondering if lambda expressions of the below form will appear in final exam~ it's covered in lecture notes in Function I briefly, but not sure if it would be tested.
+ 
+ Thanks~
+
+[fig1]",0,Updated 1 month ago by Anonymous Calc,,Please check the Canvas announcement about the final exam coverage.,1,,,,,,3,,P,1,,,,,2,
+520,123,https://piazza.com/class/llyqb9m6bch5qc/post/447,COMP2011,question @447,requirements clarification,0,"is setting all float, double, int, long etc numerical variables in destructor allowed?","is setting all float, double, int, long etc numerical variables in destructor allowed?
+ 
+ Hi~
+ 
+ I am wondering if setting all float, double, int etc numerical variables to 0 in destructor is allowed if the question doesnt specify whether we should set/not set them to 0~
+ 
+ Thanks~",1,Updated 1 month ago by Anonymous Comp,,"It is not necessary to reset the values in the destructor because the attributes will be cleaned up and destroyed by the system when the object is deleted.
+ 
+ 
+ Yet, you still need to manually delete the memory you dynamically allocated in the constructor. Otherwise, there will be memory leak issues.",1,,,,,,3,,I,,1,,,,3,
+543,337,https://piazza.com/class/llyqb9m6bch5qc/post/420,COMP2011,question @420,"clarification, debug",2,Definition of pointers,"[fig1] 
+for above code, Is my drawing below correct?
+ 
+ For L.H.S:
+ I try to seperate the address(Ivalue) and value(rvalue) of the corresponding variables.
+ 
+ For R.H.S:
+ We should get the value of a pointer by using '*'.
+ Thus, I try to dereferencing different pointers.
+[fig2]",0,Updated 4 hours ago by Anonymous Beaker,,"Your interpretation looks correct. In C++, it is possible to print out the addresses (i.e., a 64 bit number in a 64-bit OS, usually in a hexadecimal notation). Here is the demo code to illustrate how to print out the addresses and the values of the pointer variables, based on your example:",2,,,,,G,3,,G,,1,1,,,3,
+546,797,https://piazza.com/class/llyqb9m6bch5qc/post/417,COMP2011,question @417,debug,0,strcpy error,"i got an error message like below.
+ 
+ error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+ 
+ but if I use strcpy_s instead it has another error and to solve it i think something has to be changed in the skeleton code given. so are we allowed to use the _CRT_SECURE_NO_WARNINGS at the top of our code?
+ 
+ thank you",0,Updated 6 hours ago by Anonymous Gear,,g++ don’t have strcpy_s. I think you are using Microsoft Visual C++ compiler. strcpy_s won’t compile in ZINC.,1,~ An instructor (Haobo Li) endorsed this answer ~,"Lab 8 can be done using strcpy(arg1, arg2), you might want to check your code.
+ 
+ Make sure the parameters (arg1, arg2) being passed to strcpy() are 2 pointers to char. strcpy() copies elements of arg2 to arg1.",2,,,2,,I,,1,,,,3,
+548,180,https://piazza.com/class/llyqb9m6bch5qc/post/415,COMP2011,question @415,debug,2,Why there is no output inside VScode,"I finished my code and want to test but I see no output when I test it on VSCode.
+ 
+ 
+ [fig1]
+ 
+ But when I test it on other platform, its totally fine.
+ 
+ [fig2]
+ 
+ Could anyone explain it to me? Thanks",1,Updated 18 hours ago by Anonymous Helix,,"The output is redirected to the files, such as test1.txt, test2.txt. You can check the output by opening those files.",1,,,,,,3,,G,,,1,,,3,
+550,190,https://piazza.com/class/llyqb9m6bch5qc/post/413,COMP2011,question @413,requirement clarification,0,Can I use static unsigned int to initialize my variable in pa3?,"Since we are not able to use global variable in pa3, can I use static unsigned int to initialize my variable inside my function instead?",1,Updated 19 hours ago by Anonymous Calc,,No. You shouldn't use static in pa3,1,,,,,,3,,,,,,,,3,
+553,727,https://piazza.com/class/llyqb9m6bch5qc/post/410,COMP2011,question @410,learning suggestions,0,Are there any tutorial for connecting vscode to ssh server?,I heard from same senior students that it is possible to connect our vscode to the linux server of ust. Are there any tutorial available in itsc or cse website?,1,Updated 20 hours ago by Anonymous Atom,,"It is not recommended because vscode ssh extensions need to create extra files on the server, and cssystem only allows each student to have 100MB disk quota.
+ 
+ 
+ Use FileZilla FTP client to upload/down files. The steps are illustrated in the memory leak checking tutorial in PA3.",1,,,,,,3,,P,1,,,,,3,
+557,68,https://piazza.com/class/llyqb9m6bch5qc/post/406,COMP2011,question @406,,1,the diagram of lab8 task2,"I cant really understand this diagram
+ Could I get an elaboration on this
+[fig1]",1,Updated 22 hours ago by Anonymous Poet,,Could you please specify which diagram you have questions about and what are the questions? Being more specific would be helpful.,1,,,,,,3,,,,,,,,2,
+558,241,https://piazza.com/class/llyqb9m6bch5qc/post/404,COMP2011,question @404,debug,1,Memory leak test,"when I tried to add the 3rd course(it works fine without doing the memory leak), this showed up, Does this mean my code for that part has some problem? and how to solve it.
+[fig1]",1,Updated 1 day ago by Anonymous Beaker,,"You can find the line number information (e.g., pa3.cpp: 173 means the line number is 173). You should read your code carefully to identify the potential problems in your code.",1,,,,,,3,,G,,,1,,,2,
+563,500,https://piazza.com/class/llyqb9m6bch5qc/post/398,COMP2011,question @398,Assignment Help,1,Could I get any hints for the solution of this problem,"[fig1]
+when I try to finish the delete task, it always come with this problem. Could I get some hints of this problem.",0,Updated 2 days ago by Anonymous Calc,,Please refer to @384.,1,,,,,,3,,P,1,,,,,2,
+567,723,https://piazza.com/class/llyqb9m6bch5qc/post/394,COMP2011,question @394,requirement clarification,0,PA3 add_course function,Do we need to arrange the course id in increasing order or just in time order?,1,Updated 3 days ago by Anonymous Calc,,"There's no need to arrange the course array, just in time order, following the figure in Task 3.",1,,,,,,3,,,,,,,,3,
+568,835,https://piazza.com/class/llyqb9m6bch5qc/post/393,COMP2011,question @393,debug?,1,add_star_ranking,"what is the meaning of the important message of the funtion add_star_ranking?
+[fig1]",0,Updated 3 days ago by Loading...,,"This message means that each time you insert a star_ranking, insert it to the end of the star_rank_head link in the course.",1,,,,,,3,,,,,,,,3,
+570,109,https://piazza.com/class/llyqb9m6bch5qc/post/391,COMP2011,question @391,hw question clarification (pa),2,question regarding format of pa3 output,"Hello, I just want to clarify the format of how we should output the star ranks. I noticed that the test cases show this 
+ [fig1]
+ where there is no space between the first number and the colon while the instructions tell us to place a space between like so
+ [fig2]
+ . I just want to know which one we should follow or if it matters at all?
+ 
+ thank you!",1,Updated 3 days ago by Loading...,,"Please follow the output file, and we will modify the instructions.",1,,"I'd say follow the output since that is what we are supposed to match (Zinc grades according to the output given to us). 
+ 
+ That being said, please follow what the TA says when they respond. :)",1,,,3,,,,,,,,3,
+572,751,https://piazza.com/class/llyqb9m6bch5qc/post/389,COMP2011,question @389,logistics,1,lab 8 no submission link in zinc? because of holiday policy?,"i only see the holiday policy say that i dont need to attend lab 8.
+ 
+ do i need to submit my lab 8 in zinc?
+ 
+ is it normal i did not see any submission links for lab 8 ?
+[fig1]",1,Updated 4 days ago by Anonymous Comp,,"For lab8, no submissions for Friday’s labs. There is a Canvas announcement about this issue.",2,,,,,,3,,,,,,,,3,
+574,251,https://piazza.com/class/llyqb9m6bch5qc/post/387,COMP2011,question @387,debug,2,Unable to delete name,"I made the destructor function for class LinkNode. However, when I use testcase to test, it seems to have error in the delete [] this->name;
+ [fig1]
+ [fig2]
+ What would be the reason for that?",2,Updated 5 days ago by Loading...,,You should delete the variable name. this-> indicates a pointer.,1,,,,,,3,,,,,,,,3,
+577,707,https://piazza.com/class/llyqb9m6bch5qc/post/384,COMP2011,question @384,debug,1,lab8 Error?,"[fig1]
+Why is there an error here? Did I do something wrong, or did I miss something?",1,Updated 5 days ago by Anonymous Atom,,You cannot assign it to the left side. You can try to use setPrev/setNext.,1,,,,,,3,,,,,,,,3,
+584,134,https://piazza.com/class/llyqb9m6bch5qc/post/377,COMP2011,question @377,concept question,0,Nullptr?,"May I know in what situation ""newNode"" will become nullptr? Cuz the comments in ""insert"" function and ""remove"" function ask us to specially deal with this situation. However, form my point of view, in this situation, the two functions aren't even able to be called.",2,Updated 5 days ago by Anonymous Atom,,"Actually, if newNode == nullptr, just directly return. It maybe happen when the call remove function, If new player join.",1,,,,,,3,,G,,,1,,,3,
+588,836,https://piazza.com/class/llyqb9m6bch5qc/post/372,COMP2011,question @372,requirement clarification,0,Can V Use Strlen and Strcpy in Lab8,RT,1,Updated 6 days ago by Loading...,,You can use Strcpy.,1,,"There wouldn't be a need for strlen as a global constant
+ 
+ MAX_PLAYER_NAME is provided (size including \0 character)",1,,,3,,,,,,,,3,
+589,810,https://piazza.com/class/llyqb9m6bch5qc/post/371,COMP2011,question @371,,2,Lab8 what is the meaning of exist node in task 2?,"[fig1]
+it said insert the new node in front of the existing node
+ however
+ [fig2]
+ i dont get this example, as i suppose the new node is D and want to insert in the back, then where is the exist node?",1,Updated 6 days ago by Anonymous Mouse,,"existNode is nullptr, which means newNode should be insert as the tail of Link.",3,,"existNode is the first node (and subset) of DoubledLink that holds smaller score than the newNode. (nullptr in this case as the TA has mentioned)
+ 
+ Check addPlayer function for detail.",0,,,3,,,,,,,,3,
+592,329,https://piazza.com/class/llyqb9m6bch5qc/post/368,COMP2011,question @368,logistics,0,Are there any remote host for us to test the code?,Since I am a bit concerned that the environment of my PC might not be the same as that of the grading system. May I ask if ust provides any remote host for us to use?,1,Updated 6 days ago by Anonymous Helix,,You can use the remote Linux machine in CS labs. The memory checking tutorial in PA3 provides a step-by-step instruction.,1,,,,,,3,,P,1,,,,,3,
+595,465,https://piazza.com/class/llyqb9m6bch5qc/post/342,COMP2011,question @342,requirements clarification,0,PA3 Helper Functions,"In PA3 I see that we have many functions. Can we use any of the already defined functions in our code? For example, can I use the dynamic_init_course_array function in my code?",1,Updated 2 weeks ago by Anonymous Beaker,,">> Can we use any of the already defined functions in our code? 
+ 
+ I don't think we have this restriction in PA3.",1,,,,,,3,,,,,,,,3,
+598,523,https://piazza.com/class/llyqb9m6bch5qc/post/339,COMP2011,question @339,exam scope logistics,0,Final Exam coverage,"Hi.
+ 
+ May I ask about the final exam coverage? Would the exam cover things like ""further reading"" or ""additional material""? And do we need to prepare binary tree and multi-dimensions linked list / dynamic array for the exam? 
+ 
+ Thanks",1,Updated 2 weeks ago by Anonymous Poet,,It will be announced by the instructors later,1,,,,,,3,,,,,,,,2,
+599,569,https://piazza.com/class/llyqb9m6bch5qc/post/338,COMP2011,question @338,hw question,0,Try to insert a StarRank when both the course and the student does not exist,"When we Try to insert a StarRank when both the course and the student does not exist (function should return false), it should count the first or second statement?
+ 
+ 
+ 
+ cout << ""Failed to find student "" << sid << "" when add a star_rank."" << endl; // display this when the student does not exist
+ cout << ""Failed to find course "" << course_id << "" when add a star_rank."" << endl; // display this when the course does not exist.",1,Updated 2 weeks ago by Anonymous Atom,,"We check the student first, if the student does not exist, we will return and only print the first statement.",1,,,,,,3,,,,,,,,3,
+601,541,https://piazza.com/class/llyqb9m6bch5qc/post/336,COMP2011,question @336,requirement clarification (hw),0,pa3 - can we use memcpy,"Instead of coping one by one to the new array with for loop, using memcpy() to copy the whole array at once should be much more efficiency.",0,Updated 2 weeks ago by Anonymous Helix,,"Yes, you can use memcpy function.",1,,,,,,3,,,,,,,,3,
+613,404,https://piazza.com/class/llyqb9m6bch5qc/post/324,COMP2011,question @324,hw knowledge clarification,0,pa3 - ranks_count's meaning,"Hi~
+ 
+ I am wondering if the variable ranks_count of Student struct means the number of courses he has ranked, or the total number of stars he ranked. For example if he ranked 5 courses in total, and ranked 17 stars in total for the courses he ranked, should ranks_count equal 5 or 17~
+ 
+ Thanks~",1,Updated 2 weeks ago by Anonymous Beaker,,"Because each student only marks a course once, the number should be equal. No repeat review allowed.",2,,"Number of courses, so 5.",2,,,3,,,,,,,,3,
+615,138,https://piazza.com/class/llyqb9m6bch5qc/post/322,COMP2011,question @322,debug,0,Sample output for display_students does not match with input,"Line 146, output06.txt: ""[1, John, 3] -> [2, Tom, 1]""
+ 
+ Within my knowledge, input is:
+ 
+ [5, 1, History] // add course 1, name: History
+ 
+ [5, 2, C++] // add course 2, name: C++
+ 
+ [5, 3, Python] // add course 3, name: Python
+ 
+ [4, 1, John] // add student 1, name: John
+ [4, 2, Tom] // add student 2, name: Tom
+ [6, 1, 1, 5] // add review of course 1 by student 1, stars: 5
+ [6, 1, 1, 3] // add review of course 1 by student 1, stars: 3 // not inserted as student 1 already reviewed
+ [6, 1, 3, 3] // add review of course 3 by student 1, stars: 3 
+ [6, 2, 2, 5] // add review of course 2 by student 2, stars: 5 
+ [1] // display students << line 146
+ [2] // display courses
+ [3, 1] // display comments of course 1 
+ [3, 2] // display comments of course 2 
+ [3, 3] // display comments of course 3 
+ 
+ [9] // exit
+ 
+ So student 1 (Tom) has a comment on course 1 and course 3, and student 2 (John) has a comment on course 2.
+ 
+ Shouldn't the ranks_count for Tom 2 and for John 1?
+ 
+ I got ""[1, John, 2] -> [2, Tom, 1]"" as an output from my program.
+ 
+ // similar issue in output 13, L229 and output 14, L271",1,Updated 2 weeks ago by Loading...,,"Yes, the version of the test case is old (same problem with @319), sorry about the mistake. I will update the zip later, and you can replace testcase with the new version. Please note the Announcements.",2,,,,,P,3,,,,,,,,3,
+618,832,https://piazza.com/class/llyqb9m6bch5qc/post/319,COMP2011,question @319,debug,0,Sample output not printing when reducing num_courses,"Hi. I have tried PA3, but found that the string ""reduce course array size to "" were never used in sample output.
+ 
+ With my program, I found it in the end of sample 5, 6, 7, 8, 11 (when deleting courses) and in the middle of sample 9, 10, 12, 13, 14.
+ 
+ Is it my error or the output's?",1,Updated 2 weeks ago by Loading...,,"Yes, the version of the test case is old, sorry about the mistake. I will update the zip later, and you can replace testcase with the new version. Please note the Announcements.",2,,,,,,3,,,,,,,,3,
+620,862,https://piazza.com/class/llyqb9m6bch5qc/post/317,COMP2011,question @317,requirements clarification,0,Question about pa3,Just want to ask can I add comments outside the functions in pa3. No matter is it helper functions or the functions for the task. It is just for me to have a better understanding for the function output. Thanks.,0,Updated 2 weeks ago by Anonymous Calc,,"It's okay for you to add comments, but do not add any C++ statements or variables outside functions.",1,,,,,,3,,,,,,,,3,
+631,196,https://piazza.com/class/llyqb9m6bch5qc/post/306,COMP2011,question @306,,0,PA2 Line Break Problem,"The problem from the question @219 still exists for me. However, we are not allowed to modify the main function. I would like to know how to fix the issue.",1,Updated 2 weeks ago by Anonymous Comp,,The PA2 designers made some changes on the skeleton code after the release . I should ask them to send a Canvas announcement as well.,1,,,,,,3,,,,,,,,3,
+639,5,https://piazza.com/class/llyqb9m6bch5qc/post/298,COMP2011,question@298,,0,ppq - why is the question's answer include V,"Hi~
+ 
+ I'm wondering why the answer includes V. I'm not sure how it can access the name using ->. Is this a quick way to change all last_name in namelist to be ""Lee""~
+ 
+ Thanks a lot~",0,Updated 3 weeks ago by Anonymous Atom,,"You should refer to the slide ""Pointer to struct and the → Operator"". Here is the direct link:
+ 
+ https://course.cse.ust.hk/comp2011/notes/h.pointer.pdf#page=26",1,,,,,P,3,,P,1,,,,,2,
+640,630,https://piazza.com/class/llyqb9m6bch5qc/post/297,COMP2011,question @297,requirements clarifiaction,0,personal info in code,"I see there is no space for we to add name and SID in the skeleton code.
+ Are they unnecessary?",1,Updated 3 weeks ago by Anonymous Helix,,Yes. You do not need to put your name or SID in the skeleton code.,2,,,,,,3,,,,,,,,3,
+642,544,https://piazza.com/class/llyqb9m6bch5qc/post/294,COMP2011,question @294,requirements clarifiaction,0,Can we add an extra function in PA2?,Can we add an extra function in PA2?,1,Updated 3 weeks ago by Anonymous Comp,,"From the PA2 website: 
+ If needed, you can add extra constants, local variables, and extra helper functions",1,,,,,,3,,,,,,,,3,
+648,81,https://piazza.com/class/llyqb9m6bch5qc/post/288,COMP2011,question@288,requirements clarification,0,PA2 - Can I add extra parameters?,"Helllo. I would like to ask if it is allowed to add some extra parameters for the four functions in coding tasks, e.g. ""fillPuzzleRecursive"" and "" NormalizePuzzleMap"".Thanks!",0,Updated 3 weeks ago by Anonymous Helix,,"No, you are not allowed to add extra parameters for functions in PA2.",1,~ An instructor (Jiajun Xin) endorsed this answer ~,"I believe that you are only allowed to modify within the functions and use local variables and recursive manipulation to do so.
+ 
+ Therefore my answer to this is, No.
+ 
+ If you require extra parameters to the four functions, please re-evaluate your code.",1,,,3,,,,,,,,3,
+649,297,https://piazza.com/class/llyqb9m6bch5qc/post/287,COMP2011,question @287,"logistics, trouble shoot",1,"Anyone can't access zinc, I can't hand in the lab","[fig1]
+can't access zinc",0,Updated 3 weeks ago by Anonymous Beaker,,You may visit the wrong website: https://zinc.cse.ust.hk/,1,,,,,,3,,P,1,,,,,3,
+652,468,https://piazza.com/class/llyqb9m6bch5qc/post/284,COMP2011,question @284,requirements clarification,0,lab7 - do we need to prevent memory leaks,"Hi~
+ 
+ I am wondering if we are required to detect and eliminate memory leaks for lab7.
+ 
+ Thanks a lot~",0,Updated 3 weeks ago by Anonymous Gear,,Lab7 only requires students to implement a bubble sort of a pointer array. No dynamic allocation is required in that function.,1,,,,,,3,,I,,1,,,,3,
+656,807,https://piazza.com/class/llyqb9m6bch5qc/post/279,COMP2011,question @279,logistic,2,No auto file checking for Lab 6,"There is no auto file checking in lab 6 for me, is this normal?
+ 
+ [fig1]
+ 
+ In previous labs, I can see a line like this:
+
+[fig2]",1,Updated 3 weeks ago by Loading...,,"Let me ask the lab designer. But after some many labs and PAs, the chance of submitting a wrong filename should be very low. It should be fine if you submitted the correct filename.",1,,,,,,3,,,,,,,,3,
+657,662,https://piazza.com/class/llyqb9m6bch5qc/post/278,COMP2011,question @278,debug,1,Lab 7 weird thing,"[fig1]
+I supposed we cannot use or in C++ right?",1,Updated 3 weeks ago by Loading...,,Keywords such as “and” “or” are acceptable in some newer C++ standards. They are not mentioned in our lecture notes. && || are more common in C++.,2,,"Yes, you can. It is the same as ||. See https://en.cppreference.com/w/cpp/language/operator_alternative",2,,,3,,I,,1,,,,3,
+658,172,https://piazza.com/class/llyqb9m6bch5qc/post/277,COMP2011,question @277,,0,pa2 - can we use only loops for normalization task,"Hi~
+ 
+ I am wondering if we could use only loops(i.e. entirely iterative solution) for the normalization task, without any recursions~
+ 
+ Thanks~",1,Updated 3 weeks ago by Anonymous Helix,,"The normalization doesn’t need recursion. Only task 3: fillPuzzleRecursive must be implemented using recursion (Indeed, it is hard to find an iterative solution unless hardcoding all possible cases).",3,,,,,,3,,,,,,,,3,
+659,502,https://piazza.com/class/llyqb9m6bch5qc/post/276,COMP2011,question @276,logistic,1,submission for lab7,"[fig1]
+Please open the submission for lab7. Thank you.",1,Updated 3 weeks ago by Anonymous Gear,,I asked the lab7 designers. They set the lab7 submission start time at 5pm today for all lab classes. You may wait for a while (or double-check the correctness of your program).,1,,,,,,3,,,,,,,,3,
+661,321,https://piazza.com/class/llyqb9m6bch5qc/post/239,COMP2011,question @239,,0,Mid-term Q6(c) Return by reference,"In this year's mid-term Q6(c), due to how the function doubleSize is called (if I remember correctly it is called like doubleSize(doubleSize(doubleSize(radius)));), the float parameter to doubleSize should be passed by reference, and the float return should also be returned by reference. However, if the input parameter <=0, we should return -1, which cannot be done as we cannot return a literal constant by reference. (I think the solution provided will generate error as well.) Is there any way round this?",1,Updated 4 weeks ago by Anonymous Atom,,"[Edited] I discussed this issue with the course instructors. The solution is updated. 
+ 
+ I contacted the grader as well. They should accept a simple return -1.0; We accept this solution because the question text may not be clear that the input could be changed if it was negative. 
+ 
+ I am not the grader/designer, but I think the following code should solve the problem for this special case:
+ 
+ if(input <= 0) { 
+   input = -1.0; 
+   return input;
+ }",2,,,,,G,3,,"O,G",,,1,,code,3,
+662,851,https://piazza.com/class/llyqb9m6bch5qc/post/232,COMP2011,question @232,logistic,0,No Lab6 submission box on Zinc,There is no Lab6 submission box on Zinc for LA2. Please add it. Thank you!,0,Updated 4 weeks ago by Anonymous Atom,,"It should be available now. Please check you zinc.
+ --TA",1,,"oops misread title, sorry",1,,,3,,,,,,,,3,
+664,26,https://piazza.com/class/llyqb9m6bch5qc/post/230,COMP2011,question @230,exam scope,0,Question about mid term result,Does a midterm result with 30% counted as failing the ehole subject?,1,Updated 4 weeks ago by Anonymous Mouse,,https://course.cse.ust.hk/comp2011/web/gradingScheme.html,1,,,,,P,1,,P,1,,,,,2,
+665,185,https://piazza.com/class/llyqb9m6bch5qc/post/229,COMP2011,question @229,requirements clarification,0,using cin,"Can I use cin in the function checkinput? The requirement says “DO NOT add extra cin or cout statements ”, but I didn't see any other function that can input values.",4,Updated 4 weeks ago by Anonymous Poet,,"Yes, you can use cin for function checkinput.",1,~ An instructor (Jiajun Xin) endorsed this question ~,"Yes, I think you need to. I think it's the only part needing cin/cout.
+ 
+ Another student: In this case you have to use cin as it's the only way to register the width, x and y.",4,,,3,,,,,,,,3,
+666,562,https://piazza.com/class/llyqb9m6bch5qc/post/228,COMP2011,question @228,others,0,Teaching other Students,"Is it ok for us to share some insights with our friends who don't know how to do?
+ 
+ I gave my friend some guidance without showing the codes, maybe only a certain part of our coding is similar because of the sharing of a part of idea.",2,Updated 4 weeks ago by Anonymous Helix,,"Plagiarism detection software will be used, and followed by human investigation.",1,,,,,,3,,,,,,,,3,
+667,354,https://piazza.com/class/llyqb9m6bch5qc/post/227,COMP2011,question @227,debug,1,Additional line after showing the puzzle,"[fig1]
+I have an additional line after showing the puzzle but I didn't change any main code and visualizePuzzleByText(width, puzzleMap) code. May I know why this happens?",0,Updated 4 weeks ago by Anonymous Atom,,"Check @114 
+ 
+ 
+ Although this question appears so many times, I believe some students will keep asking until PA3.",1,,See @114.,1,,P,1,,P,1,,,,,2,
+669,197,https://piazza.com/class/llyqb9m6bch5qc/post/224,COMP2011,question @224,trouble shooting,1,Issue of Downloading the Skeleton Codes,"It appears when I try to download the pa2 skeleton code.
+[fig1]",1,Updated 4 weeks ago by Anonymous Comp,,"Apology for the inconvenience.
+ 
+ The problem has been fixed. Please try downloading again.",2,,,,,,3,,,,,,,,3,
+671,130,https://piazza.com/class/llyqb9m6bch5qc/post/222,COMP2011,question @222,clarification on pa,0,Is base case changeable? | pa2,"The current base case is width = 2, and I had discovered a better solution with much less code but I need to change the base case to width = 1. 
+ So could I switch to my new base case or I need to stick to the template?",1,Updated 4 weeks ago by Anonymous Atom and Loading...,,You must stick to the template. You are not allowed to make any changes to the main function.,2,,,,,,3,,,,,,,,3,
+672,760,https://piazza.com/class/llyqb9m6bch5qc/post/221,COMP2011,question @221,requirements clarification,0,Missing trailing spaces in expected output,"I know that ZINC can ignore extra newlines, but what about trailing spaces after each line?
+
+Currently, the skeleton code prints a space after :, while the expected output does not have the space. It seems like most output*.txt do not have the space after each colon, but output2.txt has the space after each colon.
+
+Therefore, I am not sure whether the expected output needs a space after the colon or not, and whether ZINC can handle it just fine.",1,Updated 1 month ago by Loading...,,"Trailing spaces after each line can also be handled by ZINC.
+ 
+ All the provided outputs are correct and have been tested by ZINC.",1,,,,,,3,,,,,,,,3,
+673,788,https://piazza.com/class/llyqb9m6bch5qc/post/219,COMP2011,question @219,"debug, requirements clarification",0,"PA2 Line break after ""Enter the Output Mode""","Here's the output I got after running the code:
+ 
+ Enter the width/height of the puzzle (2, 4, 8): 
+ Enter the x-coordinate of the empty cell (0-7): 
+ Enter the y-coordinate of the empty cell (0-7): 
+ 0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
+ 2: Output without normalization (for student's debug only), 3: Output with normalization
+ Enter the output mode: Quadrant for the empty cell: 4
+ 
+ Here's the expected output:
+ 
+ Enter the width/height of the puzzle (2, 4, 8):
+ Enter the x-coordinate of the empty cell (0-7):
+ Enter the y-coordinate of the empty cell (0-7):
+ 0: Exit directly (for testing checkInput function), 1: Output Quadrant of the empty cell,
+ 2: Output without normalization (for student's debug only), 3: Output with normalization
+ Enter the output mode:
+ Quadrant for the empty cell: 4
+ 
+ But this is due to missing endl; after the following code in the main function. What should we do?
+ 
+ cout << ""Enter the output mode: "";
+ cin >> modeOfOperation;
+ 
+ Also, can we ignore the trailing spaces after each line of output?",6,Updated 4 weeks ago by Anonymous Atom,,You cannot change the main function. Please also check @114 about the extra empty line issue,1,~ An instructor (Jiajun Xin) thinks this is a good comment ~,,,,,3,,P,1,,,,,3,
+675,113,https://piazza.com/class/llyqb9m6bch5qc/post/217,COMP2011,question @217,"hw description clarification, explanation",0,PA2 Normalization,"In the normalization section, it is stated in the first example that 
+ 
+ A
+ A A
+ 
+ should be normalized to 
+ 
+ A A
+ A
+ 
+ Why is this the case? Isn't the shape of the output changed (due to the difference in position of the empty cell)?",1,Updated 1 month ago by Anonymous Gear,,It should be a typo mistake by the designer because normalization won’t change the position of the empty space.,3,,,,,,3,,,,,,,,3,
+676,141,https://piazza.com/class/llyqb9m6bch5qc/post/216,COMP2011,question @216,requirements clarification,0,code writing question headers,"For some of the questions we were given in the past papers, we are expected to write out the code by hand. However, must we always include the headers and main body of the code:
+ 
+ #include <iostream>
+ using namespace std;
+ 
+ int main(){ ...
+ 
+ ...return 0;}
+ 
+ and will we penalized for not doing so?",1,Updated 1 month ago by Loading...,,"It depends. Most exam questions (especially long questions) ask students to fill in the missing function bodies, so writing a main function and including standard header files are not necessary.",2,,,,,,3,,,,,,,,3,
+679,388,https://piazza.com/class/llyqb9m6bch5qc/post/213,COMP2011,question @213,"question, exam prep",1,Q(1e) Midterm Spring 2014,"Hi guys, in this question here would like to ask why the answer is false? I assumed the main function could not be called recursively?
+[fig1]",1,Updated 1 month ago by Loading...,,"The first sentence is true, but the second is false. It is possible to call main() function recursively.
+ 
+ #include <iostream>
+ using namespace std;
+ 
+ int stop = 5; // a global variable is used to control the termination
+ 
+ int main() {
+ if (stop > 0) {
+ cout << stop << endl;
+ stop = stop - 1;
+ main(); // call main() recursively
+ }
+ return 0;
+ }
+ Personally, I don’t like this kind of tricky question, especially for a written exam without a code editor to try.",3,,,,,G,3,,O,,,1,,code,3,
+680,770,https://piazza.com/class/llyqb9m6bch5qc/post/212,COMP2011,question @212,,0,"[2019 Past Paper, Q2] Function return type pass-by-reference?","In the 2019 Fall Semester past paper Q2 I am required to fill the header of the function ""fun"". The content of the question is not what I want to discuss here. Rather, I am concerning about the answer:
+ 
+ 
+ 
+ int& fun(int x, int& y)
+ {
+ 
+ 
+  x = 2 * x;
+  y = y * x;
+  return (y);
+ }Why the function return type is ""int&"" with a pass-by-reference symbol? What does it mean? I am confused",2,Updated 1 month ago by Anonymous Calc,,@197 check this.,1,,,,,P,2,,P,1,,,,,2,
+681,243,https://piazza.com/class/llyqb9m6bch5qc/post/211,COMP2011,question @211,"exam scope, logistics",0,Is lambda expression in the syllabus of tomorrow midterm?,Same as question,0,Updated 1 month ago by Anonymous Helix,,@188 pinned at the top.,1,,do you know you can search on Piazza? Someone asked this question long time ago (@84),3,,P,2,,P,1,,,,,2,
+682,686,https://piazza.com/class/llyqb9m6bch5qc/post/210,COMP2011,question @210,,0,Q5(b) of Fall 2019 Midterm,"Since there is no alternative answer provided for this question, I would like to ask if my answer would work as well.
+ Tested this code in a simpler format by myself, but not so sure if it works under the context of this question.
+ 
+ bool check3inline(const Array& array){
+ int x = 0,
+ for (int i = 0; i < N; i++)
+ if (array.grid[i][0] != EMPTY)
+ x += same(array.grid[i][0],array.grid[i][1],array.grid[i][2]);
+ 
+ for (int i = 0; i < N; i++)
+ 
+ if (array.grid[0][i] != EMPTY)
+ 
+ x += same(array.grid[0][i],array.grid[1][i],array.grid[2][i]);
+ 
+ if (array.grid[1][1] != EMPTY){
+ x += same(array.grid[0][0],array.grid[1][1],array.grid[2][2]);
+ x += same(array.grid[0][2],array.grid[1][1],array.grid[2][0]);}
+ 
+ return x;}
+ 
+ From my understanding, since the return type is a boolean, the actual value of the variable(x) doesn’t affect the value return, i.e, only return true or false. Would dearly love an answer.",1,Updated 1 month ago by Anonymous Atom,,"For coding questions, the released solutions are usually one of the possible solutions. We accepted alternative solutions. It should be fine to delay the return statement at the end provided that all cases are correctly handled.",2,,,,,,3,,,,,,,,3,
+683,672,https://piazza.com/class/llyqb9m6bch5qc/post/209,COMP2011,question @209,,1,2019 Q3 out of syllabus,"I want to ask if it is out of syllabus.
+ Since I didn't learn it in the lecture.
+[fig1]",0,Updated 1 month ago by Anonymous Beaker,,"Please check the coverage of the midterm exam this semester.
+ 
+ The direct link: https://canvas.ust.hk/courses/52257/discussion_topics/443066",1,,,,,P,3,,P,1,,,,,3,

@@ -5,7 +5,7 @@ You are now evaluating the task fulfillment for a reply written by a teaching as
 - Whether the reply provide useful information to the question.
 - The reply may resolve the question directly or indirectly, such as clarifying the confusion directly, or recommend useful references.
 
-2. This dimension adopts a 3-point Likert scale value: “Well Completed”, “Somewhat Completed”, “Not Completed”. 
+2. This dimension adopts a 3-point Likert scale value: "Well Completed", "Partially Completed". 
 
 
 Now given a question and reply as follows:
