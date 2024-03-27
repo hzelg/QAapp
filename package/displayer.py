@@ -34,44 +34,44 @@ def display_question_insights(question_id): # Display the latest question insigh
         with col2:
             generate = st.button(label = "Generate", type = "primary")
         if generate:
-            try:   
-                response = gm.generate_insights()
-                st.session_state["csq_processed"] = json.loads(response.split("<End>")[0])
-                data = st.session_state["csq_processed"]
-                if data != "":
-                # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
-                    col3, col4 = st.columns([1,2])
-                    with col3:
-                        st.caption("Question Type")
-                    with col4:
-                        # st.write(data["Question_Type"])
-                        q_type = f"<span class = 'text_red'>{data['Question_Type']}</span>"
-                        st.markdown(q_type, unsafe_allow_html=True)
-                        st.session_state["csq_type"] = data["Question_Type"]
-                    col5, col6 = st.columns([1,2])
-                    with col5:
-                        st.caption("Question Keywords")
-                    with col6:
-                        # st.write(data["Question_Keywords"])
-                        q_keywords = f"<span class = 'text_red'>{data['Question_Keywords']}</span>"
-                        st.markdown(q_keywords, unsafe_allow_html=True)
-                    col7, col8 = st.columns([1,2])
-                    with col7:
-                        st.caption("Question Action Items")
-                    with col8:
-                        items = str(data["Question_ActionItems"]).split("|")
-                        for i in items:
-                            st.write(i)
-            
-                    if data["Question_Insights"]: # Useful external references
-                        st.caption("Question Insights:")
-                        list_of_insights = data["Question_Insights"].split("|")
-                        for i in list_of_insights:
-                            st.write(i)
-                    else:
-                        st.write("")
-            except:
-                st.warning("Something wrong with the server...Please try again later!", "⚠️")
+            # try:   
+            response = gm.generate_insights()
+            st.session_state["csq_processed"] = json.loads(response.split("<End>")[0])
+            data = st.session_state["csq_processed"]
+            if data != "":
+            # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
+                col3, col4 = st.columns([1,2])
+                with col3:
+                    st.caption("Question Type")
+                with col4:
+                    # st.write(data["Question_Type"])
+                    q_type = f"<span class = 'text_red'>{data['Question_Type']}</span>"
+                    st.markdown(q_type, unsafe_allow_html=True)
+                    st.session_state["csq_type"] = data["Question_Type"]
+                col5, col6 = st.columns([1,2])
+                with col5:
+                    st.caption("Question Keywords")
+                with col6:
+                    # st.write(data["Question_Keywords"])
+                    q_keywords = f"<span class = 'text_red'>{data['Question_Keywords']}</span>"
+                    st.markdown(q_keywords, unsafe_allow_html=True)
+                col7, col8 = st.columns([1,2])
+                with col7:
+                    st.caption("Question Action Items")
+                with col8:
+                    items = str(data["Question_ActionItems"]).split("|")
+                    for i in items:
+                        st.write(i)
+        
+                if data["Question_Insights"]: # Useful external references
+                    st.caption("Question Insights:")
+                    list_of_insights = data["Question_Insights"].split("|")
+                    for i in list_of_insights:
+                        st.write(i)
+                else:
+                    st.write("")
+            # except:
+            #     st.warning("Something wrong with the server...Please try again later!", icon = "⚠️")
 
 def display_write_panel():
     st.subheader("Your Reply")
