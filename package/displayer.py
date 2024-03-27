@@ -35,7 +35,7 @@ def display_question_insights(question_id): # Display the latest question insigh
             generate = st.button(label = "Generate", type = "primary")
         if generate:
             # try:   
-            response = gm.generate_insights()
+            response = lp.generate_insights()
             st.session_state["csq_processed"] = json.loads(response.split("<End>")[0])
             data = st.session_state["csq_processed"]
             if data != "":
