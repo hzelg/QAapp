@@ -34,23 +34,23 @@ def display_question_insights(question_id):
 
         generate = st.button(label = "Generate question insights")
         if generate:
-            response = lp.generate_question_insights(question_id)
-            output = json.loads(response)
+            try:
+                response = lp.generate_question_insights(question_id)
+                output = json.loads(response)
 
-        try:
-            with st.container(border = True):
-                st.caption("Question Type:") # Type of Question
-                st.write(output["Question_Type"])
-                st.caption("Question Keywords:") # Keywords that help understand the question context
-                st.write(output["Question_Keywords"])
-                st.caption("Question Action Items:") # Suggested Action Items
-                st.write(output["Question Action Items"])
-                if output["Question_Insights"]: # Useful external references
-                    st.caption("Question Insights:")
-                    st.write(output["Question_Insights"])
-        except:
-            st.warning("Something wrong with the server...Please try again later!", "⚠️")
-
+                with st.container(border = True):
+                    st.caption("Question Type:") # Type of Question
+                    st.write(output["Question_Type"])
+                    st.caption("Question Keywords:") # Keywords that help understand the question context
+                    st.write(output["Question_Keywords"])
+                    st.caption("Question Action Items:") # Suggested Action Items
+                    st.write(output["Question Action Items"])
+                    if output["Question_Insights"]: # Useful external references
+                        st.caption("Question Insights:")
+                        st.write(output["Question_Insights"])
+            except:
+                st.warning("Something wrong with the server...Please try again later!", "⚠️")
+                
         return
 
 def display_write_panel():

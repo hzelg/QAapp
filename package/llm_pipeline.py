@@ -84,7 +84,7 @@ def submit_question(formatted_question):
         prompt= prev_prompt + "\n \"\"\" " + formatted_question + " \"\"\" ",
         temperature=0.8,
         top_p=0.2,
-        max_tokens= 250,
+        max_tokens= 300,
         best_of=2,
         frequency_penalty=0.0,
         presence_penalty=0.0)
