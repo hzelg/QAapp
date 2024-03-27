@@ -64,7 +64,6 @@ Algorithm:
 
 System Output: 
 
-
 {
     "Question_Type": "Conceptual",
     "Question_Keywords": "Circulation with Demands, Max Flow, Edge Case, Lecture",
@@ -72,6 +71,7 @@ System Output:
     "Question_Insights": "1. https://github.com/SleekPanther/circulation-with-demands-network-flow | 2. https://stackoverflow.com/questions/40752549/finding-a-circulation-in-a-network-with-lower-bounds"
     "Question_Highlights": "if max flow |f| > total demand why the problem has no solution"
 }
+<End>
 
 
 User Input:
@@ -93,7 +93,6 @@ For instance, if I somehow derive that my modified algorithm is actually (some p
 
 System Output:
 
-
 { 
     "Question_Type": "Assignment Requirement Clarification",
     "Question_Keywords": "HW2 Q3, Randomized Selection, Proof requirements",
@@ -101,4 +100,4 @@ System Output:
     "Question_Insights": "",
     "Question_Highlights": "use the proof we used to prove randomized selection in class",
 }
-
+<End>
