@@ -82,3 +82,7 @@ def clear_csq():
     st.session_state["csq_media"] = "[]"
     st.session_state["csq_reply"] = ""
     st.session_state["csq_insights"] = ""
+
+def load_css():
+    with open("./style/style.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)

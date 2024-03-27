@@ -13,6 +13,7 @@ import os
 
 st.set_page_config("Write A Question", "💬", layout="wide")
 add_logo("./media/logo.png", height= 50)
+utils.load_css()
 
 if not st.session_state.role:
 

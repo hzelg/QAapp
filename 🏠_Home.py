@@ -19,9 +19,7 @@ from streamlit_extras.app_logo import add_logo
 
 add_logo("./media/logo.png", height= 50)
 si.state_initializer()
-with open("./style/style.css") as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-        # st.markdown("<style>{}</style>".format(f), unsafe_allow_html=True)
+utils.load_css()
 
 add_page_title()
 show_pages(
