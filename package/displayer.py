@@ -85,40 +85,43 @@ def display_write_panel():
 #         gm.get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])
 
 def display_reply_feedbacks(feedbacks):
-    task_fulfillment = feedbacks[0]["Rating"]
-    tf_feedback = feedbacks[0]["Feedback"]
-    clarity = feedbacks[1]["Rating"]
-    cl_feedback = feedbacks[1]["Feedback"]
-    politeness = feedbacks[2]["Rating"]
-    politeness_feedback = feedbacks[2]["Feedback"]
-    pedagogy_feedback = feedbacks[3]["Suggested"]
-    pedagogy_example = feedbacks[3]["Example"]
+    if feedbacks == "":
+        return
+    else:
+        task_fulfillment = feedbacks[0]["Rating"]
+        tf_feedback = feedbacks[0]["Feedback"]
+        clarity = feedbacks[1]["Rating"]
+        cl_feedback = feedbacks[1]["Feedback"]
+        politeness = feedbacks[2]["Rating"]
+        politeness_feedback = feedbacks[2]["Feedback"]
+        pedagogy_feedback = feedbacks[3]["Suggested"]
+        pedagogy_example = feedbacks[3]["Example"]
 
-    col1, col2, col3, col4 = st.columns([1,1,1,1])
-    with col1:
-        st.caption("Task Fulfillment")
-        feedback = f"<div> <span class='highlight myblue'>@{task_fulfillment}</span><br/>"
-        st.markdown(feedback, unsafe_allow_html=True)
-        st.write(tf_feedback)
+        col1, col2, col3, col4 = st.columns([1,1,1,1])
+        with col1:
+            st.caption("Task Fulfillment")
+            feedback = f"<div> <span class='highlight myblue'>@{task_fulfillment}</span><br/>"
+            st.markdown(feedback, unsafe_allow_html=True)
+            st.write(tf_feedback)
 
-    with col2:
-        st.caption("Clarity")
-        feedback = f"<div> <span class='highlight mygreen'>@{clarity}</span><br/>"
-        st.markdown(feedback, unsafe_allow_html=True)
-        # st.write(clarity)
-        st.write(cl_feedback)
+        with col2:
+            st.caption("Clarity")
+            feedback = f"<div> <span class='highlight mygreen'>@{clarity}</span><br/>"
+            st.markdown(feedback, unsafe_allow_html=True)
+            # st.write(clarity)
+            st.write(cl_feedback)
 
-    with col3:
-        st.caption("Politeness & Friendliness")
-        feedback = f"<div> <span class='highlight myyellow'>@{politeness}</span><br/>"
-        st.markdown(feedback, unsafe_allow_html=True)
-        # st.write(politeness)
-        st.write(politeness_feedback)
+        with col3:
+            st.caption("Politeness & Friendliness")
+            feedback = f"<div> <span class='highlight myyellow'>@{politeness}</span><br/>"
+            st.markdown(feedback, unsafe_allow_html=True)
+            # st.write(politeness)
+            st.write(politeness_feedback)
 
-    with col4:
-        st.caption("Pedagogy")
-        st.write(pedagogy_feedback)
-        st.write(pedagogy_example)
+        with col4:
+            st.caption("Pedagogy")
+            st.write(pedagogy_feedback)
+            st.write(pedagogy_example)
 
 def reply_improvement_panel():
     question_title = st.session_state["csq_title"]
@@ -127,9 +130,13 @@ def reply_improvement_panel():
     reply = st.session_state["csq_reply"]
 
     with st.container(border = True):
-        get_feedbacks = st.button(label = "Get Feedbacks!", type = "primary")
+        get_feedbacks = st.button(label = "Get Feedbacks", type = "primary")
+        clear = st.button(label = "Clear")
         if get_feedbacks:
             feedbacks = lp.generate_feedbacks(question_title, question_body, question_media, reply)
+            display_reply_feedbacks(feedbacks)
+        if clear:
+            feedbacks = ""
             display_reply_feedbacks(feedbacks)
 
     
