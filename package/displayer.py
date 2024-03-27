@@ -30,9 +30,9 @@ def display_question_insights(question_id):
     with st.container(border = True):
         st.subheader("LLM Feedback") 
 
-        output = gm.get_latest_ques_insight(question_id)
+        # output = gm.get_latest_ques_insight(question_id)
 
-        generate = st.button(label = "Generate question insights")
+        generate = st.button(label = "Generate")
         if generate:
             try:
                 response = lp.generate_question_insights(question_id)
@@ -40,17 +40,23 @@ def display_question_insights(question_id):
 
                 with st.container(border = True):
                     st.caption("Question Type:") # Type of Question
-                    st.write(output["Question_Type"])
+                    q_type = f"<span class = 'text_red'>{output['Question_Type']}</span>"
+                    st.markdown(q_type, unsafe_allow_html=True)
+                    # st.write(output["Question_Type"])
                     st.caption("Question Keywords:") # Keywords that help understand the question context
-                    st.write(output["Question_Keywords"])
+                    # st.write(output["Question_Keywords"])
+                    q_keywords = f"<span class = 'text_red'>{output['Question_Keywords']}</span>"
+                    st.markdown(q_keywords, unsafe_allow_html=True)
                     st.caption("Question Action Items:") # Suggested Action Items
                     st.write(output["Question Action Items"])
                     if output["Question_Insights"]: # Useful external references
                         st.caption("Question Insights:")
-                        st.write(output["Question_Insights"])
+                        list_of_insights = output["Question_Insights"].split("|")
+                        for i in list_of_insights:
+                            st.write(i)
             except:
                 st.warning("Something wrong with the server...Please try again later!", "⚠️")
-                
+
         return
 
 def display_write_panel():
