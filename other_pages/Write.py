@@ -31,7 +31,7 @@ if not st.session_state.role:
         with col1:
             st.subheader("Question")
             displayer.display_question(st.session_state["course_info"], title, body, sender_id, time, media)
-            lp.display_question_insights(current_selected_question_id)
+            displayer.display_question_insights(current_selected_question_id)
         with col2:
             displayer.display_write_panel()
             col3, col4, col5 = st.columns([1,1,2])

@@ -27,51 +27,6 @@ def generate_insights():
     response = submit_question(formatted_question)
     return response
 
-def display_question_insights(question_id): # Display the latest question insights
-    with st.container(border = True):
-        col1, col2 = st.columns([3,1])
-        with col1:
-            st.subheader("LLM Feedback")
-        with col2:
-            generate = st.button(label = "Generate", type = "primary")
-        if generate:
-            response = generate_insights()
-            # st.write(response)
-            # st.write(response.split("}")[0])
-            # response.replace_all("<|im_sep|>","")
-            st.session_state["csq_processed"] = json.loads(response.split("<End>")[0])
-        data = st.session_state["csq_processed"]
-        if data != "":
-        # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
-            col3, col4 = st.columns([1,2])
-            with col3:
-                st.caption("Question Type")
-            with col4:
-                st.write(data["Question_Type"])
-                st.session_state["csq_type"] = data["Question_Type"]
-            col5, col6 = st.columns([1,2])
-            with col5:
-                st.caption("Question Keywords")
-            with col6:
-                st.write(data["Question_Keywords"])
-            col7, col8 = st.columns([1,2])
-            with col7:
-                st.caption("Question Action Items")
-            with col8:
-                items = str(data["Question_ActionItems"]).split("|")
-                for i in items:
-                    st.write(i)
-
-            try:
-                insights = data["Question_Insights"]
-                st.caption("Question Insights")
-                st.write(insights)
-                st.write(" ")
-            except:
-                st.write(" ")
-                # except:
-        else:
-            st.write("")
             #     st.error("Error generating response. Please try later!")
             # gm.post_que_insight()
         # gm.get_all_que_insight(st.session_state["course_code"], st.session_state["semester"], st.session_state["role_name"], st.session_state["userid"])

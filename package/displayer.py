@@ -26,38 +26,52 @@ def display_question(course_info, title, body, sender_id, time, media):
     question_item(title, body, course_info, sender_username, time, media)
 
 
-def display_question_insights(question_id):
+def display_question_insights(question_id): # Display the latest question insights
     with st.container(border = True):
-        st.subheader("LLM Feedback") 
-
-        # output = gm.get_latest_ques_insight(question_id)
-
-        generate = st.button(label = "Generate")
+        col1, col2 = st.columns([3,1])
+        with col1:
+            st.subheader("LLM Feedback")
+        with col2:
+            generate = st.button(label = "Generate", type = "primary")
         if generate:
-            try:
-                response = lp.generate_question_insights(question_id)
-                output = json.loads(response)
-
-                with st.container(border = True):
-                    st.caption("Question Type:") # Type of Question
-                    q_type = f"<span class = 'text_red'>{output['Question_Type']}</span>"
-                    st.markdown(q_type, unsafe_allow_html=True)
-                    # st.write(output["Question_Type"])
-                    st.caption("Question Keywords:") # Keywords that help understand the question context
-                    # st.write(output["Question_Keywords"])
-                    q_keywords = f"<span class = 'text_red'>{output['Question_Keywords']}</span>"
-                    st.markdown(q_keywords, unsafe_allow_html=True)
-                    st.caption("Question Action Items:") # Suggested Action Items
-                    st.write(output["Question Action Items"])
-                    if output["Question_Insights"]: # Useful external references
+            try:   
+                response = gm.generate_insights()
+                st.session_state["csq_processed"] = json.loads(response.split("<End>")[0])
+                data = st.session_state["csq_processed"]
+                if data != "":
+                # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
+                    col3, col4 = st.columns([1,2])
+                    with col3:
+                        st.caption("Question Type")
+                    with col4:
+                        # st.write(data["Question_Type"])
+                        q_type = f"<span class = 'text_red'>{data['Question_Type']}</span>"
+                        st.markdown(q_type, unsafe_allow_html=True)
+                        st.session_state["csq_type"] = data["Question_Type"]
+                    col5, col6 = st.columns([1,2])
+                    with col5:
+                        st.caption("Question Keywords")
+                    with col6:
+                        # st.write(data["Question_Keywords"])
+                        q_keywords = f"<span class = 'text_red'>{data['Question_Keywords']}</span>"
+                        st.markdown(q_keywords, unsafe_allow_html=True)
+                    col7, col8 = st.columns([1,2])
+                    with col7:
+                        st.caption("Question Action Items")
+                    with col8:
+                        items = str(data["Question_ActionItems"]).split("|")
+                        for i in items:
+                            st.write(i)
+            
+                    if data["Question_Insights"]: # Useful external references
                         st.caption("Question Insights:")
-                        list_of_insights = output["Question_Insights"].split("|")
+                        list_of_insights = data["Question_Insights"].split("|")
                         for i in list_of_insights:
                             st.write(i)
+                    else:
+                        st.write("")
             except:
                 st.warning("Something wrong with the server...Please try again later!", "⚠️")
-
-        return
 
 def display_write_panel():
     st.subheader("Your Reply")
