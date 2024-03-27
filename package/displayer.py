@@ -5,10 +5,12 @@ import package.llm_pipeline as lp
 from st_keyup import st_keyup
 
 def question_item(title, body, course_info, sent_user, time, media):
-    with st.expander(label = f"{title}", expanded = True):
-        st.write(f"{course_info} - Question from **{sent_user}** [{time}]")
+    with st.expander(label = f"**{title}**", expanded = True):
+        st.write(f"Question from **{sent_user}**")
+        time_info = f"<span class='text_purple'>{time.split(" ")[0]}</span>"
+        st.markdown(time_info, unsafe_allow_html=True)
         st.caption("Title")
-        st.write(title)
+        st.write(f"**{title}**")
         st.caption("Body")
         st.write(body)
         if media != "[]":
