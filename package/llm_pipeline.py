@@ -39,7 +39,7 @@ def display_question_insights(question_id): # Display the latest question insigh
             st.write(response)
             # st.write(response.split("}")[0])
             # response.replace_all("<|im_sep|>","")
-            st.session_state["csq_processed"] = json.loads(response.split("<End>")[0]+" \n}")
+            st.session_state["csq_processed"] = json.loads(response.split("<End>")[0])
         data = st.session_state["csq_processed"]
         if data != "":
         # data = {"Type": "Question_Type", "Keywords":"Question_Keywords", "Action Items":"Question_ActionItems", "Insights":"Question_Insights"}
