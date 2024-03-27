@@ -8,9 +8,11 @@ import package.displayer as displayer
 from datetime import datetime
 import package.gcsManager as gm
 from st_files_connection import FilesConnection
+from streamlit_extras.app_logo import add_logo
 import os
 
 st.set_page_config("Write A Question", "💬", layout="wide")
+add_logo("./media/logo.png", height= 50)
 
 if not st.session_state.role:
 

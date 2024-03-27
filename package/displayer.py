@@ -28,9 +28,7 @@ def display_question_insights(question_id):
     with st.container(border = True):
         st.subheader("LLM Feedback") 
 
-        # display existing question insights: latest or no.
         output = gm.get_latest_ques_insight(question_id)
-        # others = gm.get_a_que_insight(question_id)
 
         generate = st.button(label = "Generate question insights")
         if generate:
@@ -110,4 +108,21 @@ def reply_improvement_panel():
             display_reply_feedbacks(feedbacks)
 
     
+def display_current_course():
+    on = st.toggle('Change to Student Mode', value = st.session_state["role"])
+    course_info = f"You are in <span class='highlight course'>{st.session_state.course_code}</span>"
+    st.markdown(course_info, unsafe_allow_html=True)
+    # st.write("The current course is " + st.session_state.course_info)
+    if on:  
+        st.session_state["role"] = True #student mode
+        st.session_state["role_name"] = "Student"
+        st.session_state["userid"] = "Student_1"
+        role_info = f"Your role: <span class = 'highlight myblue'>{st.session_state['role_name']}</span>"
+        st.markdown(role_info, unsafe_allow_html=True)
+    else:
+        st.session_state["role"] = False #ta mode
+        st.session_state["role_name"] = "TA"
+        st.session_state["userid"] = "TA_1"
+        role_info = f"Your role: <span class = 'highlight myblue'>{st.session_state['role_name']}</span>"
+        st.markdown(role_info, unsafe_allow_html=True)
     

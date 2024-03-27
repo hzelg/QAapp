@@ -9,8 +9,11 @@ import package.utils as utils
 from streamlit_pagination import pagination_component
 from streamlit_extras.switch_page_button import switch_page
 import package.displayer as displayer
+from streamlit_extras.app_logo import add_logo
+
 
 st.set_page_config("My Questions", "💬", layout="wide")
+add_logo("./media/logo.png", height= 50)
 
 # read data from database and display as expander
 if st.session_state["role"] == True:
